@@ -1,7 +1,7 @@
+// routes\api\movie-schedule\+server.ts
 import { json } from '@sveltejs/kit';
-import fs from 'fs';
-import path from 'path';
 import type { RequestHandler } from './$types';
+import { readStaticFile } from '$lib/utils/fileHelper';
 
 interface Clue {
     id: string;
@@ -59,47 +59,26 @@ function getUsedMovieIds(): string[] {
 
 export const GET: RequestHandler = async ({ request }) => {
     try {
-        // Check if we're on Vercel
-        const isVercel = !!process.env.VERCEL_URL;
+        let approvedClues: Clue[] = [];
+        let moviesData: Movie[] = [];
         
-        // Determine paths based on environment
-        let approvedCluesPath;
-        let staticMoviesPath, dataMoviesPath;
-        
-        if (isVercel) {
-            // On Vercel, use relative paths
-            approvedCluesPath = path.resolve('./static/approved_clues.json');
-            staticMoviesPath = path.resolve('./static/letterboxd_movies.json');
-            dataMoviesPath = path.resolve('./data/letterboxd_movies.json');
-        } else if (process.env.NODE_ENV === 'production') {
-            // In Docker production
-            approvedCluesPath = path.resolve('/app/static/approved_clues.json');
-            staticMoviesPath = path.resolve('/app/static/letterboxd_movies.json');
-            dataMoviesPath = path.resolve('/app/data/letterboxd_movies.json');
-        } else {
-            // Local development
-            approvedCluesPath = path.resolve('static/approved_clues.json');
-            staticMoviesPath = path.resolve('static/letterboxd_movies.json');
-            dataMoviesPath = path.resolve('data/letterboxd_movies.json');
+        // Read the approved clues using our helper
+        try {
+            approvedClues = readStaticFile('approved_clues.json');
+        } catch (error) {
+            console.error('Failed to load approved_clues.json:', error);
+            approvedClues = [];
         }
         
-        // Read the approved clues
-        const approvedClues: Clue[] = JSON.parse(fs.readFileSync(approvedCluesPath, 'utf-8'));
-        
-        // Read the movies data - try both data and static directories
-        let moviesData: Movie[] = [];
-        let moviesDataPath: string;
-        
-        // Try static directory first, then data
+        // Read the movies data using our helper
         try {
-            moviesDataPath = staticMoviesPath;
-            moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
-            console.log(`Successfully loaded movies from ${moviesDataPath}`);
+            moviesData = readStaticFile('letterboxd_movies.json');
         } catch (error) {
-            console.log(`Failed to load from ${staticMoviesPath}, trying ${dataMoviesPath}...`);
-            moviesDataPath = dataMoviesPath;
-            moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
-            console.log(`Successfully loaded movies from ${moviesDataPath}`);
+            console.error('Failed to load letterboxd_movies.json:', error);
+            return json({ 
+                error: 'Failed to load movie data',
+                details: error instanceof Error ? error.message : String(error)
+            }, { status: 500 });
         }
         
         // Count clues per movie
@@ -112,8 +91,6 @@ export const GET: RequestHandler = async ({ request }) => {
         });
         
         // Get the list of movie IDs that have been used before
-        // Note: In a server environment, we can't access localStorage directly
-        // In a real implementation, this would use a database or server-side storage
         const usedMovieIds = getUsedMovieIds();
         
         // Filter movies with at least 6 approved clues that haven't been used before
@@ -121,10 +98,6 @@ export const GET: RequestHandler = async ({ request }) => {
             const movieId = movie.id || `${movie.title}-${movie.year}`;
             return cluesPerMovie[movieId] && cluesPerMovie[movieId] >= 6;
         });
-        
-        // Note: We're not filtering by usedMovieIds here since we can't access localStorage
-        // In a real implementation, we would filter out used movies
-        // This is a limitation of the server-side environment
         
         if (eligibleMovies.length === 0) {
             return json({

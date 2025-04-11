@@ -1,9 +1,8 @@
 // routes\api\batch-approve-clues\+server.ts
 import { json } from "@sveltejs/kit";
-import fs from "fs";
-import path from "path";
 import type { RequestHandler } from "./$types";
 import type { ApprovedClue } from "$lib/types/clueTypes";
+import { readStaticFile, writeStaticFile } from "$lib/utils/fileHelper";
 
 interface BatchClueRequest {
   clues: {
@@ -35,14 +34,13 @@ export const POST: RequestHandler = async ({ request }) => {
       JSON.stringify(data.clues, null, 2)
     );
 
-    // Path to the approved clues file - use environment-aware path
-    const basePath = process.env.NODE_ENV === 'production' ? '/app/static' : 'static';
-    const approvedCluesPath = path.resolve(basePath, "approved_clues.json");
-
-    // Read existing approved clues
+    // Read existing approved clues using our helper
     let approvedClues: ApprovedClue[] = [];
-    if (fs.existsSync(approvedCluesPath)) {
-      approvedClues = JSON.parse(fs.readFileSync(approvedCluesPath, "utf-8"));
+    try {
+      approvedClues = readStaticFile("approved_clues.json");
+    } catch (err) {
+      console.log("No existing approved_clues.json, starting with empty array");
+      approvedClues = [];
     }
 
     // Hash map to check for duplicates
@@ -93,12 +91,8 @@ export const POST: RequestHandler = async ({ request }) => {
       newCluesAdded++;
     });
 
-    // Write back to the file
-    fs.writeFileSync(
-      approvedCluesPath,
-      JSON.stringify(approvedClues, null, 2),
-      "utf-8"
-    );
+    // Write back to the file using our helper
+    writeStaticFile("approved_clues.json", approvedClues);
 
     // Log a sample of what was written
     console.log(

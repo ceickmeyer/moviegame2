@@ -1,21 +1,20 @@
+// routes\api\stats\+server.ts
 import { json } from "@sveltejs/kit";
-import fs from "fs";
-import path from "path";
 import type { RequestHandler } from "./$types";
 import type { ApprovedClue } from "$lib/types/clueTypes";
+import { readStaticFile } from "$lib/utils/fileHelper";
 
 export const GET: RequestHandler = async () => {
   try {
-    // Read the approved clues file
-    const approvedCluesPath = path.resolve("static/approved_clues.json");
-
-    if (!fs.existsSync(approvedCluesPath)) {
+    // Read the approved clues file using our helper
+    let approvedClues: ApprovedClue[] = [];
+    
+    try {
+      approvedClues = readStaticFile("approved_clues.json");
+    } catch (error) {
+      console.log("No existing approved_clues.json, starting with empty array");
       return json({ count: 0, movieCount: 0 });
     }
-
-    const approvedClues: ApprovedClue[] = JSON.parse(
-      fs.readFileSync(approvedCluesPath, "utf-8")
-    );
 
     // Count unique movies
     const uniqueMovies = new Set(approvedClues.map((clue) => clue.movieId));

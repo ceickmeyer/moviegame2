@@ -1,8 +1,8 @@
+// routes\api\stats\toggle-clue-status\+server.ts
 import { json } from '@sveltejs/kit';
-import fs from 'fs';
-import path from 'path';
 import type { RequestHandler } from './$types';
 import type { ApprovedClue, RejectedClue } from '$lib/types/clueTypes';
+import { readStaticFile, writeStaticFile } from '$lib/utils/fileHelper';
 
 interface ToggleRequest {
   clue: ApprovedClue | RejectedClue;
@@ -20,23 +20,22 @@ export const POST: RequestHandler = async ({ request }) => {
       );
     }
 
-    // Path to the clue files
-    const approvedCluesPath = path.resolve("static/approved_clues.json");
-    const rejectedCluesPath = path.resolve("static/rejected_clues.json");
-
-    // Read the files
+    // Read the files using our helper functions
     let approvedClues: ApprovedClue[] = [];
     let rejectedClues: RejectedClue[] = [];
 
-    if (fs.existsSync(approvedCluesPath)) {
-      approvedClues = JSON.parse(fs.readFileSync(approvedCluesPath, "utf-8"));
+    try {
+      approvedClues = readStaticFile("approved_clues.json");
+    } catch (error) {
+      console.log("No existing approved_clues.json, starting with empty array");
+      approvedClues = [];
     }
 
-    if (fs.existsSync(rejectedCluesPath)) {
-      rejectedClues = JSON.parse(fs.readFileSync(rejectedCluesPath, "utf-8"));
-    } else {
-      // Create the rejected clues file if it doesn't exist
-      fs.writeFileSync(rejectedCluesPath, JSON.stringify([], null, 2), "utf-8");
+    try {
+      rejectedClues = readStaticFile("rejected_clues.json");
+    } catch (error) {
+      console.log("No existing rejected_clues.json, starting with empty array");
+      rejectedClues = [];
     }
 
     // Perform the status toggle
@@ -82,17 +81,9 @@ export const POST: RequestHandler = async ({ request }) => {
       return json({ success: false, error: "Invalid status" }, { status: 400 });
     }
 
-    // Write the updated files
-    fs.writeFileSync(
-      approvedCluesPath,
-      JSON.stringify(approvedClues, null, 2),
-      "utf-8"
-    );
-    fs.writeFileSync(
-      rejectedCluesPath,
-      JSON.stringify(rejectedClues, null, 2),
-      "utf-8"
-    );
+    // Write the updated files using our helper
+    writeStaticFile("approved_clues.json", approvedClues);
+    writeStaticFile("rejected_clues.json", rejectedClues);
 
     return json({
       success: true,

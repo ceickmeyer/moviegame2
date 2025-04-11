@@ -7,6 +7,16 @@ export const handle: Handle = async ({ event, resolve }) => {
     // Get the auth cookie
     const authCookie = event.cookies.get('admin_auth');
     
+    // Log environment information to help debug
+    if (event.url.pathname === '/') {
+        console.log('Environment info:', {
+            NODE_ENV: process.env.NODE_ENV,
+            VERCEL: process.env.VERCEL,
+            VERCEL_URL: process.env.VERCEL_URL,
+            BASE_PATH: process.env.BASE_PATH || '(not set)'
+        });
+    }
+    
     // Check if the path is an admin path (not the game path, login path, or static paths)
     const isAdminPath = !event.url.pathname.startsWith('/game') &&
                         !event.url.pathname.startsWith('/login') &&

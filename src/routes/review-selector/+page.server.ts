@@ -1,47 +1,43 @@
 // routes\review-selector\+page.server.ts
 import { json } from "@sveltejs/kit";
-import fs from "fs";
-import path from "path";
 import { getSentencePairs } from "$lib/utils/sentenceExtractor";
 import type { ApprovedClue, RejectedClue } from "$lib/types/clueTypes";
 import type { Actions, PageServerLoad } from "./$types";
+import { readStaticFile, writeStaticFile } from "$lib/utils/fileHelper";
 
 export const load = (async () => {
   try {
-    // Determine the base path based on environment
-    const basePath = process.env.NODE_ENV === 'production' ? '/app/static' : 'static';
-    
-    // Read the movies data from the JSON file
-    const moviesDataPath = path.resolve(basePath, "letterboxd_movies.json");
-    const moviesData = JSON.parse(fs.readFileSync(moviesDataPath, "utf-8"));
-
-    // Initialize the approved clues file if it doesn't exist
-    const approvedCluesPath = path.resolve(basePath, "approved_clues.json");
-    if (!fs.existsSync(approvedCluesPath)) {
-      fs.writeFileSync(approvedCluesPath, JSON.stringify([], null, 2), "utf-8");
-    }
-
-    // Initialize the rejected clues file if it doesn't exist
-    const rejectedCluesPath = path.resolve(basePath, "rejected_clues.json");
-    if (!fs.existsSync(rejectedCluesPath)) {
-      fs.writeFileSync(rejectedCluesPath, JSON.stringify([], null, 2), "utf-8");
+    // Read the movies data
+    let moviesData;
+    try {
+      moviesData = readStaticFile("letterboxd_movies.json");
+    } catch (error) {
+      console.error("Error reading movies data:", error);
+      return {
+        movies: [],
+        approvedCount: 0,
+        rejectedCount: 0,
+        error: "Failed to load movie data",
+      };
     }
 
     // Read existing approved clues
-    const approvedClues: ApprovedClue[] = JSON.parse(
-      fs.readFileSync(approvedCluesPath, "utf-8")
-    );
+    let approvedClues: ApprovedClue[] = [];
+    try {
+      approvedClues = readStaticFile("approved_clues.json");
+    } catch (error) {
+      console.log("No existing approved_clues.json, starting with empty array");
+      approvedClues = [];
+    }
 
     // Read existing rejected clues
-    const rejectedClues: RejectedClue[] = JSON.parse(
-      fs.readFileSync(rejectedCluesPath, "utf-8")
-    );
-
-    // Get all approved and rejected clue IDs (to avoid showing again)
-    const reviewedClueIds = new Set([
-      ...approvedClues.map((clue) => clue.id),
-      ...rejectedClues.map((clue) => clue.id),
-    ]);
+    let rejectedClues: RejectedClue[] = [];
+    try {
+      rejectedClues = readStaticFile("rejected_clues.json");
+    } catch (error) {
+      console.log("No existing rejected_clues.json, starting with empty array");
+      rejectedClues = [];
+    }
 
     return {
       movies: moviesData,
@@ -79,14 +75,14 @@ export const actions = {
     }
 
     try {
-      // Determine the base path based on environment
-      const basePath = process.env.NODE_ENV === 'production' ? '/app/static' : 'static';
-      
       // Read existing approved clues
-      const approvedCluesPath = path.resolve(basePath, "approved_clues.json");
-      const approvedClues: ApprovedClue[] = fs.existsSync(approvedCluesPath)
-        ? JSON.parse(fs.readFileSync(approvedCluesPath, "utf-8"))
-        : [];
+      let approvedClues: ApprovedClue[] = [];
+      try {
+        approvedClues = readStaticFile("approved_clues.json");
+      } catch (error) {
+        console.log("No existing approved_clues.json, starting with empty array");
+        approvedClues = [];
+      }
 
       // Generate a unique ID for the clue
       const clueId = `${movieId}-${Date.now()}`;
@@ -104,11 +100,7 @@ export const actions = {
       });
 
       // Write back to the file
-      fs.writeFileSync(
-        approvedCluesPath,
-        JSON.stringify(approvedClues, null, 2),
-        "utf-8"
-      );
+      writeStaticFile("approved_clues.json", approvedClues);
 
       return {
         success: true,
@@ -121,7 +113,6 @@ export const actions = {
     }
   },
 
-  // Similarly update the reject action to include rating and is_liked:
   reject: async ({ request }) => {
     const formData = await request.formData();
     const movieId = formData.get("movieId")?.toString();
@@ -141,14 +132,14 @@ export const actions = {
     }
 
     try {
-      // Determine the base path based on environment
-      const basePath = process.env.NODE_ENV === 'production' ? '/app/static' : 'static';
-      
       // Read existing rejected clues
-      const rejectedCluesPath = path.resolve(basePath, "rejected_clues.json");
-      const rejectedClues: RejectedClue[] = fs.existsSync(rejectedCluesPath)
-        ? JSON.parse(fs.readFileSync(rejectedCluesPath, "utf-8"))
-        : [];
+      let rejectedClues: RejectedClue[] = [];
+      try {
+        rejectedClues = readStaticFile("rejected_clues.json");
+      } catch (error) {
+        console.log("No existing rejected_clues.json, starting with empty array");
+        rejectedClues = [];
+      }
 
       // Generate a unique ID for the clue
       const clueId = `${movieId}-${Date.now()}`;
@@ -166,11 +157,7 @@ export const actions = {
       });
 
       // Write back to the file
-      fs.writeFileSync(
-        rejectedCluesPath,
-        JSON.stringify(rejectedClues, null, 2),
-        "utf-8"
-      );
+      writeStaticFile("rejected_clues.json", rejectedClues);
 
       return {
         success: true,

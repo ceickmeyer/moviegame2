@@ -1,18 +1,7 @@
+// routes\api\update-clue\+server.ts
 import { json } from '@sveltejs/kit';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import type { RequestHandler } from './$types';
-
-// Get the directory name for the current module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Path to the approved clues file
-// In Docker, we need to check if we're in production and use the correct path
-const approvedCluesPath = process.env.NODE_ENV === 'production'
-  ? path.resolve('/app/static/approved_clues.json')
-  : path.resolve(__dirname, '../../../../static/approved_clues.json');
+import { readStaticFile, writeStaticFile } from '$lib/utils/fileHelper';
 
 export const POST: RequestHandler = async ({ request }) => {
   try {
@@ -23,8 +12,12 @@ export const POST: RequestHandler = async ({ request }) => {
     }
     
     // Read the current approved clues
-    const approvedCluesData = fs.readFileSync(approvedCluesPath, 'utf-8');
-    const approvedClues = JSON.parse(approvedCluesData);
+    let approvedClues;
+    try {
+      approvedClues = readStaticFile("approved_clues.json");
+    } catch (error) {
+      return json({ success: false, error: 'Failed to read clues data' }, { status: 500 });
+    }
     
     // Find and update the clue
     const clueIndex = approvedClues.findIndex((clue: any) => clue.id === id);
@@ -37,7 +30,11 @@ export const POST: RequestHandler = async ({ request }) => {
     approvedClues[clueIndex].clueText = clueText;
     
     // Write the updated clues back to the file
-    fs.writeFileSync(approvedCluesPath, JSON.stringify(approvedClues, null, 2));
+    try {
+      writeStaticFile("approved_clues.json", approvedClues);
+    } catch (error) {
+      return json({ success: false, error: 'Failed to write updated clues' }, { status: 500 });
+    }
     
     return json({ success: true });
   } catch (error) {
