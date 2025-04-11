@@ -6,7 +6,8 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({
-      runtime: 'nodejs18.x'
+      // Remove the runtime specification or use a supported one
+      // Vercel automatically selects an appropriate Node.js version
     }),
     paths: {
       base: ""
