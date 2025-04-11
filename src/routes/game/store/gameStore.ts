@@ -237,75 +237,55 @@ export function getOrdinalSuffix(num: number): string {
 export function loadGameData(): Promise<void> {
   return new Promise(async (resolve, reject) => {
     try {
-      // Load all movies - try multiple locations
-      let moviesData: Movie[] = [];
-      let moviesLoaded = false;
-      
-      // Try all possible paths for movies data - prioritize API endpoint
-      const moviePaths = [
-        "/api/clues-data?type=movies", // Use the API endpoint that knows the correct path, but it's not working
-        "./data/letterboxd_movies.json", // For Vercel - this might not be correct
-        "./static/letterboxd_movies.json", // For Vercel
-        "/data/letterboxd_movies.json",
-        "/static/letterboxd_movies.json",
-        "/letterboxd_movies.json",
-        "/app/data/letterboxd_movies.json",
-        "/app/static/letterboxd_movies.json"
-      ];
-      
-      for (const path of moviePaths) {
-        if (moviesLoaded) break;
+      // First try the API endpoint which now works on Vercel
+      try {
+        console.log("Loading movies and clues from API endpoints...");
+        const [moviesResponse, cluesResponse] = await Promise.all([
+          fetch('/api/clues-data?type=movies'),
+          fetch('/api/clues-data?type=approved')
+        ]);
+        
+        if (!moviesResponse.ok || !cluesResponse.ok) {
+          throw new Error('API endpoints failed');
+        }
+        
+        const moviesData: Movie[] = await moviesResponse.json();
+        const cluesResponseData = await cluesResponse.json();
+        const cluesData: ApprovedClue[] = cluesResponseData.map((clue: any) => ({
+          ...clue,
+          rating: clue.rating ? Number(clue.rating) : 0
+        }));
+        
+        allMovies.set(moviesData);
+        approvedClues.set(cluesData);
+        
+        console.log("Successfully loaded data from API endpoints");
+      } catch (apiError) {
+        console.log("API endpoints failed, falling back to static files...");
+        
+        // Fallback to static files if API fails
         try {
-          console.log(`Trying to load movies from ${path}...`);
-          const moviesResponse = await fetch(path);
-          moviesData = await moviesResponse.json();
-          console.log(`Successfully loaded movies from ${path}`);
-          moviesLoaded = true;
-        } catch (error) {
-          console.log(`Failed to load movies from ${path}:`, error instanceof Error ? error.message : String(error));
+          // Load static files with proper typing
+          type StaticMovieData = { default: Movie[] };
+          type StaticClueData = { default: Array<Omit<ApprovedClue, 'rating'> & { rating: string }> };
+          
+          const moviesData = (await import('$lib/../../static/letterboxd_movies.json',
+            { assert: { type: 'json' } })) as StaticMovieData;
+          const cluesData = (await import('$lib/../../static/approved_clues.json',
+            { assert: { type: 'json' } })) as StaticClueData;
+          
+          allMovies.set(moviesData.default);
+          approvedClues.set(cluesData.default.map(clue => ({
+            ...clue,
+            rating: clue.rating ? Number(clue.rating) : 0
+          })));
+          
+          console.log("Successfully loaded data from static files");
+        } catch (staticError) {
+          console.error("Failed to load data from both API and static files:", staticError);
+          throw new Error("Could not load game data from any location");
         }
       }
-      
-      if (!moviesLoaded) {
-        throw new Error("Could not load movie data from any location");
-      }
-      
-      allMovies.set(moviesData);
-
-      // Load approved clues - try multiple locations
-      let cluesData: ApprovedClue[] = [];
-      let cluesLoaded = false;
-      
-      // Try all possible paths for clues data
-      const cluePaths = [
-        "/api/clues-data?type=approved", // Use the API endpoint that knows the correct path
-        "./data/approved_clues.json", // For Vercel - this might not be correct
-        "./static/approved_clues.json", // For Vercel - this might not be correct
-        "/data/approved_clues.json",
-        "/static/approved_clues.json",
-        "/approved_clues.json",
-        "/app/data/approved_clues.json",
-        "/app/static/approved_clues.json"
-      ];
-      
-      for (const path of cluePaths) {
-        if (cluesLoaded) break;
-        try {
-          console.log(`Trying to load clues from ${path}...`);
-          const cluesResponse = await fetch(path);
-          cluesData = await cluesResponse.json();
-          console.log(`Successfully loaded clues from ${path}`);
-          cluesLoaded = true;
-        } catch (error) {
-          console.log(`Failed to load clues from ${path}:`, error instanceof Error ? error.message : String(error));
-        }
-      }
-      
-      if (!cluesLoaded) {
-        throw new Error("Could not load clue data from any location");
-      }
-      
-      approvedClues.set(cluesData);
 
       // Load game history from localStorage
       loadGameHistory();
