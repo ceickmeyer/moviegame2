@@ -7,26 +7,31 @@ import path from 'path';
  */
 export function getStaticFilePath(fileName: string): string {
   // Check if we're on Vercel
-  const isVercel = process.env.VERCEL === '1' || !!process.env.VERCEL_URL;
+  const isVercel = process.env.VERCEL === '1';
   
   if (isVercel) {
-    // For Vercel, we need to use a different approach
-    // First try the /var/task directory (Vercel's function directory)
-    const vercelPath = path.join('/var/task', 'static', fileName);
+    // Vercel serverless functions can access files in the root directory
+    // where the function is deployed
     
-    // Check if the file exists in the expected Vercel path
-    if (fs.existsSync(vercelPath)) {
-      return vercelPath;
+    // Try different possible paths for Vercel
+    const possiblePaths = [
+      // Root path where serverless function is deployed
+      path.join(process.cwd(), 'static', fileName),
+      // Try a direct path to static
+      path.join('./static', fileName),
+      // Try lambda custom path
+      path.join('/var/task/static', fileName)
+    ];
+    
+    // Return the first path that exists
+    for (const filePath of possiblePaths) {
+      if (fs.existsSync(filePath)) {
+        return filePath;
+      }
     }
     
-    // Otherwise try the .vercel/output/static directory
-    const vercelOutputPath = path.join('.vercel', 'output', 'static', fileName);
-    if (fs.existsSync(vercelOutputPath)) {
-      return vercelOutputPath;
-    }
-    
-    // Last resort - try relative to current directory
-    return path.join('./static', fileName);
+    // Fallback to the first path if none exist
+    return possiblePaths[0];
   } else if (process.env.NODE_ENV === 'production') {
     // In Docker production
     return path.join('/app/static', fileName);
@@ -40,16 +45,40 @@ export function getStaticFilePath(fileName: string): string {
  * Reads a static file and returns its contents
  */
 export function readStaticFile(fileName: string): any {
-  const filePath = getStaticFilePath(fileName);
-  
   try {
-    if (fileName.endsWith('.json')) {
-      return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    } else {
-      return fs.readFileSync(filePath);
+    // First try to read directly from the static folder
+    const filePath = getStaticFilePath(fileName);
+    
+    if (fs.existsSync(filePath)) {
+      if (fileName.endsWith('.json')) {
+        return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      } else {
+        return fs.readFileSync(filePath);
+      }
     }
+    
+    // If file not found, return empty defaults for known file types
+    if (fileName === 'letterboxd_movies.json') {
+      return [];
+    } else if (fileName === 'approved_clues.json') {
+      return [];
+    } else if (fileName === 'rejected_clues.json') {
+      return [];
+    }
+    
+    throw new Error(`File not found: ${fileName}`);
   } catch (error) {
     console.error(`Error reading file ${fileName}:`, error);
+    
+    // Return empty defaults for known file types
+    if (fileName === 'letterboxd_movies.json') {
+      return [];
+    } else if (fileName === 'approved_clues.json') {
+      return [];
+    } else if (fileName === 'rejected_clues.json') {
+      return [];
+    }
+    
     throw error;
   }
 }
@@ -61,6 +90,12 @@ export function writeStaticFile(fileName: string, data: any): void {
   const filePath = getStaticFilePath(fileName);
   
   try {
+    // Ensure the directory exists
+    const directory = path.dirname(filePath);
+    if (!fs.existsSync(directory)) {
+      fs.mkdirSync(directory, { recursive: true });
+    }
+    
     if (typeof data === 'object') {
       fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
     } else {

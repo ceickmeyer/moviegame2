@@ -6,13 +6,11 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({
-      // Use default Vercel adapter options
+      runtime: 'nodejs18.x'
     }),
-    // Make sure this is just an empty string
     paths: {
       base: ""
     },
-    // Keep assets pointing to static directory
     files: {
       assets: 'static'
     }
