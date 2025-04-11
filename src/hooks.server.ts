@@ -1,3 +1,4 @@
+// hooks.server.ts
 import { redirect, type Handle } from '@sveltejs/kit';
 
 // Simple admin password - in a real app, this would be stored securely
@@ -17,14 +18,32 @@ export const handle: Handle = async ({ event, resolve }) => {
         });
     }
     
-    // Check if the path is an admin path (not the game path, login path, or static paths)
-    const isAdminPath = !event.url.pathname.startsWith('/game') &&
-                        !event.url.pathname.startsWith('/login') &&
-                        !event.url.pathname.startsWith('/static') &&
-                        !event.url.pathname.endsWith('.json');
+    // Create a list of paths that should be publicly accessible
+    const publicPaths = [
+        '/game',
+        '/game/', 
+        '/api/movie-schedule',
+        '/api/clues-data',
+        '/api/static-data',
+        '/login',
+        '/static',
+        '/favicon.png'
+    ];
     
-    // If it's an admin path and not authenticated, redirect to login
-    if (isAdminPath && authCookie !== ADMIN_PASSWORD) {
+    // Check if the current path starts with any of the public paths
+    const isPublicPath = publicPaths.some(path => 
+        event.url.pathname === path || 
+        event.url.pathname.startsWith(`${path}/`)
+    );
+    
+    // Always allow access to API endpoints used by the game
+    const isGameApi = event.url.pathname.startsWith('/api/') && 
+                     (event.url.pathname.includes('movie-') || 
+                      event.url.pathname.includes('clues-') || 
+                      event.url.pathname.includes('static-'));
+    
+    // If it's not a public path or game API and not authenticated, redirect to login
+    if (!isPublicPath && !isGameApi && authCookie !== ADMIN_PASSWORD) {
         console.log(`Redirecting unauthenticated request for ${event.url.pathname} to login`);
         throw redirect(303, '/login');
     }

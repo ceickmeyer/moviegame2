@@ -134,7 +134,7 @@
       // Add the emoji grid to the share text
       shareText += emojis.join(' ') + '\n';
       // Add a URL to the game
-      shareText += `http://localhost:5173/game`;
+      shareText += `https://moviegame2.vercel.app/game`;
       
       return shareText;
     }
