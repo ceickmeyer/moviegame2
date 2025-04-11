@@ -8,6 +8,9 @@ const config = {
     paths: {
       base: "",
     },
+    files: {
+      assets: 'static'
+    }
   },
 };
 export default config;
