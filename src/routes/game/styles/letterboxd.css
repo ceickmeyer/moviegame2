@@ -1,0 +1,506 @@
+/* routes\game\styles\letterboxd.css */
+/* Updated CSS file for the Letterboxd-inspired movie game */
+
+/* ==================== */
+/* Color Variables      */
+/* ==================== */
+:root {
+  /* Primary colors */
+  --bg-color: #14181c;
+  --card-bg: #2c3440;
+  --card-bg-accent: #3a4354;
+  --text-color: #ffffff;
+  --text-secondary: #aaaaaa;
+  --heading-color: #ffffff;
+  --border-color: #465061;
+
+  /* Accent colors */
+  --accent-color: #ff3e00;
+  --accent-hover: #ff5c26;
+  --accent-light: rgba(255, 62, 0, 0.1);
+
+  /* UI state colors */
+  --success-color: #4caf50;
+  --success-bg: rgba(76, 175, 80, 0.1);
+  --success-border: rgba(76, 175, 80, 0.3);
+
+  --info-color: #2196f3;
+  --info-bg: rgba(33, 150, 243, 0.1);
+  --info-border: rgba(33, 150, 243, 0.3);
+
+  --warning-color: #ff9800;
+  --warning-bg: rgba(255, 152, 0, 0.1);
+  --warning-border: rgba(255, 152, 0, 0.3);
+
+  --danger-color: #f44336;
+  --danger-bg: rgba(244, 67, 54, 0.1);
+  --danger-border: rgba(244, 67, 54, 0.3);
+
+  /* Review metadata colors */
+  --rating-color: #00c030;
+  --rating-bg: rgba(0, 192, 48, 0.15);
+  --likes-color: #ff9010;
+  --likes-bg: rgba(255, 144, 16, 0.15);
+  --author-color: #64b5f6;
+  --author-bg: rgba(33, 150, 243, 0.15);
+}
+
+/* ==================== */
+/* Base Elements        */
+/* ==================== */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  margin-top: 0;
+  font-weight: 500;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ==================== */
+/* Layout Components    */
+/* ==================== */
+.letterboxd-content {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0; /* Remove padding */
+}
+
+/* ==================== */
+/* Cards & Containers   */
+/* ==================== */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ==================== */
+/* Game Board           */
+/* ==================== */
+.game-board {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding-bottom: 2rem;
+  padding-top: 0; /* Remove top padding */
+  margin-top: 0;
+}
+
+.banner-container {
+  width: 100%;
+  height: 675px; /* Match backdrop height of 675px */
+  background-color: #cfd9de; /* Match the light blue/gray box color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Center the image */
+}
+
+/* ==================== */
+/* Review Components    */
+/* ==================== */
+.review-card {
+  display: block;
+  text-decoration: none;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: inherit;
+}
+
+a.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--card-bg-accent);
+}
+
+a.review-card::after {
+  content: "↗";
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.review-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  padding-top: 0.5rem; /* Add top padding to avoid overlap with metadata */
+  max-width: calc(100% - 200px); /* Leave space for metadata on right */
+}
+
+.review-metadata {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 8px;
+  max-width: 180px; /* Limit width to prevent oversized metadata */
+  flex-wrap: wrap; /* Allow items to wrap if needed */
+  justify-content: flex-end; /* Align items to the right */
+}
+
+.review-author {
+  background-color: var(--author-bg);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.author-icon {
+  margin-right: 0.25rem;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.author-name {
+  color: var(--author-color);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-rating {
+  background-color: var(--rating-bg);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.rating-value {
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+.rating-star {
+  color: var(--rating-color);
+}
+
+.review-liked {
+  background-color: var(--likes-bg);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.liked-heart {
+  color: var(--likes-color);
+}
+
+/* ==================== */
+/* Section Styles       */
+/* ==================== */
+.section-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.reviews-section,
+.guessing-section {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.no-reviews {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+}
+
+/* ==================== */
+/* Game Progress UI     */
+/* ==================== */
+.guesses-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.guess-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.guess-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  border: 2px solid #202830;
+  transition: all 0.2s ease;
+}
+
+.guess-dot.used {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: scale(0.85);
+}
+
+.guesses-remaining-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* ==================== */
+/* Info Pills/Tags      */
+/* ==================== */
+.info-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--card-bg-accent);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-pill.year {
+  background-color: var(--info-bg);
+  color: var(--info-color);
+}
+
+.info-pill.genre {
+  background-color: var(--success-bg);
+  color: var(--success-color);
+}
+
+.info-pill.actor {
+  background-color: var(--warning-bg);
+  color: var(--warning-color);
+}
+
+.info-pill.director {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+}
+
+.info-pill.rating {
+  background-color: var(--rating-bg);
+  color: var(--rating-color);
+}
+
+/* ==================== */
+/* Buttons              */
+/* ==================== */
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--card-bg-accent);
+  color: var(--text-color);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+/* ==================== */
+/* Feedback & Alerts    */
+/* ==================== */
+.feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.feedback.error {
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+}
+
+.feedback.success {
+  background-color: var(--success-bg);
+  border: 1px solid var(--success-border);
+}
+
+/* ==================== */
+/* Utility Classes      */
+/* ==================== */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-bright {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* ==================== */
+/* Responsive Styles    */
+/* ==================== */
+@media (max-width: 768px) {
+  .movie-result {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-poster {
+    margin-bottom: 1rem;
+  }
+
+  .banner-container {
+    height: 400px; /* Smaller height on mobile */
+  }
+
+  .review-text {
+    max-width: 100%;
+    padding-top: 2.5rem; /* More space for metadata on top */
+  }
+
+  .review-metadata {
+    max-width: 100%;
+    width: calc(100% - 1.5rem);
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-container {
+    height: 300px;
+  }
+}

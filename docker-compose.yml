@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  moviegame:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data  # This is the persistent volume for approved_clues.json
+      - ./static:/app/static  # This is for non-persistent files
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - ORIGIN=http://127.0.0.1:3000
+      - PROTOCOL_HEADER=x-forwarded-proto
+      - HOST_HEADER=x-forwarded-host
+      - ALLOW_HTTP=true
+    restart: unless-stopped

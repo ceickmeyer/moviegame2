@@ -1,0 +1,3002 @@
+[
+  {
+    "title": "Lady Terminator",
+    "movie_url": "https://letterboxd.com/film/lady-terminator/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/me/xm/yr/d7/w2jUxANJbjM5mHmee0YKYzC8REn-1200-1200-675-675-crop-000000.jpg?v=68adef40e7",
+    "saved_path": "letterboxd_backdrops\\Lady_Terminator_backdrop.jpg"
+  },
+  {
+    "title": "Sorcerer",
+    "movie_url": "https://letterboxd.com/film/sorcerer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/69/v1/la/oi/sorcerer-1200-1200-675-675-crop-000000.jpg?v=56b00457f1",
+    "saved_path": "letterboxd_backdrops\\Sorcerer_backdrop.jpg"
+  },
+  {
+    "title": "Heavy Metal Parking Lot",
+    "movie_url": "https://letterboxd.com/film/heavy-metal-parking-lot/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Righting Wrongs",
+    "movie_url": "https://letterboxd.com/film/righting-wrongs/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fz/af/1t/vx/righting-1200-1200-675-675-crop-000000.jpg?v=178d7c1357",
+    "saved_path": "letterboxd_backdrops\\Righting_Wrongs_backdrop.jpg"
+  },
+  {
+    "title": "The Boxer's Omen",
+    "movie_url": "https://letterboxd.com/film/the-boxers-omen/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/d8/ky/ot/9k/boxer-1200-1200-675-675-crop-000000.jpg?v=40ce721cc2",
+    "saved_path": "letterboxd_backdrops\\The_Boxer_s_Omen_backdrop.jpg"
+  },
+  {
+    "title": "Truck Turner",
+    "movie_url": "https://letterboxd.com/film/truck-turner/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/u8/1y/3s/xo/foPpmc95hUfmobDPmCFPzwNfZe7-1200-1200-675-675-crop-000000.jpg?v=a2916b4781",
+    "saved_path": "letterboxd_backdrops\\Truck_Turner_backdrop.jpg"
+  },
+  {
+    "title": "RRR",
+    "movie_url": "https://letterboxd.com/film/rrr/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7n/6j/tx/xn/rrr-1200-1200-675-675-crop-000000.jpg?v=65589cd474",
+    "saved_path": "letterboxd_backdrops\\RRR_backdrop.jpg"
+  },
+  {
+    "title": "Repo Man",
+    "movie_url": "https://letterboxd.com/film/repo-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l3/ia/6r/7i/emilio4-1200-1200-675-675-crop-000000.jpg?v=4785cdf15f",
+    "saved_path": "letterboxd_backdrops\\Repo_Man_backdrop.jpg"
+  },
+  {
+    "title": "The Hidden",
+    "movie_url": "https://letterboxd.com/film/the-hidden/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/t5/j2/jn/33/the-hidden-1200-1200-675-675-crop-000000.jpg?v=dea1819efe",
+    "saved_path": "letterboxd_backdrops\\The_Hidden_backdrop.jpg"
+  },
+  {
+    "title": "Do the Right Thing",
+    "movie_url": "https://letterboxd.com/film/do-the-right-thing/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rz/oo/nx/09/do-the-right-thing-1200-1200-675-675-crop-000000.jpg?v=896d43f400",
+    "saved_path": "letterboxd_backdrops\\Do_the_Right_Thing_backdrop.jpg"
+  },
+  {
+    "title": "The Thing",
+    "movie_url": "https://letterboxd.com/film/the-thing/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5o/hu/mf/ae/thing-1200-1200-675-675-crop-000000.jpg?v=1c6f57f7a4",
+    "saved_path": "letterboxd_backdrops\\The_Thing_backdrop.jpg"
+  },
+  {
+    "title": "The Silence of the Lambs",
+    "movie_url": "https://letterboxd.com/film/the-silence-of-the-lambs/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jq/r8/n3/gk/silence-of-the-lambs-1200-1200-675-675-crop-000000.jpg?v=c8fae204ef",
+    "saved_path": "letterboxd_backdrops\\The_Silence_of_the_Lambs_backdrop.jpg"
+  },
+  {
+    "title": "Alien",
+    "movie_url": "https://letterboxd.com/film/alien/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ty/tt/43/of/alien-1979-1200-1200-675-675-crop-000000.jpg?v=e67d042122",
+    "saved_path": "letterboxd_backdrops\\Alien_backdrop.jpg"
+  },
+  {
+    "title": "Terminator 2: Judgment Day",
+    "movie_url": "https://letterboxd.com/film/terminator-2-judgment-day/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5p/1d/0w/o6/terminator-2-1200-1200-675-675-crop-000000.jpg?v=2c7e91bc29",
+    "saved_path": "letterboxd_backdrops\\Terminator_2__Judgment_Day_backdrop.jpg"
+  },
+  {
+    "title": "Mad Max: Fury Road",
+    "movie_url": "https://letterboxd.com/film/mad-max-fury-road/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/50/tw/wa/80/mad-max-fury-road-1200-1200-675-675-crop-000000.jpg?v=1a543f4e46",
+    "saved_path": "letterboxd_backdrops\\Mad_Max__Fury_Road_backdrop.jpg"
+  },
+  {
+    "title": "Die Hard",
+    "movie_url": "https://letterboxd.com/film/die-hard/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/8n/0o/xn/fw/die-hard-1200-1200-675-675-crop-000000.jpg?v=1d88cfd6de",
+    "saved_path": "letterboxd_backdrops\\Die_Hard_backdrop.jpg"
+  },
+  {
+    "title": "Night of the Living Dead",
+    "movie_url": "https://letterboxd.com/film/night-of-the-living-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/j1/z4/q2/vi/bhgMBDnjG9tIVE3RNCD9YeNJHq5-1200-1200-675-675-crop-000000.jpg?v=42c7601897",
+    "saved_path": "letterboxd_backdrops\\Night_of_the_Living_Dead_backdrop.jpg"
+  },
+  {
+    "title": "The Texas Chain Saw Massacre",
+    "movie_url": "https://letterboxd.com/film/the-texas-chain-saw-massacre/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/e4/j2/1q/2h/the-texas-chain-saw-massacre-1200-1200-675-675-crop-000000.jpg?v=dbceb0d20b",
+    "saved_path": "letterboxd_backdrops\\The_Texas_Chain_Saw_Massacre_backdrop.jpg"
+  },
+  {
+    "title": "Airplane!",
+    "movie_url": "https://letterboxd.com/film/airplane/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/38/c2/o3/z7/airplane-1200-1200-675-675-crop-000000.jpg?v=18f59d1c9b",
+    "saved_path": "letterboxd_backdrops\\Airplane__backdrop.jpg"
+  },
+  {
+    "title": "Weird: The Al Yankovic Story",
+    "movie_url": "https://letterboxd.com/film/weird-the-al-yankovic-story-2022/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/by/9z/zw/xs/weird-1200-1200-675-675-crop-000000.jpg?v=b50fb93453",
+    "saved_path": "letterboxd_backdrops\\Weird__The_Al_Yankovic_Story_backdrop.jpg"
+  },
+  {
+    "title": "The Super Inframan",
+    "movie_url": "https://letterboxd.com/film/the-super-inframan/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hu/xy/5f/5h/jgnD48dvKPGpFybKhiCJuPdByV1-1200-1200-675-675-crop-000000.jpg?v=42c6c32f54",
+    "saved_path": "letterboxd_backdrops\\The_Super_Inframan_backdrop.jpg"
+  },
+  {
+    "title": "Aliens",
+    "movie_url": "https://letterboxd.com/film/aliens/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7e/bn/an/g1/aliens-1200-1200-675-675-crop-000000.jpg?v=95d4d011df",
+    "saved_path": "letterboxd_backdrops\\Aliens_backdrop.jpg"
+  },
+  {
+    "title": "Blow Out",
+    "movie_url": "https://letterboxd.com/film/blow-out/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wn/ia/3s/a3/blow-out-1200-1200-675-675-crop-000000.jpg?v=d5f4e4bff2",
+    "saved_path": "letterboxd_backdrops\\Blow_Out_backdrop.jpg"
+  },
+  {
+    "title": "Evil Dead II",
+    "movie_url": "https://letterboxd.com/film/evil-dead-ii/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/h8/ba/ow/2n/evil-dead-ii-1200-1200-675-675-crop-000000.jpg?v=814263e29a",
+    "saved_path": "letterboxd_backdrops\\Evil_Dead_II_backdrop.jpg"
+  },
+  {
+    "title": "Good Time",
+    "movie_url": "https://letterboxd.com/film/good-time/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ga/f8/i6/1h/good1-1200-1200-675-675-crop-000000.jpg?v=3b5f6be87f",
+    "saved_path": "letterboxd_backdrops\\Good_Time_backdrop.jpg"
+  },
+  {
+    "title": "The Fly",
+    "movie_url": "https://letterboxd.com/film/the-fly-1986/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hx/cr/qd/hx/the-fly-1200-1200-675-675-crop-000000.jpg?v=5b599b90db",
+    "saved_path": "letterboxd_backdrops\\The_Fly_backdrop.jpg"
+  },
+  {
+    "title": "Hands on a Hardbody: The Documentary",
+    "movie_url": "https://letterboxd.com/film/hands-on-a-hardbody-the-documentary/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ax/33/3d/fh/hands-on-hard-body-1200-1200-675-675-crop-000000.jpg?v=11e50cb4ac",
+    "saved_path": "letterboxd_backdrops\\Hands_on_a_Hardbody__The_Documentary_backdrop.jpg"
+  },
+  {
+    "title": "To Live and Die in L.A.",
+    "movie_url": "https://letterboxd.com/film/to-live-and-die-in-la/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/in/n9/e2/vo/to-live-die-la-1200-1200-675-675-crop-000000.jpg?v=14d0d58695",
+    "saved_path": "letterboxd_backdrops\\To_Live_and_Die_in_L_A__backdrop.jpg"
+  },
+  {
+    "title": "Drive",
+    "movie_url": "https://letterboxd.com/film/drive-2011/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jh/el/zf/hg/drive-2022-1200-1200-675-675-crop-000000.jpg?v=9d984ce27f",
+    "saved_path": "letterboxd_backdrops\\Drive_backdrop.jpg"
+  },
+  {
+    "title": "Who Framed Roger Rabbit",
+    "movie_url": "https://letterboxd.com/film/who-framed-roger-rabbit/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/y6/xl/q3/pm/who-framed-roger-rabbit-1200-1200-675-675-crop-000000.jpg?v=4e540d3300",
+    "saved_path": "letterboxd_backdrops\\Who_Framed_Roger_Rabbit_backdrop.jpg"
+  },
+  {
+    "title": "True Romance",
+    "movie_url": "https://letterboxd.com/film/true-romance/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/cp/fn/ea/r7/true-romance-1200-1200-675-675-crop-000000.jpg?v=a611729543",
+    "saved_path": "letterboxd_backdrops\\True_Romance_backdrop.jpg"
+  },
+  {
+    "title": "RoboCop",
+    "movie_url": "https://letterboxd.com/film/robocop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5p/cu/9l/n8/robocop-1200-1200-675-675-crop-000000.jpg?v=5b960ef9a0",
+    "saved_path": "letterboxd_backdrops\\RoboCop_backdrop.jpg"
+  },
+  {
+    "title": "The Terminator",
+    "movie_url": "https://letterboxd.com/film/the-terminator/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nj/wr/az/8d/the-terminator-1200-1200-675-675-crop-000000.jpg?v=76a3a0bb28",
+    "saved_path": "letterboxd_backdrops\\The_Terminator_backdrop.jpg"
+  },
+  {
+    "title": "Videodrome",
+    "movie_url": "https://letterboxd.com/film/videodrome/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xa/04/29/l7/videodrome-1200-1200-675-675-crop-000000.jpg?v=0d3584f6b2",
+    "saved_path": "letterboxd_backdrops\\Videodrome_backdrop.jpg"
+  },
+  {
+    "title": "Clue",
+    "movie_url": "https://letterboxd.com/film/clue/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mk/mi/1k/v8/clue-1200-1200-675-675-crop-000000.jpg?v=3742386ac7",
+    "saved_path": "letterboxd_backdrops\\Clue_backdrop.jpg"
+  },
+  {
+    "title": "Predator",
+    "movie_url": "https://letterboxd.com/film/predator/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qs/kc/25/pb/predator-1200-1200-675-675-crop-000000.jpg?v=ecd51f5ebd",
+    "saved_path": "letterboxd_backdrops\\Predator_backdrop.jpg"
+  },
+  {
+    "title": "Big Trouble in Little China",
+    "movie_url": "https://letterboxd.com/film/big-trouble-in-little-china/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/s3/1y/wc/ez/big-trouble-in-little-china-1200-1200-675-675-crop-000000.jpg?v=ea921d6715",
+    "saved_path": "letterboxd_backdrops\\Big_Trouble_in_Little_China_backdrop.jpg"
+  },
+  {
+    "title": "This Place Rules",
+    "movie_url": "https://letterboxd.com/film/this-place-rules/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wq/cj/yx/mu/this%20place%20rule-1200-1200-675-675-crop-000000.jpg?v=ce5265e1d2",
+    "saved_path": "letterboxd_backdrops\\This_Place_Rules_backdrop.jpg"
+  },
+  {
+    "title": "Beverly Hills Cop",
+    "movie_url": "https://letterboxd.com/film/beverly-hills-cop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mq/2f/ac/0x/beverly-hills-cop-1200-1200-675-675-crop-000000.jpg?v=9ee63ae165",
+    "saved_path": "letterboxd_backdrops\\Beverly_Hills_Cop_backdrop.jpg"
+  },
+  {
+    "title": "Jackass Forever",
+    "movie_url": "https://letterboxd.com/film/jackass-forever/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/a0/7p/ox/9l/jackass-1200-1200-675-675-crop-000000.jpg?v=8effeb6cf7",
+    "saved_path": "letterboxd_backdrops\\Jackass_Forever_backdrop.jpg"
+  },
+  {
+    "title": "Mission: Impossible",
+    "movie_url": "https://letterboxd.com/film/mission-impossible/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eb/58/zq/y5/mission-impossible-1200-1200-675-675-crop-000000.jpg?v=7524c6f959",
+    "saved_path": "letterboxd_backdrops\\Mission__Impossible_backdrop.jpg"
+  },
+  {
+    "title": "True Lies",
+    "movie_url": "https://letterboxd.com/film/true-lies/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rc/fz/x0/4j/true-lies-1200-1200-675-675-crop-000000.jpg?v=25d87bb82f",
+    "saved_path": "letterboxd_backdrops\\True_Lies_backdrop.jpg"
+  },
+  {
+    "title": "Brain Damage",
+    "movie_url": "https://letterboxd.com/film/brain-damage/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xd/u8/t3/oh/braindamage-1200-1200-675-675-crop-000000.jpg?v=a276d0e34a",
+    "saved_path": "letterboxd_backdrops\\Brain_Damage_backdrop.jpg"
+  },
+  {
+    "title": "Tremors",
+    "movie_url": "https://letterboxd.com/film/tremors/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/60/tz/8u/e5/tremors-1200-1200-675-675-crop-000000.jpg?v=84299f4b41",
+    "saved_path": "letterboxd_backdrops\\Tremors_backdrop.jpg"
+  },
+  {
+    "title": "Yes, Madam!",
+    "movie_url": "https://letterboxd.com/film/yes-madam/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/uh/qw/tb/ng/d5DWsqRlrVpt7WgsRRPN3dGM9cn-1200-1200-675-675-crop-000000.jpg?v=5095c72b9b",
+    "saved_path": "letterboxd_backdrops\\Yes__Madam__backdrop.jpg"
+  },
+  {
+    "title": "Gremlins 2: The New Batch",
+    "movie_url": "https://letterboxd.com/film/gremlins-2-the-new-batch/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/v6/8p/tj/6i/gremlins-2-new-batch-1200-1200-675-675-crop-000000.jpg?v=38b34a71c0",
+    "saved_path": "letterboxd_backdrops\\Gremlins_2__The_New_Batch_backdrop.jpg"
+  },
+  {
+    "title": "Willie Dynamite",
+    "movie_url": "https://letterboxd.com/film/willie-dynamite/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4h/sc/cp/rb/eN3v95xDamqpAagMxDS8LGZCmoz-1200-1200-675-675-crop-000000.jpg?v=5b4f3cfa5d",
+    "saved_path": "letterboxd_backdrops\\Willie_Dynamite_backdrop.jpg"
+  },
+  {
+    "title": "Batman",
+    "movie_url": "https://letterboxd.com/film/batman-1966/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jk/ll/jw/r5/batman-1200-1200-675-675-crop-000000.jpg?v=05d77968cf",
+    "saved_path": "letterboxd_backdrops\\Batman_backdrop.jpg"
+  },
+  {
+    "title": "Lethal Panther",
+    "movie_url": "https://letterboxd.com/film/lethal-panther/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Kill Bill: Vol. 1",
+    "movie_url": "https://letterboxd.com/film/kill-bill-vol-1/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7d/ip/0u/xg/kill-bill-vol-1-150-1200-1200-675-675-crop-000000.jpg?v=6546ee1a2d",
+    "saved_path": "letterboxd_backdrops\\Kill_Bill__Vol__1_backdrop.jpg"
+  },
+  {
+    "title": "American Movie",
+    "movie_url": "https://letterboxd.com/film/american-movie/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3y/ox/az/2i/american-movie-1200-1200-675-675-crop-000000.jpg?v=60f3aeda3b",
+    "saved_path": "letterboxd_backdrops\\American_Movie_backdrop.jpg"
+  },
+  {
+    "title": "One Cut of the Dead",
+    "movie_url": "https://letterboxd.com/film/one-cut-of-the-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pa/lu/wc/1q/one-cut-of-dead-1200-1200-675-675-crop-000000.jpg?v=68bd448040",
+    "saved_path": "letterboxd_backdrops\\One_Cut_of_the_Dead_backdrop.jpg"
+  },
+  {
+    "title": "The Taking of Pelham One Two Three",
+    "movie_url": "https://letterboxd.com/film/the-taking-of-pelham-one-two-three/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rg/4w/a6/r2/the-taking-of-pelham-one-two-three_5efd27-1200-1200-675-675-crop-000000.jpg?v=3478ef3b99",
+    "saved_path": "letterboxd_backdrops\\The_Taking_of_Pelham_One_Two_Three_backdrop.jpg"
+  },
+  {
+    "title": "Scream",
+    "movie_url": "https://letterboxd.com/film/scream/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/z9/jc/wv/pg/scream-1200-1200-675-675-crop-000000.jpg?v=4e05ce8832",
+    "saved_path": "letterboxd_backdrops\\Scream_backdrop.jpg"
+  },
+  {
+    "title": "House",
+    "movie_url": "https://letterboxd.com/film/house/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lf/sg/qq/ke/house-1200-1200-675-675-crop-000000.jpg?v=21e67647ac",
+    "saved_path": "letterboxd_backdrops\\House_backdrop.jpg"
+  },
+  {
+    "title": "Black Dynamite",
+    "movie_url": "https://letterboxd.com/film/black-dynamite/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0d/vz/j0/cr/black-dynamite-1200-1200-675-675-crop-000000.jpg?v=a620251943",
+    "saved_path": "letterboxd_backdrops\\Black_Dynamite_backdrop.jpg"
+  },
+  {
+    "title": "Misery",
+    "movie_url": "https://letterboxd.com/film/misery/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7x/a0/x3/zw/misery-1200-1200-675-675-crop-000000.jpg?v=6248d439ec",
+    "saved_path": "letterboxd_backdrops\\Misery_backdrop.jpg"
+  },
+  {
+    "title": "Kung Fu Hustle",
+    "movie_url": "https://letterboxd.com/film/kung-fu-hustle/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/b8/9s/qh/24/kung-fu-hustle-1200-1200-675-675-crop-000000.jpg?v=3034a73f10",
+    "saved_path": "letterboxd_backdrops\\Kung_Fu_Hustle_backdrop.jpg"
+  },
+  {
+    "title": "Mad Max 2",
+    "movie_url": "https://letterboxd.com/film/mad-max-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/uz/wt/20/0a/mad-max-2-1200-1200-675-675-crop-000000.jpg?v=ae93ae0819",
+    "saved_path": "letterboxd_backdrops\\Mad_Max_2_backdrop.jpg"
+  },
+  {
+    "title": "Blood Simple",
+    "movie_url": "https://letterboxd.com/film/blood-simple/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/et/ux/ky/f0/blood-simple-1200-1200-675-675-crop-000000.jpg?v=5f69c8ea7e",
+    "saved_path": "letterboxd_backdrops\\Blood_Simple_backdrop.jpg"
+  },
+  {
+    "title": "Raising Arizona",
+    "movie_url": "https://letterboxd.com/film/raising-arizona/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/6w/fo/sn/pc/raising-arizona-1200-1200-675-675-crop-000000.jpg?v=2f7833a1e5",
+    "saved_path": "letterboxd_backdrops\\Raising_Arizona_backdrop.jpg"
+  },
+  {
+    "title": "Carrie",
+    "movie_url": "https://letterboxd.com/film/carrie-1976/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/oy/wp/1g/b5/carrie-1200-1200-675-675-crop-000000.jpg?v=358988d90c",
+    "saved_path": "letterboxd_backdrops\\Carrie_backdrop.jpg"
+  },
+  {
+    "title": "An American Werewolf in London",
+    "movie_url": "https://letterboxd.com/film/an-american-werewolf-in-london/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1n/pe/uf/5o/an-american-werewolf-in-london-1200-1200-675-675-crop-000000.jpg?v=05a3e1250a",
+    "saved_path": "letterboxd_backdrops\\An_American_Werewolf_in_London_backdrop.jpg"
+  },
+  {
+    "title": "The Nice Guys",
+    "movie_url": "https://letterboxd.com/film/the-nice-guys/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/q9/cn/m8/dy/the-nice-guys-1200-1200-675-675-crop-000000.jpg?v=052bf51ad2",
+    "saved_path": "letterboxd_backdrops\\The_Nice_Guys_backdrop.jpg"
+  },
+  {
+    "title": "Halloween",
+    "movie_url": "https://letterboxd.com/film/halloween-1978/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/zg/ku/ln/58/halloween-1978-70-1200-1200-675-675-crop-000000.jpg?v=6a2ada978f",
+    "saved_path": "letterboxd_backdrops\\Halloween_backdrop.jpg"
+  },
+  {
+    "title": "Total Recall",
+    "movie_url": "https://letterboxd.com/film/total-recall/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/w3/ry/fn/kt/total-recall-1200-1200-675-675-crop-000000.jpg?v=301a6b7ab4",
+    "saved_path": "letterboxd_backdrops\\Total_Recall_backdrop.jpg"
+  },
+  {
+    "title": "Miracle Mile",
+    "movie_url": "https://letterboxd.com/film/miracle-mile/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lf/su/je/fc/miracle-mile-1200-1200-675-675-crop-000000.jpg?v=bc6b22b22a",
+    "saved_path": "letterboxd_backdrops\\Miracle_Mile_backdrop.jpg"
+  },
+  {
+    "title": "The Return of the Living Dead",
+    "movie_url": "https://letterboxd.com/film/the-return-of-the-living-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hw/h8/b1/6y/the-return-of-the-living-dead-1200-1200-675-675-crop-000000.jpg?v=f2fc920aba",
+    "saved_path": "letterboxd_backdrops\\The_Return_of_the_Living_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Starship Troopers",
+    "movie_url": "https://letterboxd.com/film/starship-troopers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eo/78/dk/kr/starship-troopers-2-1200-1200-675-675-crop-000000.jpg?v=291392791e",
+    "saved_path": "letterboxd_backdrops\\Starship_Troopers_backdrop.jpg"
+  },
+  {
+    "title": "Riki-Oh: The Story of Ricky",
+    "movie_url": "https://letterboxd.com/film/riki-oh-the-story-of-ricky/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/cv/83/xj/w2/riki-oh-story-of-ricky-1200-1200-675-675-crop-000000.jpg?v=3644d5f8b7",
+    "saved_path": "letterboxd_backdrops\\Riki-Oh__The_Story_of_Ricky_backdrop.jpg"
+  },
+  {
+    "title": "Surviving Edged Weapons",
+    "movie_url": "https://letterboxd.com/film/surviving-edged-weapons/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "They Live",
+    "movie_url": "https://letterboxd.com/film/they-live/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/zw/ld/ag/np/they%20live-1200-1200-675-675-crop-000000.jpg?v=abebff44f9",
+    "saved_path": "letterboxd_backdrops\\They_Live_backdrop.jpg"
+  },
+  {
+    "title": "Full Contact",
+    "movie_url": "https://letterboxd.com/film/full-contact/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rl/mc/s8/jn/antnP4i7wTZj1IF2tGCYx64ELRZ-1200-1200-675-675-crop-000000.jpg?v=2dc31ea4c3",
+    "saved_path": "letterboxd_backdrops\\Full_Contact_backdrop.jpg"
+  },
+  {
+    "title": "Crimson Tide",
+    "movie_url": "https://letterboxd.com/film/crimson-tide/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/8c/j8/7a/o4/crimson-tide-1200-1200-675-675-crop-000000.jpg?v=b7a06d896e",
+    "saved_path": "letterboxd_backdrops\\Crimson_Tide_backdrop.jpg"
+  },
+  {
+    "title": "The Fifth Element",
+    "movie_url": "https://letterboxd.com/film/the-fifth-element/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/iw/ab/8l/f0/the-fifth-element-1200-1200-675-675-crop-000000.jpg?v=3276d5f64a",
+    "saved_path": "letterboxd_backdrops\\The_Fifth_Element_backdrop.jpg"
+  },
+  {
+    "title": "The Hunt for Red October",
+    "movie_url": "https://letterboxd.com/film/the-hunt-for-red-october/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x8/hq/bf/p3/hunt-for-red-october-1200-1200-675-675-crop-000000.jpg?v=f6d1b436a7",
+    "saved_path": "letterboxd_backdrops\\The_Hunt_for_Red_October_backdrop.jpg"
+  },
+  {
+    "title": "Army of Darkness",
+    "movie_url": "https://letterboxd.com/film/army-of-darkness/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/aj/s8/rg/re/army-of-darkness-1200-1200-675-675-crop-000000.jpg?v=4331563281",
+    "saved_path": "letterboxd_backdrops\\Army_of_Darkness_backdrop.jpg"
+  },
+  {
+    "title": "Bone Tomahawk",
+    "movie_url": "https://letterboxd.com/film/bone-tomahawk/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yq/qj/px/50/bone-tomahawk-1200-1200-675-675-crop-000000.jpg?v=f476d5ac49",
+    "saved_path": "letterboxd_backdrops\\Bone_Tomahawk_backdrop.jpg"
+  },
+  {
+    "title": "Royal Warriors",
+    "movie_url": "https://letterboxd.com/film/royal-warriors/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9x/yd/v1/dh/5SR4PeLupwkVcMQ1j5jAh6FTRUz-1200-1200-675-675-crop-000000.jpg?v=f8d34b1717",
+    "saved_path": "letterboxd_backdrops\\Royal_Warriors_backdrop.jpg"
+  },
+  {
+    "title": "The Hudsucker Proxy",
+    "movie_url": "https://letterboxd.com/film/the-hudsucker-proxy/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l6/6s/87/9u/the-hudsucker-proxy-1200-1200-675-675-crop-000000.jpg?v=fbefcf75a2",
+    "saved_path": "letterboxd_backdrops\\The_Hudsucker_Proxy_backdrop.jpg"
+  },
+  {
+    "title": "Top of the Heap",
+    "movie_url": "https://letterboxd.com/film/top-of-the-heap/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ed/qx/df/mn/top-1200-1200-675-675-crop-000000.jpg?v=319bf2b45e",
+    "saved_path": "letterboxd_backdrops\\Top_of_the_Heap_backdrop.jpg"
+  },
+  {
+    "title": "Gremlins",
+    "movie_url": "https://letterboxd.com/film/gremlins/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nf/i5/ti/xm/r5xlOGwg4tEbLb5RiYzL51YzSHl-1200-1200-675-675-crop-000000.jpg?v=e63ade647c",
+    "saved_path": "letterboxd_backdrops\\Gremlins_backdrop.jpg"
+  },
+  {
+    "title": "The Bad News Bears",
+    "movie_url": "https://letterboxd.com/film/the-bad-news-bears/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/q7/0n/qz/06/bad%20news%20bears-1200-1200-675-675-crop-000000.jpg?v=492a3d43cf",
+    "saved_path": "letterboxd_backdrops\\The_Bad_News_Bears_backdrop.jpg"
+  },
+  {
+    "title": "Thunderbolt and Lightfoot",
+    "movie_url": "https://letterboxd.com/film/thunderbolt-and-lightfoot/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/v4/3y/ru/ce/thunderbolt-and-lightfoot-1200-1200-675-675-crop-000000.jpg?v=2843f87743",
+    "saved_path": "letterboxd_backdrops\\Thunderbolt_and_Lightfoot_backdrop.jpg"
+  },
+  {
+    "title": "Faster, Pussycat! Kill! Kill!",
+    "movie_url": "https://letterboxd.com/film/faster-pussycat-kill-kill/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/cy/il/a0/dh/faster-pussycat-kill-kill-1200-1200-675-675-crop-000000.jpg?v=3e243e6c2b",
+    "saved_path": "letterboxd_backdrops\\Faster__Pussycat__Kill__Kill__backdrop.jpg"
+  },
+  {
+    "title": "The Blob",
+    "movie_url": "https://letterboxd.com/film/the-blob-1988/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/24/h0/z0/8p/the-blob-1988-1200-1200-675-675-crop-000000.jpg?v=f49b191075",
+    "saved_path": "letterboxd_backdrops\\The_Blob_backdrop.jpg"
+  },
+  {
+    "title": "Prince of Darkness",
+    "movie_url": "https://letterboxd.com/film/prince-of-darkness/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l3/ey/qi/rd/aVLphhNbXxkvpTqnXLVR02sbid8-1200-1200-675-675-crop-000000.jpg?v=477d368a42",
+    "saved_path": "letterboxd_backdrops\\Prince_of_Darkness_backdrop.jpg"
+  },
+  {
+    "title": "Cruising",
+    "movie_url": "https://letterboxd.com/film/cruising/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ry/nf/oh/5h/cruising-1200-1200-675-675-crop-000000.jpg?v=ac0b8bfd45",
+    "saved_path": "letterboxd_backdrops\\Cruising_backdrop.jpg"
+  },
+  {
+    "title": "Zombie Flesh Eaters",
+    "movie_url": "https://letterboxd.com/film/zombie-flesh-eaters/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/k3/m0/3a/ra/zombie-flesh-eaters-1200-1200-675-675-crop-000000.jpg?v=3879b3b0f3",
+    "saved_path": "letterboxd_backdrops\\Zombie_Flesh_Eaters_backdrop.jpg"
+  },
+  {
+    "title": "Smokey and the Bandit",
+    "movie_url": "https://letterboxd.com/film/smokey-and-the-bandit/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ci/6f/x1/8g/smokey-and-the-bandit-1200-1200-675-675-crop-000000.jpg?v=df373dcbea",
+    "saved_path": "letterboxd_backdrops\\Smokey_and_the_Bandit_backdrop.jpg"
+  },
+  {
+    "title": "Creepshow",
+    "movie_url": "https://letterboxd.com/film/creepshow/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/th/7e/40/ty/creepshow-1200-1200-675-675-crop-000000.jpg?v=28ba678d66",
+    "saved_path": "letterboxd_backdrops\\Creepshow_backdrop.jpg"
+  },
+  {
+    "title": "Wet Hot American Summer",
+    "movie_url": "https://letterboxd.com/film/wet-hot-american-summer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ix/ec/89/rt/wet-hot-american-summer-50-1200-1200-675-675-crop-000000.jpg?v=6e2c55907a",
+    "saved_path": "letterboxd_backdrops\\Wet_Hot_American_Summer_backdrop.jpg"
+  },
+  {
+    "title": "Pee-wee's Big Adventure",
+    "movie_url": "https://letterboxd.com/film/pee-wees-big-adventure/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/f5/rc/do/gj/pee-wees-big-adventure-1200-1200-675-675-crop-000000.jpg?v=8d018bde4f",
+    "saved_path": "letterboxd_backdrops\\Pee-wee_s_Big_Adventure_backdrop.jpg"
+  },
+  {
+    "title": "WarGames",
+    "movie_url": "https://letterboxd.com/film/wargames/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/g8/0c/td/qo/wargames-1200-1200-675-675-crop-000000.jpg?v=6b97783174",
+    "saved_path": "letterboxd_backdrops\\WarGames_backdrop.jpg"
+  },
+  {
+    "title": "Conan the Barbarian",
+    "movie_url": "https://letterboxd.com/film/conan-the-barbarian/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/z5/i3/t4/5y/conan-the-barbarian-1200-1200-675-675-crop-000000.jpg?v=cb9353e9d6",
+    "saved_path": "letterboxd_backdrops\\Conan_the_Barbarian_backdrop.jpg"
+  },
+  {
+    "title": "Vampire's Kiss",
+    "movie_url": "https://letterboxd.com/film/vampires-kiss/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/zf/30/ts/g5/vampires-kiss-1200-1200-675-675-crop-000000.jpg?v=beb9da22d0",
+    "saved_path": "letterboxd_backdrops\\Vampire_s_Kiss_backdrop.jpg"
+  },
+  {
+    "title": "Barb & Star Go to Vista Del Mar",
+    "movie_url": "https://letterboxd.com/film/barb-star-go-to-vista-del-mar/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5d/89/co/a8/barb-and-star-go-to-vista-del-mar-1200-1200-675-675-crop-000000.jpg?v=929a6a72b7",
+    "saved_path": "letterboxd_backdrops\\Barb___Star_Go_to_Vista_Del_Mar_backdrop.jpg"
+  },
+  {
+    "title": "Commando",
+    "movie_url": "https://letterboxd.com/film/commando/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hl/i5/sq/hk/commando-1200-1200-675-675-crop-000000.jpg?v=5bcdaf6b02",
+    "saved_path": "letterboxd_backdrops\\Commando_backdrop.jpg"
+  },
+  {
+    "title": "Dead Calm",
+    "movie_url": "https://letterboxd.com/film/dead-calm/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nk/hq/uw/e8/dead-calm-1200-1200-675-675-crop-000000.jpg?v=ab96c5fce2",
+    "saved_path": "letterboxd_backdrops\\Dead_Calm_backdrop.jpg"
+  },
+  {
+    "title": "Bulworth",
+    "movie_url": "https://letterboxd.com/film/bulworth/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wy/os/93/jp/bulworth-1200-1200-675-675-crop-000000.jpg?v=f1e9a30a16",
+    "saved_path": "letterboxd_backdrops\\Bulworth_backdrop.jpg"
+  },
+  {
+    "title": "The Howling",
+    "movie_url": "https://letterboxd.com/film/the-howling/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qh/ht/he/ye/the-howling-1200-1200-675-675-crop-000000.jpg?v=82f712aa7e",
+    "saved_path": "letterboxd_backdrops\\The_Howling_backdrop.jpg"
+  },
+  {
+    "title": "Highlander",
+    "movie_url": "https://letterboxd.com/film/highlander/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/r8/5y/cp/xh/highlander-1200-1200-675-675-crop-000000.jpg?v=477178525a",
+    "saved_path": "letterboxd_backdrops\\Highlander_backdrop.jpg"
+  },
+  {
+    "title": "Hard Target",
+    "movie_url": "https://letterboxd.com/film/hard-target/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nr/k7/dy/sw/hard-target-1200-1200-675-675-crop-000000.jpg?v=6c8f3e722b",
+    "saved_path": "letterboxd_backdrops\\Hard_Target_backdrop.jpg"
+  },
+  {
+    "title": "Roar",
+    "movie_url": "https://letterboxd.com/film/roar/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/u6/6g/r6/c4/roar-1200-1200-675-675-crop-000000.jpg?v=993f4a3c90",
+    "saved_path": "letterboxd_backdrops\\Roar_backdrop.jpg"
+  },
+  {
+    "title": "Sleepaway Camp",
+    "movie_url": "https://letterboxd.com/film/sleepaway-camp/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/uq/dy/go/aa/sleepaway-camp-1200-1200-675-675-crop-000000.jpg?v=c7a97a8ad6",
+    "saved_path": "letterboxd_backdrops\\Sleepaway_Camp_backdrop.jpg"
+  },
+  {
+    "title": "Blood Rage",
+    "movie_url": "https://letterboxd.com/film/blood-rage/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/m3/d0/ve/oo/2FEMyBe44G5kzSjgNtqcsRkileV-1200-1200-675-675-crop-000000.jpg?v=993cd64ced",
+    "saved_path": "letterboxd_backdrops\\Blood_Rage_backdrop.jpg"
+  },
+  {
+    "title": "Hard Ticket to Hawaii",
+    "movie_url": "https://letterboxd.com/film/hard-ticket-to-hawaii/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jn/hz/pm/65/hard%20ticket-1200-1200-675-675-crop-000000.jpg?v=e3ebc42d54",
+    "saved_path": "letterboxd_backdrops\\Hard_Ticket_to_Hawaii_backdrop.jpg"
+  },
+  {
+    "title": "Invasion U.S.A.",
+    "movie_url": "https://letterboxd.com/film/invasion-usa-1985/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dv/hg/dt/kc/eChAAq7Fg27GKUTIkAxVcE1aEKI-1200-1200-675-675-crop-000000.jpg?v=076995fbba",
+    "saved_path": "letterboxd_backdrops\\Invasion_U_S_A__backdrop.jpg"
+  },
+  {
+    "title": "Possession",
+    "movie_url": "https://letterboxd.com/film/possession/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/md/zx/rq/4v/possession-1200-1200-675-675-crop-000000.jpg?v=e8b6f32f0a",
+    "saved_path": "letterboxd_backdrops\\Possession_backdrop.jpg"
+  },
+  {
+    "title": "Braindead",
+    "movie_url": "https://letterboxd.com/film/braindead-1992/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eq/7u/04/vf/3qgqAUA1JQT3o3CUxUhKQ3qZXBY-1200-1200-675-675-crop-000000.jpg?v=48225ea193",
+    "saved_path": "letterboxd_backdrops\\Braindead_backdrop.jpg"
+  },
+  {
+    "title": "Black Christmas",
+    "movie_url": "https://letterboxd.com/film/black-christmas/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ea/6c/h0/iv/black-christmas-1200-1200-675-675-crop-000000.jpg?v=25b8e7187c",
+    "saved_path": "letterboxd_backdrops\\Black_Christmas_backdrop.jpg"
+  },
+  {
+    "title": "Assault on Precinct 13",
+    "movie_url": "https://letterboxd.com/film/assault-on-precinct-13/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/6s/4v/ar/7k/assault-on-precinct-13-1200-1200-675-675-crop-000000.jpg?v=ff06663409",
+    "saved_path": "letterboxd_backdrops\\Assault_on_Precinct_13_backdrop.jpg"
+  },
+  {
+    "title": "Duel",
+    "movie_url": "https://letterboxd.com/film/duel/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/zu/r2/u6/rs/duel-1200-1200-675-675-crop-000000.jpg?v=8360eceb08",
+    "saved_path": "letterboxd_backdrops\\Duel_backdrop.jpg"
+  },
+  {
+    "title": "First Blood",
+    "movie_url": "https://letterboxd.com/film/first-blood/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/cb/4h/oq/7v/first-blood-1200-1200-675-675-crop-000000.jpg?v=f00818c735",
+    "saved_path": "letterboxd_backdrops\\First_Blood_backdrop.jpg"
+  },
+  {
+    "title": "Beetlejuice",
+    "movie_url": "https://letterboxd.com/film/beetlejuice/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ou/84/wb/en/beetlejuice-1200-1200-675-675-crop-000000.jpg?v=34e9ad1e38",
+    "saved_path": "letterboxd_backdrops\\Beetlejuice_backdrop.jpg"
+  },
+  {
+    "title": "Cape Fear",
+    "movie_url": "https://letterboxd.com/film/cape-fear-1991/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rg/cu/zj/ac/cape-fear-1200-1200-675-675-crop-000000.jpg?v=e37481a048",
+    "saved_path": "letterboxd_backdrops\\Cape_Fear_backdrop.jpg"
+  },
+  {
+    "title": "Top Secret!",
+    "movie_url": "https://letterboxd.com/film/top-secret/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vg/jx/54/w2/top1-1200-1200-675-675-crop-000000.jpg?v=f08a0565d9",
+    "saved_path": "letterboxd_backdrops\\Top_Secret__backdrop.jpg"
+  },
+  {
+    "title": "The Abyss",
+    "movie_url": "https://letterboxd.com/film/the-abyss/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/u9/vi/qk/46/the-abyss-1200-1200-675-675-crop-000000.jpg?v=2edfffa675",
+    "saved_path": "letterboxd_backdrops\\The_Abyss_backdrop.jpg"
+  },
+  {
+    "title": "Speed",
+    "movie_url": "https://letterboxd.com/film/speed/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dv/77/y5/6i/speed-1200-1200-675-675-crop-000000.jpg?v=9efe00c388",
+    "saved_path": "letterboxd_backdrops\\Speed_backdrop.jpg"
+  },
+  {
+    "title": "Escape from New York",
+    "movie_url": "https://letterboxd.com/film/escape-from-new-york/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ot/o5/7y/mn/escape-from-ny-1200-1200-675-675-crop-000000.jpg?v=6cf52b9f36",
+    "saved_path": "letterboxd_backdrops\\Escape_from_New_York_backdrop.jpg"
+  },
+  {
+    "title": "Runaway Train",
+    "movie_url": "https://letterboxd.com/film/runaway-train/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0l/pr/yt/ds/runaway%20train-1200-1200-675-675-crop-000000.jpg?v=2684af27d9",
+    "saved_path": "letterboxd_backdrops\\Runaway_Train_backdrop.jpg"
+  },
+  {
+    "title": "Police Story 3: Super Cop",
+    "movie_url": "https://letterboxd.com/film/police-story-3-super-cop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ba/fl/22/dl/police%20story%203-1200-1200-675-675-crop-000000.jpg?v=2899f660aa",
+    "saved_path": "letterboxd_backdrops\\Police_Story_3__Super_Cop_backdrop.jpg"
+  },
+  {
+    "title": "The Descent",
+    "movie_url": "https://letterboxd.com/film/the-descent/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0h/wj/af/20/the-descent-1200-1200-675-675-crop-000000.jpg?v=02cd3cb4d1",
+    "saved_path": "letterboxd_backdrops\\The_Descent_backdrop.jpg"
+  },
+  {
+    "title": "The Brood",
+    "movie_url": "https://letterboxd.com/film/the-brood/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mo/ig/mu/xv/brood-1200-1200-675-675-crop-000000.jpg?v=8ad1250931",
+    "saved_path": "letterboxd_backdrops\\The_Brood_backdrop.jpg"
+  },
+  {
+    "title": "Death Becomes Her",
+    "movie_url": "https://letterboxd.com/film/death-becomes-her/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/6g/15/71/7y/death-becomes-her-1200-1200-675-675-crop-000000.jpg?v=088721bdbe",
+    "saved_path": "letterboxd_backdrops\\Death_Becomes_Her_backdrop.jpg"
+  },
+  {
+    "title": "The Night Comes for Us",
+    "movie_url": "https://letterboxd.com/film/the-night-comes-for-us/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/d6/wc/at/z6/night-comes-for-us-1200-1200-675-675-crop-000000.jpg?v=64f0557694",
+    "saved_path": "letterboxd_backdrops\\The_Night_Comes_for_Us_backdrop.jpg"
+  },
+  {
+    "title": "Prey",
+    "movie_url": "https://letterboxd.com/film/prey-2022/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0m/ve/dk/6h/prey-2022-1200-1200-675-675-crop-000000.jpg?v=9894795e99",
+    "saved_path": "letterboxd_backdrops\\Prey_backdrop.jpg"
+  },
+  {
+    "title": "Fright Night",
+    "movie_url": "https://letterboxd.com/film/fright-night/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/58/fq/nz/yt/fright-night-1200-1200-675-675-crop-000000.jpg?v=b774754956",
+    "saved_path": "letterboxd_backdrops\\Fright_Night_backdrop.jpg"
+  },
+  {
+    "title": "Coffy",
+    "movie_url": "https://letterboxd.com/film/coffy/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1y/1c/g7/m8/coffy-1200-1200-675-675-crop-000000.jpg?v=c1b6d8ec1a",
+    "saved_path": "letterboxd_backdrops\\Coffy_backdrop.jpg"
+  },
+  {
+    "title": "Ong Bak",
+    "movie_url": "https://letterboxd.com/film/ong-bak/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/6p/qj/84/hq/ong-bak-1200-1200-675-675-crop-000000.jpg?v=bac0eb700e",
+    "saved_path": "letterboxd_backdrops\\Ong_Bak_backdrop.jpg"
+  },
+  {
+    "title": "From Beyond",
+    "movie_url": "https://letterboxd.com/film/from-beyond/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/b0/z2/cy/lo/from%20beyond-1200-1200-675-675-crop-000000.jpg?v=d2bf5fe49f",
+    "saved_path": "letterboxd_backdrops\\From_Beyond_backdrop.jpg"
+  },
+  {
+    "title": "Hellraiser",
+    "movie_url": "https://letterboxd.com/film/hellraiser/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rm/3s/4i/zs/hellraiser-1200-1200-675-675-crop-000000.jpg?v=88bbce6f64",
+    "saved_path": "letterboxd_backdrops\\Hellraiser_backdrop.jpg"
+  },
+  {
+    "title": "UHF",
+    "movie_url": "https://letterboxd.com/film/uhf/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lh/n8/58/3f/uhf-1200-1200-675-675-crop-000000.jpg?v=4e09811449",
+    "saved_path": "letterboxd_backdrops\\UHF_backdrop.jpg"
+  },
+  {
+    "title": "Society",
+    "movie_url": "https://letterboxd.com/film/society/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9k/il/yy/lf/society-1200-1200-675-675-crop-000000.jpg?v=efe26063cb",
+    "saved_path": "letterboxd_backdrops\\Society_backdrop.jpg"
+  },
+  {
+    "title": "The Quick and the Dead",
+    "movie_url": "https://letterboxd.com/film/the-quick-and-the-dead-1995/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l8/ae/gy/dc/quick%20and%20the%20dead-1200-1200-675-675-crop-000000.jpg?v=53d58a0dea",
+    "saved_path": "letterboxd_backdrops\\The_Quick_and_the_Dead_backdrop.jpg"
+  },
+  {
+    "title": "The Long Kiss Goodnight",
+    "movie_url": "https://letterboxd.com/film/the-long-kiss-goodnight/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/i0/80/q1/ue/long-kiss-goodnight-1200-1200-675-675-crop-000000.jpg?v=ff38df3178",
+    "saved_path": "letterboxd_backdrops\\The_Long_Kiss_Goodnight_backdrop.jpg"
+  },
+  {
+    "title": "Purple Rain",
+    "movie_url": "https://letterboxd.com/film/purple-rain/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xw/b2/83/g4/purple-rain-1200-1200-675-675-crop-000000.jpg?v=99a8dedcb5",
+    "saved_path": "letterboxd_backdrops\\Purple_Rain_backdrop.jpg"
+  },
+  {
+    "title": "Final Score",
+    "movie_url": "https://letterboxd.com/film/final-score/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Cannibal! The Musical",
+    "movie_url": "https://letterboxd.com/film/cannibal-the-musical/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/bu/lr/vg/gc/cannibal-1200-1200-675-675-crop-000000.jpg?v=ef36f95c2b",
+    "saved_path": "letterboxd_backdrops\\Cannibal__The_Musical_backdrop.jpg"
+  },
+  {
+    "title": "The Toxic Avenger",
+    "movie_url": "https://letterboxd.com/film/the-toxic-avenger/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/55/z7/i3/jl/uSjBSuSJcuBPkakzdn0t1YSWtbr-1200-1200-675-675-crop-000000.jpg?v=dd8594858e",
+    "saved_path": "letterboxd_backdrops\\The_Toxic_Avenger_backdrop.jpg"
+  },
+  {
+    "title": "Top Gun",
+    "movie_url": "https://letterboxd.com/film/top-gun/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eh/rw/wn/m1/top-gun-1200-1200-675-675-crop-000000.jpg?v=f96ff005a6",
+    "saved_path": "letterboxd_backdrops\\Top_Gun_backdrop.jpg"
+  },
+  {
+    "title": "Stone Cold",
+    "movie_url": "https://letterboxd.com/film/stone-cold/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3b/fg/d5/jh/stone-cold-1200-1200-675-675-crop-000000.jpg?v=636f3ea9a5",
+    "saved_path": "letterboxd_backdrops\\Stone_Cold_backdrop.jpg"
+  },
+  {
+    "title": "Death Race 2000",
+    "movie_url": "https://letterboxd.com/film/death-race-2000/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/8y/t3/ua/0s/death%20race-1200-1200-675-675-crop-000000.jpg?v=51dbceacc6",
+    "saved_path": "letterboxd_backdrops\\Death_Race_2000_backdrop.jpg"
+  },
+  {
+    "title": "New York Ninja",
+    "movie_url": "https://letterboxd.com/film/new-york-ninja/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rg/mg/ot/gw/new%20york%20ninja-1200-1200-675-675-crop-000000.jpg?v=52ffa4f2c6",
+    "saved_path": "letterboxd_backdrops\\New_York_Ninja_backdrop.jpg"
+  },
+  {
+    "title": "Sisu",
+    "movie_url": "https://letterboxd.com/film/sisu-2022/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mq/x9/uv/vy/sisu-2022-1200-1200-675-675-crop-000000.jpg?v=c61cb4684d",
+    "saved_path": "letterboxd_backdrops\\Sisu_backdrop.jpg"
+  },
+  {
+    "title": "The Running Man",
+    "movie_url": "https://letterboxd.com/film/the-running-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fe/3d/ju/ao/the-running-man-1200-1200-675-675-crop-000000.jpg?v=759c59ca4c",
+    "saved_path": "letterboxd_backdrops\\The_Running_Man_backdrop.jpg"
+  },
+  {
+    "title": "Slither",
+    "movie_url": "https://letterboxd.com/film/slither/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1s/zy/zd/vi/slither-1200-1200-675-675-crop-000000.jpg?v=5b5e4e826c",
+    "saved_path": "letterboxd_backdrops\\Slither_backdrop.jpg"
+  },
+  {
+    "title": "Ricochet",
+    "movie_url": "https://letterboxd.com/film/ricochet/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3f/1i/q0/ud/tFsz445sK9PPjxVgi844oibium-1200-1200-675-675-crop-000000.jpg?v=43cca983ef",
+    "saved_path": "letterboxd_backdrops\\Ricochet_backdrop.jpg"
+  },
+  {
+    "title": "Arachnophobia",
+    "movie_url": "https://letterboxd.com/film/arachnophobia/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eu/19/0k/1x/arachnophobia-1200-1200-675-675-crop-000000.jpg?v=f7f4bfd9c8",
+    "saved_path": "letterboxd_backdrops\\Arachnophobia_backdrop.jpg"
+  },
+  {
+    "title": "Hellbound: Hellraiser II",
+    "movie_url": "https://letterboxd.com/film/hellbound-hellraiser-ii/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ln/mh/fw/2n/pP8HR8rrrTKt2RCQUR9cVTqU0gm-1200-1200-675-675-crop-000000.jpg?v=718ab6556f",
+    "saved_path": "letterboxd_backdrops\\Hellbound__Hellraiser_II_backdrop.jpg"
+  },
+  {
+    "title": "Evil Dead Rise",
+    "movie_url": "https://letterboxd.com/film/evil-dead-rise/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/uu/ak/qz/jy/evil%20dead%20rise-1200-1200-675-675-crop-000000.jpg?v=f6e3ec9cd4",
+    "saved_path": "letterboxd_backdrops\\Evil_Dead_Rise_backdrop.jpg"
+  },
+  {
+    "title": "Blue Steel",
+    "movie_url": "https://letterboxd.com/film/blue-steel-1990/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/h4/9f/a8/a4/blue-steel-1200-1200-675-675-crop-000000.jpg?v=3da809a11d",
+    "saved_path": "letterboxd_backdrops\\Blue_Steel_backdrop.jpg"
+  },
+  {
+    "title": "They Came Together",
+    "movie_url": "https://letterboxd.com/film/they-came-together/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sd/ee/yh/04/they-came-together-1200-1200-675-675-crop-000000.jpg?v=3365dbb490",
+    "saved_path": "letterboxd_backdrops\\They_Came_Together_backdrop.jpg"
+  },
+  {
+    "title": "Showdown in Little Tokyo",
+    "movie_url": "https://letterboxd.com/film/showdown-in-little-tokyo/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/c6/ty/pn/2c/showdown-1200-1200-675-675-crop-000000.jpg?v=78128f2024",
+    "saved_path": "letterboxd_backdrops\\Showdown_in_Little_Tokyo_backdrop.jpg"
+  },
+  {
+    "title": "The Stuff",
+    "movie_url": "https://letterboxd.com/film/the-stuff/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mw/2n/d3/yx/the-stuff-1200-1200-675-675-crop-000000.jpg?v=18bd15d944",
+    "saved_path": "letterboxd_backdrops\\The_Stuff_backdrop.jpg"
+  },
+  {
+    "title": "Tammy and the T-Rex",
+    "movie_url": "https://letterboxd.com/film/tammy-and-the-t-rex/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yl/2n/sc/ze/tammy-1200-1200-675-675-crop-000000.jpg?v=532d4d5162",
+    "saved_path": "letterboxd_backdrops\\Tammy_and_the_T-Rex_backdrop.jpg"
+  },
+  {
+    "title": "Body Melt",
+    "movie_url": "https://letterboxd.com/film/body-melt/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wy/96/q9/24/hhwnLm37ouIFpUInxaDA3dKwruS-1200-1200-675-675-crop-000000.jpg?v=9eaa65d60e",
+    "saved_path": "letterboxd_backdrops\\Body_Melt_backdrop.jpg"
+  },
+  {
+    "title": "Ambulance",
+    "movie_url": "https://letterboxd.com/film/ambulance-2022/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/u7/mm/fn/g1/umbulance-1200-1200-675-675-crop-000000.jpg?v=ad1d93a874",
+    "saved_path": "letterboxd_backdrops\\Ambulance_backdrop.jpg"
+  },
+  {
+    "title": "Sleepaway Camp II: Unhappy Campers",
+    "movie_url": "https://letterboxd.com/film/sleepaway-camp-ii-unhappy-campers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pl/ws/hq/xu/eeYj1e9aWt2RCN9HEzwjcEUH8p5-1200-1200-675-675-crop-000000.jpg?v=4e5ccc08da",
+    "saved_path": "letterboxd_backdrops\\Sleepaway_Camp_II__Unhappy_Campers_backdrop.jpg"
+  },
+  {
+    "title": "Faust: Love of the Damned",
+    "movie_url": "https://letterboxd.com/film/faust-love-of-the-damned/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rk/j9/56/je/faust-1200-1200-675-675-crop-000000.jpg?v=d46706172b",
+    "saved_path": "letterboxd_backdrops\\Faust__Love_of_the_Damned_backdrop.jpg"
+  },
+  {
+    "title": "The Fugitive",
+    "movie_url": "https://letterboxd.com/film/the-fugitive-1993/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/e1/dg/mb/km/the-fugitive-1200-1200-675-675-crop-000000.jpg?v=946de9e41b",
+    "saved_path": "letterboxd_backdrops\\The_Fugitive_backdrop.jpg"
+  },
+  {
+    "title": "Battle Royale",
+    "movie_url": "https://letterboxd.com/film/battle-royale/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4x/yc/fy/43/battle-royale-1200-1200-675-675-crop-000000.jpg?v=9a1d0f1bc9",
+    "saved_path": "letterboxd_backdrops\\Battle_Royale_backdrop.jpg"
+  },
+  {
+    "title": "The Goonies",
+    "movie_url": "https://letterboxd.com/film/the-goonies/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nw/yt/uz/i9/goonies-125-1200-1200-675-675-crop-000000.jpg?v=f5c54079c5",
+    "saved_path": "letterboxd_backdrops\\The_Goonies_backdrop.jpg"
+  },
+  {
+    "title": "The Beyond",
+    "movie_url": "https://letterboxd.com/film/the-beyond/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sk/m0/mk/2q/the-beyond-1200-1200-675-675-crop-000000.jpg?v=ce2e4b42ed",
+    "saved_path": "letterboxd_backdrops\\The_Beyond_backdrop.jpg"
+  },
+  {
+    "title": "From Dusk Till Dawn",
+    "movie_url": "https://letterboxd.com/film/from-dusk-till-dawn/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/st/lx/pr/h0/from-dusk-till-dawn-1200-1200-675-675-crop-000000.jpg?v=dc14239739",
+    "saved_path": "letterboxd_backdrops\\From_Dusk_Till_Dawn_backdrop.jpg"
+  },
+  {
+    "title": "Desperado",
+    "movie_url": "https://letterboxd.com/film/desperado/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qx/5b/8z/d4/desperado-1200-1200-675-675-crop-000000.jpg?v=6757749da4",
+    "saved_path": "letterboxd_backdrops\\Desperado_backdrop.jpg"
+  },
+  {
+    "title": "Baby Blood",
+    "movie_url": "https://letterboxd.com/film/baby-blood/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/oo/uv/1r/07/oudiWD59jcZaldeSevx4lAeyBYK-1200-1200-675-675-crop-000000.jpg?v=70b135d5f3",
+    "saved_path": "letterboxd_backdrops\\Baby_Blood_backdrop.jpg"
+  },
+  {
+    "title": "Road House",
+    "movie_url": "https://letterboxd.com/film/road-house/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wd/1y/jf/69/road-house-1200-1200-675-675-crop-000000.jpg?v=77f2880627",
+    "saved_path": "letterboxd_backdrops\\Road_House_backdrop.jpg"
+  },
+  {
+    "title": "Con Air",
+    "movie_url": "https://letterboxd.com/film/con-air/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/74/te/69/em/con-air-1200-1200-675-675-crop-000000.jpg?v=de1e8785b4",
+    "saved_path": "letterboxd_backdrops\\Con_Air_backdrop.jpg"
+  },
+  {
+    "title": "Hooper",
+    "movie_url": "https://letterboxd.com/film/hooper/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/oe/9d/xa/hm/4M06Gqnsu9iyvbtLj18FcvN9xbe-1200-1200-675-675-crop-000000.jpg?v=d213173282",
+    "saved_path": "letterboxd_backdrops\\Hooper_backdrop.jpg"
+  },
+  {
+    "title": "Dial Code Santa Claus",
+    "movie_url": "https://letterboxd.com/film/dial-code-santa-claus/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7k/fx/o0/08/8rMrmfvtYPr4wjWenhNjeWlZZo8-1200-1200-675-675-crop-000000.jpg?v=a813cca173",
+    "saved_path": "letterboxd_backdrops\\Dial_Code_Santa_Claus_backdrop.jpg"
+  },
+  {
+    "title": "Tokyo Gore Police",
+    "movie_url": "https://letterboxd.com/film/tokyo-gore-police/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/te/a9/i5/4u/tokyo%20gore-1200-1200-675-675-crop-000000.jpg?v=e54e738a9d",
+    "saved_path": "letterboxd_backdrops\\Tokyo_Gore_Police_backdrop.jpg"
+  },
+  {
+    "title": "Demolition Man",
+    "movie_url": "https://letterboxd.com/film/demolition-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ij/rz/ww/nt/demolition-man-1200-1200-675-675-crop-000000.jpg?v=fba2a46621",
+    "saved_path": "letterboxd_backdrops\\Demolition_Man_backdrop.jpg"
+  },
+  {
+    "title": "Basket Case",
+    "movie_url": "https://letterboxd.com/film/basket-case/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/st/lw/wu/9m/basketcase-1200-1200-675-675-crop-000000.jpg?v=d5dfc64d8a",
+    "saved_path": "letterboxd_backdrops\\Basket_Case_backdrop.jpg"
+  },
+  {
+    "title": "Miami Connection",
+    "movie_url": "https://letterboxd.com/film/miami-connection/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lt/lr/8m/ec/miami-1200-1200-675-675-crop-000000.jpg?v=2651f30f73",
+    "saved_path": "letterboxd_backdrops\\Miami_Connection_backdrop.jpg"
+  },
+  {
+    "title": "Intruder",
+    "movie_url": "https://letterboxd.com/film/intruder/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lm/ec/x4/j6/hBmr0vwkpoe9srtvmDh3GuVwSkZ-1200-1200-675-675-crop-000000.jpg?v=3cb04234c0",
+    "saved_path": "letterboxd_backdrops\\Intruder_backdrop.jpg"
+  },
+  {
+    "title": "Maniac Cop 2",
+    "movie_url": "https://letterboxd.com/film/maniac-cop-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dk/yt/01/ih/maniac-cop-1200-1200-675-675-crop-000000.jpg?v=56f7ceae00",
+    "saved_path": "letterboxd_backdrops\\Maniac_Cop_2_backdrop.jpg"
+  },
+  {
+    "title": "Hackers",
+    "movie_url": "https://letterboxd.com/film/hackers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pc/gj/bq/ec/hackers-1200-1200-675-675-crop-000000.jpg?v=18cd1be209",
+    "saved_path": "letterboxd_backdrops\\Hackers_backdrop.jpg"
+  },
+  {
+    "title": "The Texas Chainsaw Massacre 2",
+    "movie_url": "https://letterboxd.com/film/the-texas-chainsaw-massacre-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4c/s4/cn/jx/texas-chainsaw-massacre-2-1200-1200-675-675-crop-000000.jpg?v=0a8d590837",
+    "saved_path": "letterboxd_backdrops\\The_Texas_Chainsaw_Massacre_2_backdrop.jpg"
+  },
+  {
+    "title": "The Burning",
+    "movie_url": "https://letterboxd.com/film/the-burning-1981/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/d5/ll/j7/pm/the-burning-1200-1200-675-675-crop-000000.jpg?v=bd24afa8aa",
+    "saved_path": "letterboxd_backdrops\\The_Burning_backdrop.jpg"
+  },
+  {
+    "title": "Blind Fury",
+    "movie_url": "https://letterboxd.com/film/blind-fury/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2i/ln/ng/z4/yNYXpILezYnNV9UlF4cv9QS0MXY-1200-1200-675-675-crop-000000.jpg?v=697f0993d6",
+    "saved_path": "letterboxd_backdrops\\Blind_Fury_backdrop.jpg"
+  },
+  {
+    "title": "Breakin'",
+    "movie_url": "https://letterboxd.com/film/breakin/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/kc/w5/lp/55/breakin-1200-1200-675-675-crop-000000.jpg?v=7ddbf19b24",
+    "saved_path": "letterboxd_backdrops\\Breakin__backdrop.jpg"
+  },
+  {
+    "title": "Live Wire",
+    "movie_url": "https://letterboxd.com/film/live-wire/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Mad Max Beyond Thunderdome",
+    "movie_url": "https://letterboxd.com/film/mad-max-beyond-thunderdome/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/em/3v/g2/37/r3MhvwPC8zFBAv8HL5WBtl3F8cn-1200-1200-675-675-crop-000000.jpg?v=1889ea1d8e",
+    "saved_path": "letterboxd_backdrops\\Mad_Max_Beyond_Thunderdome_backdrop.jpg"
+  },
+  {
+    "title": "Red Dawn",
+    "movie_url": "https://letterboxd.com/film/red-dawn/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yn/cy/bk/6o/F84731A5-43E5-4333-A4DD-26C80B1228CD-1200-1200-675-675-crop-000000.jpg?v=7e25e75845",
+    "saved_path": "letterboxd_backdrops\\Red_Dawn_backdrop.jpg"
+  },
+  {
+    "title": "Piranha",
+    "movie_url": "https://letterboxd.com/film/piranha/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l7/ho/0k/x8/piranha-1200-1200-675-675-crop-000000.jpg?v=73ccc6f235",
+    "saved_path": "letterboxd_backdrops\\Piranha_backdrop.jpg"
+  },
+  {
+    "title": "Encino Man",
+    "movie_url": "https://letterboxd.com/film/encino-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hs/pv/v6/qj/encino%20man-1200-1200-675-675-crop-000000.jpg?v=fddfaf8d97",
+    "saved_path": "letterboxd_backdrops\\Encino_Man_backdrop.jpg"
+  },
+  {
+    "title": "Revenge of the Nerds",
+    "movie_url": "https://letterboxd.com/film/revenge-of-the-nerds/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ff/21/sm/4i/revenge-of-the-nerds-1200-1200-675-675-crop-000000.jpg?v=7fc83bbb15",
+    "saved_path": "letterboxd_backdrops\\Revenge_of_the_Nerds_backdrop.jpg"
+  },
+  {
+    "title": "Chopping Mall",
+    "movie_url": "https://letterboxd.com/film/chopping-mall/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/as/95/b2/jt/chopping-1200-1200-675-675-crop-000000.jpg?v=4f870ab0fc",
+    "saved_path": "letterboxd_backdrops\\Chopping_Mall_backdrop.jpg"
+  },
+  {
+    "title": "Species",
+    "movie_url": "https://letterboxd.com/film/species/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x8/ph/pc/dy/species-1200-1200-675-675-crop-000000.jpg?v=346e71c41e",
+    "saved_path": "letterboxd_backdrops\\Species_backdrop.jpg"
+  },
+  {
+    "title": "Maniac Cop 3: Badge of Silence",
+    "movie_url": "https://letterboxd.com/film/maniac-cop-3-badge-of-silence/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3y/7f/aj/35/izMEQteOBHsABVmMiIfm0fooMsq-1200-1200-675-675-crop-000000.jpg?v=68dfcf6d01",
+    "saved_path": "letterboxd_backdrops\\Maniac_Cop_3__Badge_of_Silence_backdrop.jpg"
+  },
+  {
+    "title": "The Lost Boys",
+    "movie_url": "https://letterboxd.com/film/the-lost-boys/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/m9/5x/qz/up/the-lost-boys-1200-1200-675-675-crop-000000.jpg?v=8bd504bebf",
+    "saved_path": "letterboxd_backdrops\\The_Lost_Boys_backdrop.jpg"
+  },
+  {
+    "title": "Seven",
+    "movie_url": "https://letterboxd.com/film/seven/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sm/kn/vd/bq/seven-1200-1200-675-675-crop-000000.jpg?v=b78b398375",
+    "saved_path": "letterboxd_backdrops\\Seven_backdrop.jpg"
+  },
+  {
+    "title": "Dredd",
+    "movie_url": "https://letterboxd.com/film/dredd/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ig/6x/8a/1s/dredd-1200-1200-675-675-crop-000000.jpg?v=72bf589d61",
+    "saved_path": "letterboxd_backdrops\\Dredd_backdrop.jpg"
+  },
+  {
+    "title": "Freaked",
+    "movie_url": "https://letterboxd.com/film/freaked/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vs/oe/k7/sk/freaked-1200-1200-675-675-crop-000000.jpg?v=8709ede990",
+    "saved_path": "letterboxd_backdrops\\Freaked_backdrop.jpg"
+  },
+  {
+    "title": "The Rock",
+    "movie_url": "https://letterboxd.com/film/the-rock/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ws/f5/qu/0u/the-rock-10-1200-1200-675-675-crop-000000.jpg?v=a228be887f",
+    "saved_path": "letterboxd_backdrops\\The_Rock_backdrop.jpg"
+  },
+  {
+    "title": "Streets of Fire",
+    "movie_url": "https://letterboxd.com/film/streets-of-fire/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eo/7y/kk/aa/streets-1200-1200-675-675-crop-000000.jpg?v=36090dbe7c",
+    "saved_path": "letterboxd_backdrops\\Streets_of_Fire_backdrop.jpg"
+  },
+  {
+    "title": "Fatal Attraction",
+    "movie_url": "https://letterboxd.com/film/fatal-attraction/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rp/9s/z8/97/fatal-attraction-1200-1200-675-675-crop-000000.jpg?v=0e14d4ffcb",
+    "saved_path": "letterboxd_backdrops\\Fatal_Attraction_backdrop.jpg"
+  },
+  {
+    "title": "Bloodsport",
+    "movie_url": "https://letterboxd.com/film/bloodsport/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xf/7p/ws/ht/bloodsport-1200-1200-675-675-crop-000000.jpg?v=db38bb2f6b",
+    "saved_path": "letterboxd_backdrops\\Bloodsport_backdrop.jpg"
+  },
+  {
+    "title": "Child's Play",
+    "movie_url": "https://letterboxd.com/film/childs-play/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7h/bj/le/k8/2FD9E517-3049-45C5-86A0-8CFD126AFDAD-1200-1200-675-675-crop-000000.jpg?v=8783d8dada",
+    "saved_path": "letterboxd_backdrops\\Child_s_Play_backdrop.jpg"
+  },
+  {
+    "title": "Killer Klowns from Outer Space",
+    "movie_url": "https://letterboxd.com/film/killer-klowns-from-outer-space/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dd/7b/ht/jj/killerklowns-1200-1200-675-675-crop-000000.jpg?v=9c0a28cac6",
+    "saved_path": "letterboxd_backdrops\\Killer_Klowns_from_Outer_Space_backdrop.jpg"
+  },
+  {
+    "title": "Rush Hour 2",
+    "movie_url": "https://letterboxd.com/film/rush-hour-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qz/z2/do/ha/vNhz5wBc5gsc6GWhrcJalHy97Tw-1200-1200-675-675-crop-000000.jpg?v=dff4713971",
+    "saved_path": "letterboxd_backdrops\\Rush_Hour_2_backdrop.jpg"
+  },
+  {
+    "title": "Showgirls",
+    "movie_url": "https://letterboxd.com/film/showgirls/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rc/85/uj/2g/showgirls-1200-1200-675-675-crop-000000.jpg?v=04aac29b2e",
+    "saved_path": "letterboxd_backdrops\\Showgirls_backdrop.jpg"
+  },
+  {
+    "title": "Heavenly Bodies",
+    "movie_url": "https://letterboxd.com/film/heavenly-bodies-1984/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ph/sb/dt/ca/heavenly-1200-1200-675-675-crop-000000.jpg?v=7896124d3f",
+    "saved_path": "letterboxd_backdrops\\Heavenly_Bodies_backdrop.jpg"
+  },
+  {
+    "title": "Cliffhanger",
+    "movie_url": "https://letterboxd.com/film/cliffhanger/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rc/0e/vk/46/cliffhanger-1200-1200-675-675-crop-000000.jpg?v=71538bc742",
+    "saved_path": "letterboxd_backdrops\\Cliffhanger_backdrop.jpg"
+  },
+  {
+    "title": "Honey, I Shrunk the Kids",
+    "movie_url": "https://letterboxd.com/film/honey-i-shrunk-the-kids/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/36/th/kz/ea/honey-i-shrunk-kids-1200-1200-675-675-crop-000000.jpg?v=22d2da954a",
+    "saved_path": "letterboxd_backdrops\\Honey__I_Shrunk_the_Kids_backdrop.jpg"
+  },
+  {
+    "title": "Days of Thunder",
+    "movie_url": "https://letterboxd.com/film/days-of-thunder/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/17/k6/0i/nz/days-of-thunder-1200-1200-675-675-crop-000000.jpg?v=38ebd1d28c",
+    "saved_path": "letterboxd_backdrops\\Days_of_Thunder_backdrop.jpg"
+  },
+  {
+    "title": "Under Siege",
+    "movie_url": "https://letterboxd.com/film/under-siege/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rn/pg/e7/yo/under-siege-1200-1200-675-675-crop-000000.jpg?v=1fb0474e60",
+    "saved_path": "letterboxd_backdrops\\Under_Siege_backdrop.jpg"
+  },
+  {
+    "title": "Cobra",
+    "movie_url": "https://letterboxd.com/film/cobra-1986/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yg/iq/gj/k9/cobra-1986-1200-1200-675-675-crop-000000.jpg?v=963803cf41",
+    "saved_path": "letterboxd_backdrops\\Cobra_backdrop.jpg"
+  },
+  {
+    "title": "Surf II: The End of the Trilogy",
+    "movie_url": "https://letterboxd.com/film/surf-ii-the-end-of-the-trilogy/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Escape from L.A.",
+    "movie_url": "https://letterboxd.com/film/escape-from-la/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sj/ig/4b/6l/escape-from-la-1200-1200-675-675-crop-000000.jpg?v=a3215aba2d",
+    "saved_path": "letterboxd_backdrops\\Escape_from_L_A__backdrop.jpg"
+  },
+  {
+    "title": "Black Moon Rising",
+    "movie_url": "https://letterboxd.com/film/black-moon-rising/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5p/ye/we/dk/black%20moon-1200-1200-675-675-crop-000000.jpg?v=63f6f951aa",
+    "saved_path": "letterboxd_backdrops\\Black_Moon_Rising_backdrop.jpg"
+  },
+  {
+    "title": "The Net",
+    "movie_url": "https://letterboxd.com/film/the-net/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/32/et/i6/9r/the-net-1200-1200-675-675-crop-000000.jpg?v=01217bf37c",
+    "saved_path": "letterboxd_backdrops\\The_Net_backdrop.jpg"
+  },
+  {
+    "title": "Hostel",
+    "movie_url": "https://letterboxd.com/film/hostel/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5x/10/af/3g/hostel-1200-1200-675-675-crop-000000.jpg?v=45c3e89545",
+    "saved_path": "letterboxd_backdrops\\Hostel_backdrop.jpg"
+  },
+  {
+    "title": "Malibu Express",
+    "movie_url": "https://letterboxd.com/film/malibu-express/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5q/yk/92/g8/malibu%20express-1200-1200-675-675-crop-000000.jpg?v=3f66e27cbb",
+    "saved_path": "letterboxd_backdrops\\Malibu_Express_backdrop.jpg"
+  },
+  {
+    "title": "Independence Day",
+    "movie_url": "https://letterboxd.com/film/independence-day/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/e4/19/w9/7f/independence-day-1200-1200-675-675-crop-000000.jpg?v=96be1da4bb",
+    "saved_path": "letterboxd_backdrops\\Independence_Day_backdrop.jpg"
+  },
+  {
+    "title": "Tango & Cash",
+    "movie_url": "https://letterboxd.com/film/tango-cash/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/26/3s/6e/3l/tango-cash-1200-1200-675-675-crop-000000.jpg?v=0f30ed2d25",
+    "saved_path": "letterboxd_backdrops\\Tango___Cash_backdrop.jpg"
+  },
+  {
+    "title": "Rambo",
+    "movie_url": "https://letterboxd.com/film/rambo/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7z/5p/7z/z8/rambo-1200-1200-675-675-crop-000000.jpg?v=6d8e94c526",
+    "saved_path": "letterboxd_backdrops\\Rambo_backdrop.jpg"
+  },
+  {
+    "title": "Critters",
+    "movie_url": "https://letterboxd.com/film/critters/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pg/8g/5h/x4/critters-1200-1200-675-675-crop-000000.jpg?v=49410b75e4",
+    "saved_path": "letterboxd_backdrops\\Critters_backdrop.jpg"
+  },
+  {
+    "title": "Arabella: Black Angel",
+    "movie_url": "https://letterboxd.com/film/arabella-black-angel/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/uf/k3/7e/95/arabella-1200-1200-675-675-crop-000000.jpg?v=c90ce8f9d8",
+    "saved_path": "letterboxd_backdrops\\Arabella__Black_Angel_backdrop.jpg"
+  },
+  {
+    "title": "Predator 2",
+    "movie_url": "https://letterboxd.com/film/predator-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5i/e4/id/59/predator-2-1200-1200-675-675-crop-000000.jpg?v=b6f2456c22",
+    "saved_path": "letterboxd_backdrops\\Predator_2_backdrop.jpg"
+  },
+  {
+    "title": "Xanadu",
+    "movie_url": "https://letterboxd.com/film/xanadu/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5n/g1/29/9c/xanadu-1200-1200-675-675-crop-000000.jpg?v=1c497b05b4",
+    "saved_path": "letterboxd_backdrops\\Xanadu_backdrop.jpg"
+  },
+  {
+    "title": "Picasso Trigger",
+    "movie_url": "https://letterboxd.com/film/picasso-trigger/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3r/td/h7/n7/picaso-1200-1200-675-675-crop-000000.jpg?v=8a32df28c9",
+    "saved_path": "letterboxd_backdrops\\Picasso_Trigger_backdrop.jpg"
+  },
+  {
+    "title": "Gymkata",
+    "movie_url": "https://letterboxd.com/film/gymkata/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jw/o9/rs/b8/kLLPFCIpz4T0Lzah8iOLIEDcH88-1200-1200-675-675-crop-000000.jpg?v=a8032499f8",
+    "saved_path": "letterboxd_backdrops\\Gymkata_backdrop.jpg"
+  },
+  {
+    "title": "Belly of the Beast",
+    "movie_url": "https://letterboxd.com/film/belly-of-the-beast/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ot/3y/gf/k2/C_116_fotogallery_119_lstFoto_foto_0_upiFoto-scaled-1200-1200-675-675-crop-000000.jpg?v=d9cbff0f82",
+    "saved_path": "letterboxd_backdrops\\Belly_of_the_Beast_backdrop.jpg"
+  },
+  {
+    "title": "Leprechaun 3",
+    "movie_url": "https://letterboxd.com/film/leprechaun-3/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ks/ch/ua/vg/lep3a-1200-1200-675-675-crop-000000.jpg?v=0fa80a4fce",
+    "saved_path": "letterboxd_backdrops\\Leprechaun_3_backdrop.jpg"
+  },
+  {
+    "title": "Anaconda",
+    "movie_url": "https://letterboxd.com/film/anaconda/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/j7/po/af/6m/anaconda-1200-1200-675-675-crop-000000.jpg?v=11b089d4d0",
+    "saved_path": "letterboxd_backdrops\\Anaconda_backdrop.jpg"
+  },
+  {
+    "title": "The Wicker Man",
+    "movie_url": "https://letterboxd.com/film/the-wicker-man-2006/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/r2/te/sl/8v/the-wicker-man-1200-1200-675-675-crop-000000.jpg?v=22fe587250",
+    "saved_path": "letterboxd_backdrops\\The_Wicker_Man_backdrop.jpg"
+  },
+  {
+    "title": "Batman & Robin",
+    "movie_url": "https://letterboxd.com/film/batman-robin/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sk/ey/az/g7/batman-robin-1200-1200-675-675-crop-000000.jpg?v=aa69bff104",
+    "saved_path": "letterboxd_backdrops\\Batman___Robin_backdrop.jpg"
+  },
+  {
+    "title": "Ace Ventura: Pet Detective",
+    "movie_url": "https://letterboxd.com/film/ace-ventura-pet-detective/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0o/gu/38/23/ace-ventura-pet-detective-1200-1200-675-675-crop-000000.jpg?v=6bd0c6a1f4",
+    "saved_path": "letterboxd_backdrops\\Ace_Ventura__Pet_Detective_backdrop.jpg"
+  },
+  {
+    "title": "Twister",
+    "movie_url": "https://letterboxd.com/film/twister/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/z8/2s/m7/5q/twister-1200-1200-675-675-crop-000000.jpg?v=12d95f66e9",
+    "saved_path": "letterboxd_backdrops\\Twister_backdrop.jpg"
+  },
+  {
+    "title": "Freddy Got Fingered",
+    "movie_url": "https://letterboxd.com/film/freddy-got-fingered/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/if/2z/ml/zb/freddy-1200-1200-675-675-crop-000000.jpg?v=7b84e9e645",
+    "saved_path": "letterboxd_backdrops\\Freddy_Got_Fingered_backdrop.jpg"
+  },
+  {
+    "title": "Stalked by My Doctor",
+    "movie_url": "https://letterboxd.com/film/stalked-by-my-doctor/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qn/lj/6a/w6/sMpO9CrLiYzvdGIsEBA8foCg4vd-1200-1200-675-675-crop-000000.jpg?v=cfe5f8a464",
+    "saved_path": "letterboxd_backdrops\\Stalked_by_My_Doctor_backdrop.jpg"
+  },
+  {
+    "title": "Drive Angry",
+    "movie_url": "https://letterboxd.com/film/drive-angry/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qc/qz/zf/gk/drive-angry-1200-1200-675-675-crop-000000.jpg?v=15a96967b7",
+    "saved_path": "letterboxd_backdrops\\Drive_Angry_backdrop.jpg"
+  },
+  {
+    "title": "Old",
+    "movie_url": "https://letterboxd.com/film/old-2021/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/cl/p2/rx/rz/old-1200-1200-675-675-crop-000000.jpg?v=5c234d6b5b",
+    "saved_path": "letterboxd_backdrops\\Old_backdrop.jpg"
+  },
+  {
+    "title": "Talons of the Eagle",
+    "movie_url": "https://letterboxd.com/film/talons-of-the-eagle/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Not Without My Daughter",
+    "movie_url": "https://letterboxd.com/film/not-without-my-daughter/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wd/hu/v1/ah/not-without-my-daughter-1200-1200-675-675-crop-000000.jpg?v=52f68cb097",
+    "saved_path": "letterboxd_backdrops\\Not_Without_My_Daughter_backdrop.jpg"
+  },
+  {
+    "title": "Airborne",
+    "movie_url": "https://letterboxd.com/film/airborne/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Fateful Findings",
+    "movie_url": "https://letterboxd.com/film/fateful-findings/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2n/20/5x/h3/fateful-findings-1200-1200-675-675-crop-000000.jpg?v=e38abcc289",
+    "saved_path": "letterboxd_backdrops\\Fateful_Findings_backdrop.jpg"
+  },
+  {
+    "title": "Samurai Cop",
+    "movie_url": "https://letterboxd.com/film/samurai-cop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/16/fi/lv/iy/samurai-cop-1200-1200-675-675-crop-000000.jpg?v=1884d4e30b",
+    "saved_path": "letterboxd_backdrops\\Samurai_Cop_backdrop.jpg"
+  },
+  {
+    "title": "Mac and Me",
+    "movie_url": "https://letterboxd.com/film/mac-and-me/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/at/y2/up/f3/mac%20and%20me-1200-1200-675-675-crop-000000.jpg?v=012b141cd0",
+    "saved_path": "letterboxd_backdrops\\Mac_and_Me_backdrop.jpg"
+  },
+  {
+    "title": "Krampus",
+    "movie_url": "https://letterboxd.com/film/krampus/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vl/36/uv/da/krampus-1200-1200-675-675-crop-000000.jpg?v=fda544417e",
+    "saved_path": "letterboxd_backdrops\\Krampus_backdrop.jpg"
+  },
+  {
+    "title": "Twisted Pair",
+    "movie_url": "https://letterboxd.com/film/twisted-pair/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dt/5c/1c/f2/twisted-pair-1200-1200-675-675-crop-000000.jpg?v=2c60a3a2de",
+    "saved_path": "letterboxd_backdrops\\Twisted_Pair_backdrop.jpg"
+  },
+  {
+    "title": "Troll 2",
+    "movie_url": "https://letterboxd.com/film/troll-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/c4/i0/76/u5/troll2-1200-1200-675-675-crop-000000.jpg?v=89b0fe2703",
+    "saved_path": "letterboxd_backdrops\\Troll_2_backdrop.jpg"
+  },
+  {
+    "title": "Wild Wild West",
+    "movie_url": "https://letterboxd.com/film/wild-wild-west/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/q3/po/lk/89/wild-wild-west-1200-1200-675-675-crop-000000.jpg?v=9fbedc769e",
+    "saved_path": "letterboxd_backdrops\\Wild_Wild_West_backdrop.jpg"
+  },
+  {
+    "title": "Ben & Arthur",
+    "movie_url": "https://letterboxd.com/film/ben-arthur/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Cats",
+    "movie_url": "https://letterboxd.com/film/cats-2019/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/q4/mh/vq/07/cats-2019-1200-1200-675-675-crop-000000.jpg?v=8e01be4b0f",
+    "saved_path": "letterboxd_backdrops\\Cats_backdrop.jpg"
+  },
+  {
+    "title": "Who Killed Captain Alex?",
+    "movie_url": "https://letterboxd.com/film/who-killed-captain-alex/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jv/a6/yz/az/who%20killed-1200-1200-675-675-crop-000000.jpg?v=8c36a3f9d6",
+    "saved_path": "letterboxd_backdrops\\Who_Killed_Captain_Alex__backdrop.jpg"
+  },
+  {
+    "title": "After Hours",
+    "movie_url": "https://letterboxd.com/film/after-hours/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wa/pe/3a/2d/after%20hours-1200-1200-675-675-crop-000000.jpg?v=cce9e99eab",
+    "saved_path": "letterboxd_backdrops\\After_Hours_backdrop.jpg"
+  },
+  {
+    "title": "The Killer",
+    "movie_url": "https://letterboxd.com/film/the-killer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2p/an/is/43/killer-1200-1200-675-675-crop-000000.jpg?v=1566bac3e9",
+    "saved_path": "letterboxd_backdrops\\The_Killer_backdrop.jpg"
+  },
+  {
+    "title": "Phantom of the Paradise",
+    "movie_url": "https://letterboxd.com/film/phantom-of-the-paradise/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ad/c3/b3/xe/phantom-of-the-paradise-1200-1200-675-675-crop-000000.jpg?v=1c4372852b",
+    "saved_path": "letterboxd_backdrops\\Phantom_of_the_Paradise_backdrop.jpg"
+  },
+  {
+    "title": "The Exorcist",
+    "movie_url": "https://letterboxd.com/film/the-exorcist/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/p4/8q/jq/cc/the-exorcist-1200-1200-675-675-crop-000000.jpg?v=1e9adb721a",
+    "saved_path": "letterboxd_backdrops\\The_Exorcist_backdrop.jpg"
+  },
+  {
+    "title": "Bullet in the Head",
+    "movie_url": "https://letterboxd.com/film/bullet-in-the-head/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gd/bd/5w/0f/yTpw2k0BV4hhTR2OABrSzEtBWGN-1200-1200-675-675-crop-000000.jpg?v=433cb37f95",
+    "saved_path": "letterboxd_backdrops\\Bullet_in_the_Head_backdrop.jpg"
+  },
+  {
+    "title": "Dawn of the Dead",
+    "movie_url": "https://letterboxd.com/film/dawn-of-the-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/cr/1m/vv/xa/dawn%20of%20the%20dead-1200-1200-675-675-crop-000000.jpg?v=4e18133106",
+    "saved_path": "letterboxd_backdrops\\Dawn_of_the_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Uncut Gems",
+    "movie_url": "https://letterboxd.com/film/uncut-gems/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jr/zc/xo/iw/uncut-gems-1200-1200-675-675-crop-000000.jpg?v=3ae14b9389",
+    "saved_path": "letterboxd_backdrops\\Uncut_Gems_backdrop.jpg"
+  },
+  {
+    "title": "Suspiria",
+    "movie_url": "https://letterboxd.com/film/suspiria/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/t4/ch/a6/pn/suspiria-1200-1200-675-675-crop-000000.jpg?v=32b7a16f8b",
+    "saved_path": "letterboxd_backdrops\\Suspiria_backdrop.jpg"
+  },
+  {
+    "title": "Bound",
+    "movie_url": "https://letterboxd.com/film/bound/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/89/l5/b8/80/bound-1200-1200-675-675-crop-000000.jpg?v=7715ad455a",
+    "saved_path": "letterboxd_backdrops\\Bound_backdrop.jpg"
+  },
+  {
+    "title": "Train to Busan",
+    "movie_url": "https://letterboxd.com/film/train-to-busan/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/11/sk/ys/wg/train-to-busan-1200-1200-675-675-crop-000000.jpg?v=e747d81711",
+    "saved_path": "letterboxd_backdrops\\Train_to_Busan_backdrop.jpg"
+  },
+  {
+    "title": "Star Trek II: The Wrath of Khan",
+    "movie_url": "https://letterboxd.com/film/star-trek-ii-the-wrath-of-khan/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ps/qc/k4/75/star-trek-ii-the-wrath-of-khan-10-1200-1200-675-675-crop-000000.jpg?v=383f3dd3a7",
+    "saved_path": "letterboxd_backdrops\\Star_Trek_II__The_Wrath_of_Khan_backdrop.jpg"
+  },
+  {
+    "title": "Straight Time",
+    "movie_url": "https://letterboxd.com/film/straight-time/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5b/mb/yi/zp/straight-1200-1200-675-675-crop-000000.jpg?v=902214fbff",
+    "saved_path": "letterboxd_backdrops\\Straight_Time_backdrop.jpg"
+  },
+  {
+    "title": "Ip Man",
+    "movie_url": "https://letterboxd.com/film/ip-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fk/je/9i/5x/ip%20man-1200-1200-675-675-crop-000000.jpg?v=98c417e32d",
+    "saved_path": "letterboxd_backdrops\\Ip_Man_backdrop.jpg"
+  },
+  {
+    "title": "Deliverance",
+    "movie_url": "https://letterboxd.com/film/deliverance/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/us/b0/d1/qe/deliverance-1200-1200-675-675-crop-000000.jpg?v=f5111e3b1f",
+    "saved_path": "letterboxd_backdrops\\Deliverance_backdrop.jpg"
+  },
+  {
+    "title": "Audition",
+    "movie_url": "https://letterboxd.com/film/audition/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qc/fp/8g/nx/audition-1200-1200-675-675-crop-000000.jpg?v=3b73fff95d",
+    "saved_path": "letterboxd_backdrops\\Audition_backdrop.jpg"
+  },
+  {
+    "title": "The Driver",
+    "movie_url": "https://letterboxd.com/film/the-driver/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/bd/5b/e8/pb/the-driver-1200-1200-675-675-crop-000000.jpg?v=05d7b04b7b",
+    "saved_path": "letterboxd_backdrops\\The_Driver_backdrop.jpg"
+  },
+  {
+    "title": "How to Blow Up a Pipeline",
+    "movie_url": "https://letterboxd.com/film/how-to-blow-up-a-pipeline/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yi/3u/ay/mk/rlFDnl3M1jF620PLmrd6RUMn6EP-1200-1200-675-675-crop-000000.jpg?v=fcc1c47cd1",
+    "saved_path": "letterboxd_backdrops\\How_to_Blow_Up_a_Pipeline_backdrop.jpg"
+  },
+  {
+    "title": "Eastern Condors",
+    "movie_url": "https://letterboxd.com/film/eastern-condors/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/69/en/99/6v/gn9rdjSBh2ojUAPBeMVjRUJCWvv-1200-1200-675-675-crop-000000.jpg?v=6cd68addf0",
+    "saved_path": "letterboxd_backdrops\\Eastern_Condors_backdrop.jpg"
+  },
+  {
+    "title": "Holy Flame of the Martial World",
+    "movie_url": "https://letterboxd.com/film/holy-flame-of-the-martial-world/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/6m/lp/8u/27/rSsqs8FfGxx9F2gvQaSXyNkIHMq-1200-1200-675-675-crop-000000.jpg?v=f7f02a54fb",
+    "saved_path": "letterboxd_backdrops\\Holy_Flame_of_the_Martial_World_backdrop.jpg"
+  },
+  {
+    "title": "Kiss Kiss Bang Bang",
+    "movie_url": "https://letterboxd.com/film/kiss-kiss-bang-bang-2005/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/21/96/av/59/kiss-kiss-bang-bang-1200-1200-675-675-crop-000000.jpg?v=6eb520bcb3",
+    "saved_path": "letterboxd_backdrops\\Kiss_Kiss_Bang_Bang_backdrop.jpg"
+  },
+  {
+    "title": "Day of the Dead",
+    "movie_url": "https://letterboxd.com/film/day-of-the-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ay/8o/ex/l3/day-of-the-dead-1200-1200-675-675-crop-000000.jpg?v=2db5b8f6f6",
+    "saved_path": "letterboxd_backdrops\\Day_of_the_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Re-Animator",
+    "movie_url": "https://letterboxd.com/film/re-animator/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x3/yh/4j/dm/re-animator-1200-1200-675-675-crop-000000.jpg?v=141651685b",
+    "saved_path": "letterboxd_backdrops\\Re-Animator_backdrop.jpg"
+  },
+  {
+    "title": "A Nightmare on Elm Street",
+    "movie_url": "https://letterboxd.com/film/a-nightmare-on-elm-street/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gi/x0/qp/k9/a-nightmare-on-elm-street-1200-1200-675-675-crop-000000.jpg?v=144f5b892b",
+    "saved_path": "letterboxd_backdrops\\A_Nightmare_on_Elm_Street_backdrop.jpg"
+  },
+  {
+    "title": "Serial Mom",
+    "movie_url": "https://letterboxd.com/film/serial-mom/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wm/yu/mi/vm/serial%20mom-1200-1200-675-675-crop-000000.jpg?v=c0fd7957f3",
+    "saved_path": "letterboxd_backdrops\\Serial_Mom_backdrop.jpg"
+  },
+  {
+    "title": "Point Break",
+    "movie_url": "https://letterboxd.com/film/point-break/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/n2/ws/gi/xu/point-break-1200-1200-675-675-crop-000000.jpg?v=f112c3bdc0",
+    "saved_path": "letterboxd_backdrops\\Point_Break_backdrop.jpg"
+  },
+  {
+    "title": "A Chinese Ghost Story",
+    "movie_url": "https://letterboxd.com/film/a-chinese-ghost-story/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ex/e2/5c/bv/26hdeynra5BGu0z5FnlYxboyMu7-1200-1200-675-675-crop-000000.jpg?v=7f7fac29e7",
+    "saved_path": "letterboxd_backdrops\\A_Chinese_Ghost_Story_backdrop.jpg"
+  },
+  {
+    "title": "Lethal Weapon",
+    "movie_url": "https://letterboxd.com/film/lethal-weapon/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9v/h5/ld/93/lethal-weapon-1200-1200-675-675-crop-000000.jpg?v=256475565b",
+    "saved_path": "letterboxd_backdrops\\Lethal_Weapon_backdrop.jpg"
+  },
+  {
+    "title": "The Seventh Curse",
+    "movie_url": "https://letterboxd.com/film/the-seventh-curse/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4h/6a/9y/94/sLFiW7nxleMuUozGamDCcJKUCH0-1200-1200-675-675-crop-000000.jpg?v=f691fa254e",
+    "saved_path": "letterboxd_backdrops\\The_Seventh_Curse_backdrop.jpg"
+  },
+  {
+    "title": "The Crow",
+    "movie_url": "https://letterboxd.com/film/the-crow/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sr/9o/x1/v2/the-crow-1200-1200-675-675-crop-000000.jpg?v=2db2b0f161",
+    "saved_path": "letterboxd_backdrops\\The_Crow_backdrop.jpg"
+  },
+  {
+    "title": "Pumping Iron",
+    "movie_url": "https://letterboxd.com/film/pumping-iron/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jq/5z/ch/qp/75xXpV39qDwEBYV4lgVvTHEwjtV-1200-1200-675-675-crop-000000.jpg?v=78746cf50a",
+    "saved_path": "letterboxd_backdrops\\Pumping_Iron_backdrop.jpg"
+  },
+  {
+    "title": "Once Upon a Time in China",
+    "movie_url": "https://letterboxd.com/film/once-upon-a-time-in-china/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/78/8n/g2/xo/fqLxSZpPTfPFjAzS6zUdGYJXSv-1200-1200-675-675-crop-000000.jpg?v=343e4a1e88",
+    "saved_path": "letterboxd_backdrops\\Once_Upon_a_Time_in_China_backdrop.jpg"
+  },
+  {
+    "title": "Watermelon Man",
+    "movie_url": "https://letterboxd.com/film/watermelon-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/14/js/pb/bk/watermelon-1200-1200-675-675-crop-000000.jpg?v=9b5a586c98",
+    "saved_path": "letterboxd_backdrops\\Watermelon_Man_backdrop.jpg"
+  },
+  {
+    "title": "Electric Boogaloo: The Wild, Untold Story of Cannon Films",
+    "movie_url": "https://letterboxd.com/film/electric-boogaloo-the-wild-untold-story-of-cannon-films/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dk/ap/bp/uv/electric-boogaloo-1200-1200-675-675-crop-000000.jpg?v=e7b215531e",
+    "saved_path": "letterboxd_backdrops\\Electric_Boogaloo__The_Wild__Untold_Story_of_Cannon_Films_backdrop.jpg"
+  },
+  {
+    "title": "Shaolin Soccer",
+    "movie_url": "https://letterboxd.com/film/shaolin-soccer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/va/25/bs/vu/shaolin%20soccer-1200-1200-675-675-crop-000000.jpg?v=09a2815490",
+    "saved_path": "letterboxd_backdrops\\Shaolin_Soccer_backdrop.jpg"
+  },
+  {
+    "title": "Falling Down",
+    "movie_url": "https://letterboxd.com/film/falling-down/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7j/05/d0/pw/falling-down-1200-1200-675-675-crop-000000.jpg?v=cab1c76016",
+    "saved_path": "letterboxd_backdrops\\Falling_Down_backdrop.jpg"
+  },
+  {
+    "title": "Shin Kamen Rider",
+    "movie_url": "https://letterboxd.com/film/shin-kamen-rider/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mr/1e/8k/wm/ShinKamenRider_1-1200-1200-675-675-crop-000000.jpg?v=b21cacd5d8",
+    "saved_path": "letterboxd_backdrops\\Shin_Kamen_Rider_backdrop.jpg"
+  },
+  {
+    "title": "Funky Forest: The First Contact",
+    "movie_url": "https://letterboxd.com/film/funky-forest-the-first-contact/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nb/3c/6t/mt/soAvozGJnQACbHSy986zXrFX1EA-1200-1200-675-675-crop-000000.jpg?v=915e47a4b3",
+    "saved_path": "letterboxd_backdrops\\Funky_Forest__The_First_Contact_backdrop.jpg"
+  },
+  {
+    "title": "Bad Lieutenant: Port of Call \u2013 New Orleans",
+    "movie_url": "https://letterboxd.com/film/bad-lieutenant-port-of-call-new-orleans/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ud/yh/il/i2/bad-lieutenant-port-of-call-new-orleans-1200-1200-675-675-crop-000000.jpg?v=19628380e3",
+    "saved_path": "letterboxd_backdrops\\Bad_Lieutenant__Port_of_Call___New_Orleans_backdrop.jpg"
+  },
+  {
+    "title": "Rocky IV",
+    "movie_url": "https://letterboxd.com/film/rocky-iv-rocky-vs-drago-the-ultimate-directors/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ez/j6/4f/as/rocky-iv-1200-1200-675-675-crop-000000.jpg?v=f60d023621",
+    "saved_path": "letterboxd_backdrops\\Rocky_IV_backdrop.jpg"
+  },
+  {
+    "title": "Death Proof",
+    "movie_url": "https://letterboxd.com/film/death-proof/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/od/en/ir/po/death-proof-70-1200-1200-675-675-crop-000000.jpg?v=0bb126f6b3",
+    "saved_path": "letterboxd_backdrops\\Death_Proof_backdrop.jpg"
+  },
+  {
+    "title": "The Exorcist III",
+    "movie_url": "https://letterboxd.com/film/the-exorcist-iii/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ti/dd/jg/l1/the-exorcist-iii-1200-1200-675-675-crop-000000.jpg?v=7c6439a8b2",
+    "saved_path": "letterboxd_backdrops\\The_Exorcist_III_backdrop.jpg"
+  },
+  {
+    "title": "Barbarian",
+    "movie_url": "https://letterboxd.com/film/barbarian-2022/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/79/gp/k6/n0/C2307DC0-45B2-4C9B-8191-33CE51032919-1200-1200-675-675-crop-000000.jpg?v=8ee94fcbaa",
+    "saved_path": "letterboxd_backdrops\\Barbarian_backdrop.jpg"
+  },
+  {
+    "title": "Kids in the Hall: Brain Candy",
+    "movie_url": "https://letterboxd.com/film/kids-in-the-hall-brain-candy/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sn/ju/z5/4x/toRkCDnjSDqvg2rrdbm3nlGrZIm-1200-1200-675-675-crop-000000.jpg?v=248e46dd68",
+    "saved_path": "letterboxd_backdrops\\Kids_in_the_Hall__Brain_Candy_backdrop.jpg"
+  },
+  {
+    "title": "Night of the Creeps",
+    "movie_url": "https://letterboxd.com/film/night-of-the-creeps/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sf/y6/gk/he/night-of-creeps-1200-1200-675-675-crop-000000.jpg?v=cfd1061a35",
+    "saved_path": "letterboxd_backdrops\\Night_of_the_Creeps_backdrop.jpg"
+  },
+  {
+    "title": "Demons",
+    "movie_url": "https://letterboxd.com/film/demons/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fh/6c/5t/53/demons-1200-1200-675-675-crop-000000.jpg?v=0877e4d63a",
+    "saved_path": "letterboxd_backdrops\\Demons_backdrop.jpg"
+  },
+  {
+    "title": "Rush Hour",
+    "movie_url": "https://letterboxd.com/film/rush-hour/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3l/4l/vq/9m/rush-hour-1200-1200-675-675-crop-000000.jpg?v=4c01ebcb4c",
+    "saved_path": "letterboxd_backdrops\\Rush_Hour_backdrop.jpg"
+  },
+  {
+    "title": "American Pimp",
+    "movie_url": "https://letterboxd.com/film/american-pimp/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "City of the Living Dead",
+    "movie_url": "https://letterboxd.com/film/city-of-the-living-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/8i/b9/em/m0/city-of-the-living-dead-1200-1200-675-675-crop-000000.jpg?v=8413d16510",
+    "saved_path": "letterboxd_backdrops\\City_of_the_Living_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Frankenhooker",
+    "movie_url": "https://letterboxd.com/film/frankenhooker/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gd/s1/9b/s3/4W1PhTIIRKSR26EqfphERhdylyu-1200-1200-675-675-crop-000000.jpg?v=92fe845c18",
+    "saved_path": "letterboxd_backdrops\\Frankenhooker_backdrop.jpg"
+  },
+  {
+    "title": "Shaft",
+    "movie_url": "https://letterboxd.com/film/shaft/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9m/gm/5j/zk/shaft-1200-1200-675-675-crop-000000.jpg?v=6e035813d6",
+    "saved_path": "letterboxd_backdrops\\Shaft_backdrop.jpg"
+  },
+  {
+    "title": "In the Line of Duty 3",
+    "movie_url": "https://letterboxd.com/film/in-the-line-of-duty-3/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Magic Crystal",
+    "movie_url": "https://letterboxd.com/film/magic-crystal/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l1/h3/9g/r7/iE6LUDnuw7uLQVRPYmmM5sCzT6K-1200-1200-675-675-crop-000000.jpg?v=6e95fdadc7",
+    "saved_path": "letterboxd_backdrops\\Magic_Crystal_backdrop.jpg"
+  },
+  {
+    "title": "Cronos",
+    "movie_url": "https://letterboxd.com/film/cronos/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/e0/al/mk/kv/chronos-1200-1200-675-675-crop-000000.jpg?v=053787376f",
+    "saved_path": "letterboxd_backdrops\\Cronos_backdrop.jpg"
+  },
+  {
+    "title": "The Lair of the White Worm",
+    "movie_url": "https://letterboxd.com/film/the-lair-of-the-white-worm/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/e2/ni/tf/q2/the-lair-of-the-white-worm-1200-1200-675-675-crop-000000.jpg?v=ebd98a3865",
+    "saved_path": "letterboxd_backdrops\\The_Lair_of_the_White_Worm_backdrop.jpg"
+  },
+  {
+    "title": "The Last Dragon",
+    "movie_url": "https://letterboxd.com/film/the-last-dragon/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/45/dl/yh/3n/last-dragon-1200-1200-675-675-crop-000000.jpg?v=e66f2c6235",
+    "saved_path": "letterboxd_backdrops\\The_Last_Dragon_backdrop.jpg"
+  },
+  {
+    "title": "Blade",
+    "movie_url": "https://letterboxd.com/film/blade/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7w/2s/kl/2m/blade-1200-1200-675-675-crop-000000.jpg?v=18129f45a1",
+    "saved_path": "letterboxd_backdrops\\Blade_backdrop.jpg"
+  },
+  {
+    "title": "The Rocketeer",
+    "movie_url": "https://letterboxd.com/film/the-rocketeer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2x/08/c0/jo/the-rocketeer-1200-1200-675-675-crop-000000.jpg?v=0612a9c69e",
+    "saved_path": "letterboxd_backdrops\\The_Rocketeer_backdrop.jpg"
+  },
+  {
+    "title": "Pimps Up, Ho's Down",
+    "movie_url": "https://letterboxd.com/film/pimps-up-hos-down/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "The Stabilizer",
+    "movie_url": "https://letterboxd.com/film/the-stabilizer/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "The Match-Stick Flame 2: Lunada Bay",
+    "movie_url": "https://letterboxd.com/film/the-match-stick-flame-2-lunada-bay/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Speed Racer",
+    "movie_url": "https://letterboxd.com/film/speed-racer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0y/9x/ts/cw/speed-racer-1200-1200-675-675-crop-000000.jpg?v=abcacf7ac7",
+    "saved_path": "letterboxd_backdrops\\Speed_Racer_backdrop.jpg"
+  },
+  {
+    "title": "Planet Terror",
+    "movie_url": "https://letterboxd.com/film/planet-terror/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rl/pz/lg/xg/planet-terror-90-1200-1200-675-675-crop-000000.jpg?v=19429ecff1",
+    "saved_path": "letterboxd_backdrops\\Planet_Terror_backdrop.jpg"
+  },
+  {
+    "title": "The Match-Stick Flame",
+    "movie_url": "https://letterboxd.com/film/the-match-stick-flame/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Sweet Sweetback's Baadasssss Song",
+    "movie_url": "https://letterboxd.com/film/sweet-sweetbacks-baadasssss-song/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/04/l0/gk/po/sweet%20sweetback-1200-1200-675-675-crop-000000.jpg?v=248d1d0050",
+    "saved_path": "letterboxd_backdrops\\Sweet_Sweetback_s_Baadasssss_Song_backdrop.jpg"
+  },
+  {
+    "title": "Bad Trip",
+    "movie_url": "https://letterboxd.com/film/bad-trip-2021/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ol/vv/pu/uk/bad%20trip-1200-1200-675-675-crop-000000.jpg?v=e6a40b3d49",
+    "saved_path": "letterboxd_backdrops\\Bad_Trip_backdrop.jpg"
+  },
+  {
+    "title": "Bad Taste",
+    "movie_url": "https://letterboxd.com/film/bad-taste/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/r8/bb/5v/98/bad-taste-1200-1200-675-675-crop-000000.jpg?v=c02c60316b",
+    "saved_path": "letterboxd_backdrops\\Bad_Taste_backdrop.jpg"
+  },
+  {
+    "title": "Action U.S.A.",
+    "movie_url": "https://letterboxd.com/film/action-usa/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ju/tv/an/7v/action-usa-1200-1200-675-675-crop-000000.jpg?v=0321992ab4",
+    "saved_path": "letterboxd_backdrops\\Action_U_S_A__backdrop.jpg"
+  },
+  {
+    "title": "The Machine Girl",
+    "movie_url": "https://letterboxd.com/film/the-machine-girl/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pt/b2/hc/gq/machine-1200-1200-675-675-crop-000000.jpg?v=da435c8f95",
+    "saved_path": "letterboxd_backdrops\\The_Machine_Girl_backdrop.jpg"
+  },
+  {
+    "title": "Backdraft",
+    "movie_url": "https://letterboxd.com/film/backdraft/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1j/j6/56/e9/backdraft-1200-1200-675-675-crop-000000.jpg?v=fbc39f6edd",
+    "saved_path": "letterboxd_backdrops\\Backdraft_backdrop.jpg"
+  },
+  {
+    "title": "Barbarella",
+    "movie_url": "https://letterboxd.com/film/barbarella/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wi/cl/t4/l0/barbarella-1200-1200-675-675-crop-000000.jpg?v=31c59ee9a0",
+    "saved_path": "letterboxd_backdrops\\Barbarella_backdrop.jpg"
+  },
+  {
+    "title": "Rad",
+    "movie_url": "https://letterboxd.com/film/rad/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ax/6i/o3/26/rad-1200-1200-675-675-crop-000000.jpg?v=885c6bd232",
+    "saved_path": "letterboxd_backdrops\\Rad_backdrop.jpg"
+  },
+  {
+    "title": "Zardoz",
+    "movie_url": "https://letterboxd.com/film/zardoz/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/34/tt/3g/pn/zardoz-1200-1200-675-675-crop-000000.jpg?v=e7162736ca",
+    "saved_path": "letterboxd_backdrops\\Zardoz_backdrop.jpg"
+  },
+  {
+    "title": "Lifeforce",
+    "movie_url": "https://letterboxd.com/film/lifeforce/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/zb/xy/8f/2z/lifeforce-1200-1200-675-675-crop-000000.jpg?v=5de7700a44",
+    "saved_path": "letterboxd_backdrops\\Lifeforce_backdrop.jpg"
+  },
+  {
+    "title": "Nighthawks",
+    "movie_url": "https://letterboxd.com/film/nighthawks/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/t5/c9/tv/43/yTzazXu7tuVdn8Qnt0aKvA3XiJG-1200-1200-675-675-crop-000000.jpg?v=5f0cfc78be",
+    "saved_path": "letterboxd_backdrops\\Nighthawks_backdrop.jpg"
+  },
+  {
+    "title": "The Sadness",
+    "movie_url": "https://letterboxd.com/film/the-sadness-2021/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/aq/8k/na/od/sadness-1200-1200-675-675-crop-000000.jpg?v=18eb499ab0",
+    "saved_path": "letterboxd_backdrops\\The_Sadness_backdrop.jpg"
+  },
+  {
+    "title": "Friday the 13th Part VI: Jason Lives",
+    "movie_url": "https://letterboxd.com/film/friday-the-13th-part-vi-jason-lives/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/do/vn/tt/57/friday-the-13th-part-vi-jason-lives-1200-1200-675-675-crop-000000.jpg?v=cb6e93334c",
+    "saved_path": "letterboxd_backdrops\\Friday_the_13th_Part_VI__Jason_Lives_backdrop.jpg"
+  },
+  {
+    "title": "Twilight Zone: The Movie",
+    "movie_url": "https://letterboxd.com/film/twilight-zone-the-movie/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/o3/fm/bm/au/twilight-zone-1200-1200-675-675-crop-000000.jpg?v=7647124215",
+    "saved_path": "letterboxd_backdrops\\Twilight_Zone__The_Movie_backdrop.jpg"
+  },
+  {
+    "title": "Death Wish 3",
+    "movie_url": "https://letterboxd.com/film/death-wish-3/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0t/hs/ad/dk/death-wish-3-1200-1200-675-675-crop-000000.jpg?v=a7b007150f",
+    "saved_path": "letterboxd_backdrops\\Death_Wish_3_backdrop.jpg"
+  },
+  {
+    "title": "Breathing Fire",
+    "movie_url": "https://letterboxd.com/film/breathing-fire/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Dick Tracy",
+    "movie_url": "https://letterboxd.com/film/dick-tracy/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/nu/6a/1b/y5/g42G7sBCJTEky8G44lK1KTnkgJb-1200-1200-675-675-crop-000000.jpg?v=0ffc184cce",
+    "saved_path": "letterboxd_backdrops\\Dick_Tracy_backdrop.jpg"
+  },
+  {
+    "title": "Kickboxer",
+    "movie_url": "https://letterboxd.com/film/kickboxer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/o5/tc/tb/7g/kickboxer-1200-1200-675-675-crop-000000.jpg?v=0fb8370a7e",
+    "saved_path": "letterboxd_backdrops\\Kickboxer_backdrop.jpg"
+  },
+  {
+    "title": "Angel",
+    "movie_url": "https://letterboxd.com/film/angel-1984/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5s/64/8t/dh/angel-1200-1200-675-675-crop-000000.jpg?v=eee31dcf47",
+    "saved_path": "letterboxd_backdrops\\Angel_backdrop.jpg"
+  },
+  {
+    "title": "Bad Boys II",
+    "movie_url": "https://letterboxd.com/film/bad-boys-ii/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/86/iw/8s/r2/bad-boys-ii-1200-1200-675-675-crop-000000.jpg?v=368e3c8a87",
+    "saved_path": "letterboxd_backdrops\\Bad_Boys_II_backdrop.jpg"
+  },
+  {
+    "title": "Thrashin'",
+    "movie_url": "https://letterboxd.com/film/thrashin/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ie/y7/db/s8/thrashin-1200-1200-675-675-crop-000000.jpg?v=5e5f1430ea",
+    "saved_path": "letterboxd_backdrops\\Thrashin__backdrop.jpg"
+  },
+  {
+    "title": "Ninja III: The Domination",
+    "movie_url": "https://letterboxd.com/film/ninja-iii-the-domination/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/p1/i9/kp/43/4894CC03-19AB-4289-A58B-E99A6FC1A35F-1200-1200-675-675-crop-000000.jpg?v=42d0145923",
+    "saved_path": "letterboxd_backdrops\\Ninja_III__The_Domination_backdrop.jpg"
+  },
+  {
+    "title": "Project Wolf Hunting",
+    "movie_url": "https://letterboxd.com/film/project-wolf-hunting/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0p/fi/n5/4t/project-1200-1200-675-675-crop-000000.jpg?v=5bf6747775",
+    "saved_path": "letterboxd_backdrops\\Project_Wolf_Hunting_backdrop.jpg"
+  },
+  {
+    "title": "Billy Jack",
+    "movie_url": "https://letterboxd.com/film/billy-jack/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fo/ib/t1/2b/b20IwSwTcNBOxnCkKU8qt7gwWYd-1200-1200-675-675-crop-000000.jpg?v=9891c5d0ef",
+    "saved_path": "letterboxd_backdrops\\Billy_Jack_backdrop.jpg"
+  },
+  {
+    "title": "Burial Ground",
+    "movie_url": "https://letterboxd.com/film/burial-ground/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ay/mm/5z/8s/burial-1200-1200-675-675-crop-000000.jpg?v=2738076075",
+    "saved_path": "letterboxd_backdrops\\Burial_Ground_backdrop.jpg"
+  },
+  {
+    "title": "The Oily Maniac",
+    "movie_url": "https://letterboxd.com/film/the-oily-maniac/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sp/y1/0z/nb/ivR5e5KqZj0F876ik4sQkoxVhXA-1200-1200-675-675-crop-000000.jpg?v=766159caf9",
+    "saved_path": "letterboxd_backdrops\\The_Oily_Maniac_backdrop.jpg"
+  },
+  {
+    "title": "High Kicks",
+    "movie_url": "https://letterboxd.com/film/high-kicks/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "The Slumber Party Massacre",
+    "movie_url": "https://letterboxd.com/film/the-slumber-party-massacre/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7p/kh/yf/ts/the-slumber-party-massacre-1200-1200-675-675-crop-000000.jpg?v=a9677f939b",
+    "saved_path": "letterboxd_backdrops\\The_Slumber_Party_Massacre_backdrop.jpg"
+  },
+  {
+    "title": "Breakin' 2: Electric Boogaloo",
+    "movie_url": "https://letterboxd.com/film/breakin-2-electric-boogaloo/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hd/ge/nd/8b/breakin-1200-1200-675-675-crop-000000.jpg?v=eed94313b7",
+    "saved_path": "letterboxd_backdrops\\Breakin__2__Electric_Boogaloo_backdrop.jpg"
+  },
+  {
+    "title": "GetEven",
+    "movie_url": "https://letterboxd.com/film/geteven/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Cabin Boy",
+    "movie_url": "https://letterboxd.com/film/cabin-boy/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9l/s1/f6/d2/b2BEvJlFjDGizo4Q0Ao6QZiV175-1200-1200-675-675-crop-000000.jpg?v=8d37a5e5e6",
+    "saved_path": "letterboxd_backdrops\\Cabin_Boy_backdrop.jpg"
+  },
+  {
+    "title": "RoboCop 2",
+    "movie_url": "https://letterboxd.com/film/robocop-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fc/d3/3o/25/robocop-2-1200-1200-675-675-crop-000000.jpg?v=f2c28aa508",
+    "saved_path": "letterboxd_backdrops\\RoboCop_2_backdrop.jpg"
+  },
+  {
+    "title": "Over the Top",
+    "movie_url": "https://letterboxd.com/film/over-the-top/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jl/ms/ha/9w/over-the-top-1200-1200-675-675-crop-000000.jpg?v=282ed834ef",
+    "saved_path": "letterboxd_backdrops\\Over_the_Top_backdrop.jpg"
+  },
+  {
+    "title": "Never Too Young to Die",
+    "movie_url": "https://letterboxd.com/film/never-too-young-to-die/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Roller Boogie",
+    "movie_url": "https://letterboxd.com/film/roller-boogie/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Enter the Ninja",
+    "movie_url": "https://letterboxd.com/film/enter-the-ninja/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/el/gp/tt/ky/enter-the-ninja-1200-1200-675-675-crop-000000.jpg?v=622bc163a9",
+    "saved_path": "letterboxd_backdrops\\Enter_the_Ninja_backdrop.jpg"
+  },
+  {
+    "title": "Deadly Prey",
+    "movie_url": "https://letterboxd.com/film/deadly-prey/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/te/z6/sz/n1/deadly-prey-1200-1200-675-675-crop-000000.jpg?v=6b1b38c4d2",
+    "saved_path": "letterboxd_backdrops\\Deadly_Prey_backdrop.jpg"
+  },
+  {
+    "title": "A Nightmare on Elm Street Part 2: Freddy's Revenge",
+    "movie_url": "https://letterboxd.com/film/a-nightmare-on-elm-street-part-2-freddys-revenge/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/de/ne/vd/z6/a-nightmare-on-elm-street-part-2-freddys-revenge-1200-1200-675-675-crop-000000.jpg?v=956fa7cc00",
+    "saved_path": "letterboxd_backdrops\\A_Nightmare_on_Elm_Street_Part_2__Freddy_s_Revenge_backdrop.jpg"
+  },
+  {
+    "title": "American Ninja",
+    "movie_url": "https://letterboxd.com/film/american-ninja/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/i8/sp/bf/j6/american-1200-1200-675-675-crop-000000.jpg?v=34219ef1e1",
+    "saved_path": "letterboxd_backdrops\\American_Ninja_backdrop.jpg"
+  },
+  {
+    "title": "American Ninja 2: The Confrontation",
+    "movie_url": "https://letterboxd.com/film/american-ninja-2-the-confrontation/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Delta Force 2: The Colombian Connection",
+    "movie_url": "https://letterboxd.com/film/delta-force-2-the-colombian-connection/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/kt/vk/6y/kp/d9ap5NM1TLHhnVZ8kXIGvHcdRST-1200-1200-675-675-crop-000000.jpg?v=9148a812bb",
+    "saved_path": "letterboxd_backdrops\\Delta_Force_2__The_Colombian_Connection_backdrop.jpg"
+  },
+  {
+    "title": "No Holds Barred",
+    "movie_url": "https://letterboxd.com/film/no-holds-barred/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Plan 9 from Outer Space",
+    "movie_url": "https://letterboxd.com/film/plan-9-from-outer-space/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ix/5h/2p/ld/plan%209-1200-1200-675-675-crop-000000.jpg?v=e4a4053179",
+    "saved_path": "letterboxd_backdrops\\Plan_9_from_Outer_Space_backdrop.jpg"
+  },
+  {
+    "title": "Dirty Harry",
+    "movie_url": "https://letterboxd.com/film/dirty-harry/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2f/0x/2k/z0/dirty-harry-1200-1200-675-675-crop-000000.jpg?v=f493a37b1e",
+    "saved_path": "letterboxd_backdrops\\Dirty_Harry_backdrop.jpg"
+  },
+  {
+    "title": "Basic Instinct",
+    "movie_url": "https://letterboxd.com/film/basic-instinct/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/41/5o/nh/nc/basic-instinct-1200-1200-675-675-crop-000000.jpg?v=45209645e4",
+    "saved_path": "letterboxd_backdrops\\Basic_Instinct_backdrop.jpg"
+  },
+  {
+    "title": "Pedicab Driver",
+    "movie_url": "https://letterboxd.com/film/pedicab-driver/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/a3/ly/2j/q7/pedicab-1200-1200-675-675-crop-000000.jpg?v=7ec73b6058",
+    "saved_path": "letterboxd_backdrops\\Pedicab_Driver_backdrop.jpg"
+  },
+  {
+    "title": "Blade II",
+    "movie_url": "https://letterboxd.com/film/blade-ii/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ge/0i/b8/7p/blade-2-1200-1200-675-675-crop-000000.jpg?v=c220b515d4",
+    "saved_path": "letterboxd_backdrops\\Blade_II_backdrop.jpg"
+  },
+  {
+    "title": "The Killer",
+    "movie_url": "https://letterboxd.com/film/the-killer-2023/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/r7/0z/1x/xf/the-killer-2023-1200-1200-675-675-crop-000000.jpg?v=15dadbb22c",
+    "saved_path": "letterboxd_backdrops\\The_Killer_backdrop.jpg"
+  },
+  {
+    "title": "Raw Force",
+    "movie_url": "https://letterboxd.com/film/raw-force/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/b4/24/je/ht/RawForce-1200-1200-675-675-crop-000000.jpg?v=923987dd98",
+    "saved_path": "letterboxd_backdrops\\Raw_Force_backdrop.jpg"
+  },
+  {
+    "title": "Street Fighter",
+    "movie_url": "https://letterboxd.com/film/street-fighter/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xr/sq/xi/62/streetfighter-1200-1200-675-675-crop-000000.jpg?v=27b41db22b",
+    "saved_path": "letterboxd_backdrops\\Street_Fighter_backdrop.jpg"
+  },
+  {
+    "title": "Black Rain",
+    "movie_url": "https://letterboxd.com/film/black-rain/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/qr/9d/4e/kk/black-rain-1200-1200-675-675-crop-000000.jpg?v=a786fec7e3",
+    "saved_path": "letterboxd_backdrops\\Black_Rain_backdrop.jpg"
+  },
+  {
+    "title": "Poultrygeist: Night of the Chicken Dead",
+    "movie_url": "https://letterboxd.com/film/poultrygeist-night-of-the-chicken-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/sc/65/4p/su/poultrygeist-1200-1200-675-675-crop-000000.jpg?v=a7b4421f16",
+    "saved_path": "letterboxd_backdrops\\Poultrygeist__Night_of_the_Chicken_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Revenge",
+    "movie_url": "https://letterboxd.com/film/revenge-2017/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dc/bx/d7/a8/revenge-1200-1200-675-675-crop-000000.jpg?v=81a3c6f9a9",
+    "saved_path": "letterboxd_backdrops\\Revenge_backdrop.jpg"
+  },
+  {
+    "title": "The People Under the Stairs",
+    "movie_url": "https://letterboxd.com/film/the-people-under-the-stairs/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/u3/dj/nb/km/people%20under-1200-1200-675-675-crop-000000.jpg?v=42250f396f",
+    "saved_path": "letterboxd_backdrops\\The_People_Under_the_Stairs_backdrop.jpg"
+  },
+  {
+    "title": "Undefeatable",
+    "movie_url": "https://letterboxd.com/film/undefeatable/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/8r/um/mz/nw/hSpElLfX3FGlR8Ba3ao4s4Mt7Xt-1200-1200-675-675-crop-000000.jpg?v=d4d51c023f",
+    "saved_path": "letterboxd_backdrops\\Undefeatable_backdrop.jpg"
+  },
+  {
+    "title": "The Matrix",
+    "movie_url": "https://letterboxd.com/film/the-matrix/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/o3/er/ey/ie/matrix-1200-1200-675-675-crop-000000.jpg?v=eea86a2195",
+    "saved_path": "letterboxd_backdrops\\The_Matrix_backdrop.jpg"
+  },
+  {
+    "title": "Run Lola Run",
+    "movie_url": "https://letterboxd.com/film/run-lola-run/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x5/oa/xd/ww/run-lola-run-1200-1200-675-675-crop-000000.jpg?v=8b6e941b77",
+    "saved_path": "letterboxd_backdrops\\Run_Lola_Run_backdrop.jpg"
+  },
+  {
+    "title": "Robo Vampire",
+    "movie_url": "https://letterboxd.com/film/robo-vampire/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "MacGruber",
+    "movie_url": "https://letterboxd.com/film/macgruber/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/uc/w7/95/a8/macgruber-1200-1200-675-675-crop-000000.jpg?v=f6281a6bd7",
+    "saved_path": "letterboxd_backdrops\\MacGruber_backdrop.jpg"
+  },
+  {
+    "title": "Body Double",
+    "movie_url": "https://letterboxd.com/film/body-double/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ku/3e/fp/75/body%20double-1200-1200-675-675-crop-000000.jpg?v=6cbcd6e923",
+    "saved_path": "letterboxd_backdrops\\Body_Double_backdrop.jpg"
+  },
+  {
+    "title": "Silent Night, Deadly Night Part 2",
+    "movie_url": "https://letterboxd.com/film/silent-night-deadly-night-part-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/oa/ow/z5/qa/qFjLmHxTwBKZ9Euvi5DTrXrBodj-1200-1200-675-675-crop-000000.jpg?v=9fcff3e56f",
+    "saved_path": "letterboxd_backdrops\\Silent_Night__Deadly_Night_Part_2_backdrop.jpg"
+  },
+  {
+    "title": "Jack Frost",
+    "movie_url": "https://letterboxd.com/film/jack-frost-1997/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vc/f0/0c/9o/jack%20frost-1200-1200-675-675-crop-000000.jpg?v=0f9cc9fb87",
+    "saved_path": "letterboxd_backdrops\\Jack_Frost_backdrop.jpg"
+  },
+  {
+    "title": "The 'Burbs",
+    "movie_url": "https://letterboxd.com/film/the-burbs/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hn/y0/cm/os/the-burbs-1200-1200-675-675-crop-000000.jpg?v=8d9934349b",
+    "saved_path": "letterboxd_backdrops\\The__Burbs_backdrop.jpg"
+  },
+  {
+    "title": "Thanksgiving",
+    "movie_url": "https://letterboxd.com/film/thanksgiving-2023/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/g4/zg/pv/ek/thanksgiving-1200-1200-675-675-crop-000000.jpg?v=7adc2c7b0e",
+    "saved_path": "letterboxd_backdrops\\Thanksgiving_backdrop.jpg"
+  },
+  {
+    "title": "Dead Bang",
+    "movie_url": "https://letterboxd.com/film/dead-bang/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/eh/5h/jm/hy/oV9Nww1Mc96DkQWqlke8HKbhO0Y-1200-1200-675-675-crop-000000.jpg?v=569fea753f",
+    "saved_path": "letterboxd_backdrops\\Dead_Bang_backdrop.jpg"
+  },
+  {
+    "title": "Silent Night",
+    "movie_url": "https://letterboxd.com/film/silent-night-2023-1/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xe/bw/zr/tt/SILENTNIGHT_Unit_220401_00097RC-1200-1200-675-675-crop-000000.jpg?v=bf8afe4bba",
+    "saved_path": "letterboxd_backdrops\\Silent_Night_backdrop.jpg"
+  },
+  {
+    "title": "Poltergeist",
+    "movie_url": "https://letterboxd.com/film/poltergeist/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/u4/1q/34/uj/poltergeist-120-1200-1200-675-675-crop-000000.jpg?v=b84705d123",
+    "saved_path": "letterboxd_backdrops\\Poltergeist_backdrop.jpg"
+  },
+  {
+    "title": "Piranha II: The Spawning",
+    "movie_url": "https://letterboxd.com/film/piranha-ii-the-spawning/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5y/ui/iq/3c/SdSudNE-1200-1200-675-675-crop-000000.jpg?v=9699e179c8",
+    "saved_path": "letterboxd_backdrops\\Piranha_II__The_Spawning_backdrop.jpg"
+  },
+  {
+    "title": "Terrifier 2",
+    "movie_url": "https://letterboxd.com/film/terrifier-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ga/dn/9c/ps/terrifer-1200-1200-675-675-crop-000000.jpg?v=5995ca5ad4",
+    "saved_path": "letterboxd_backdrops\\Terrifier_2_backdrop.jpg"
+  },
+  {
+    "title": "Infernal Affairs",
+    "movie_url": "https://letterboxd.com/film/infernal-affairs/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4v/3t/69/y8/internal-affairs-1200-1200-675-675-crop-000000.jpg?v=42098cff21",
+    "saved_path": "letterboxd_backdrops\\Infernal_Affairs_backdrop.jpg"
+  },
+  {
+    "title": "Vigilante",
+    "movie_url": "https://letterboxd.com/film/vigilante/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/rk/x2/bj/ey/vigilante-1200-1200-675-675-crop-000000.jpg?v=200fada529",
+    "saved_path": "letterboxd_backdrops\\Vigilante_backdrop.jpg"
+  },
+  {
+    "title": "Double Down",
+    "movie_url": "https://letterboxd.com/film/double-down-2005/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/tz/v3/ba/mu/double%20down-1200-1200-675-675-crop-000000.jpg?v=d5483b7a50",
+    "saved_path": "letterboxd_backdrops\\Double_Down_backdrop.jpg"
+  },
+  {
+    "title": "Flashdance",
+    "movie_url": "https://letterboxd.com/film/flashdance/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1d/9c/5t/gk/flashdance-1200-1200-675-675-crop-000000.jpg?v=2648cddfc0",
+    "saved_path": "letterboxd_backdrops\\Flashdance_backdrop.jpg"
+  },
+  {
+    "title": "Possessor",
+    "movie_url": "https://letterboxd.com/film/possessor/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0d/ka/6z/mw/possessor-1200-1200-675-675-crop-000000.jpg?v=4307bf1b9a",
+    "saved_path": "letterboxd_backdrops\\Possessor_backdrop.jpg"
+  },
+  {
+    "title": "Jackass: The Movie",
+    "movie_url": "https://letterboxd.com/film/jackass-the-movie/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0b/0o/v5/5c/jackass-the-movie-1200-1200-675-675-crop-000000.jpg?v=cfa6a01528",
+    "saved_path": "letterboxd_backdrops\\Jackass__The_Movie_backdrop.jpg"
+  },
+  {
+    "title": "American Psycho",
+    "movie_url": "https://letterboxd.com/film/american-psycho/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/tr/kl/dj/zi/american-psycho-1200-1200-675-675-crop-000000.jpg?v=59e7d630d5",
+    "saved_path": "letterboxd_backdrops\\American_Psycho_backdrop.jpg"
+  },
+  {
+    "title": "Don't Torture a Duckling",
+    "movie_url": "https://letterboxd.com/film/dont-torture-a-duckling/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0z/0u/98/q3/don't%20tortue-1200-1200-675-675-crop-000000.jpg?v=c391175811",
+    "saved_path": "letterboxd_backdrops\\Don_t_Torture_a_Duckling_backdrop.jpg"
+  },
+  {
+    "title": "On Deadly Ground",
+    "movie_url": "https://letterboxd.com/film/on-deadly-ground/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x4/l8/vz/nn/on%20deadly-1200-1200-675-675-crop-000000.jpg?v=985cc83fe2",
+    "saved_path": "letterboxd_backdrops\\On_Deadly_Ground_backdrop.jpg"
+  },
+  {
+    "title": "When Evil Lurks",
+    "movie_url": "https://letterboxd.com/film/when-evil-lurks/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gc/ep/ai/4u/when%20evil-1200-1200-675-675-crop-000000.jpg?v=ca5b533f39",
+    "saved_path": "letterboxd_backdrops\\When_Evil_Lurks_backdrop.jpg"
+  },
+  {
+    "title": "Alien\u00b3",
+    "movie_url": "https://letterboxd.com/film/alien-3/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fy/ri/h5/hy/alien3-1200-1200-675-675-crop-000000.jpg?v=8ca452f692",
+    "saved_path": "letterboxd_backdrops\\Alien\u00b3_backdrop.jpg"
+  },
+  {
+    "title": "Orgazmo",
+    "movie_url": "https://letterboxd.com/film/orgazmo/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x7/ag/nt/ho/gLrXOYGMv90zZKm7RKYDDj6yag1-1200-1200-675-675-crop-000000.jpg?v=7004c1bff5",
+    "saved_path": "letterboxd_backdrops\\Orgazmo_backdrop.jpg"
+  },
+  {
+    "title": "Action Jackson",
+    "movie_url": "https://letterboxd.com/film/action-jackson/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0c/ch/3h/w9/action%20jackson-1200-1200-675-675-crop-000000.jpg?v=e3e2af564b",
+    "saved_path": "letterboxd_backdrops\\Action_Jackson_backdrop.jpg"
+  },
+  {
+    "title": "Oldboy",
+    "movie_url": "https://letterboxd.com/film/oldboy/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/w7/2l/wo/u1/oldboy-1200-1200-675-675-crop-000000.jpg?v=faccbb4b33",
+    "saved_path": "letterboxd_backdrops\\Oldboy_backdrop.jpg"
+  },
+  {
+    "title": "My Bloody Valentine",
+    "movie_url": "https://letterboxd.com/film/my-bloody-valentine/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/r2/ps/b5/9m/my-bloody-valentine-1200-1200-675-675-crop-000000.jpg?v=4302cb0af0",
+    "saved_path": "letterboxd_backdrops\\My_Bloody_Valentine_backdrop.jpg"
+  },
+  {
+    "title": "Vampire Girl vs. Frankenstein Girl",
+    "movie_url": "https://letterboxd.com/film/vampire-girl-vs-frankenstein-girl/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/be/by/vr/vg/vapire-girl-vs-frankenstein-girl-1200-1200-675-675-crop-000000.jpg?v=e267bfcbb9",
+    "saved_path": "letterboxd_backdrops\\Vampire_Girl_vs__Frankenstein_Girl_backdrop.jpg"
+  },
+  {
+    "title": "Cade: The Tortured Crossing",
+    "movie_url": "https://letterboxd.com/film/cade-the-tortured-crossing/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xr/11/8h/n6/cade-1200-1200-675-675-crop-000000.jpg?v=a7c6798e2a",
+    "saved_path": "letterboxd_backdrops\\Cade__The_Tortured_Crossing_backdrop.jpg"
+  },
+  {
+    "title": "Malignant",
+    "movie_url": "https://letterboxd.com/film/malignant-2021/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ob/rw/56/83/malignant-2021-1200-1200-675-675-crop-000000.jpg?v=0a3344d452",
+    "saved_path": "letterboxd_backdrops\\Malignant_backdrop.jpg"
+  },
+  {
+    "title": "Phenomena",
+    "movie_url": "https://letterboxd.com/film/phenomena/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ah/y3/h7/gg/phenomena-1200-1200-675-675-crop-000000.jpg?v=8db3c1903f",
+    "saved_path": "letterboxd_backdrops\\Phenomena_backdrop.jpg"
+  },
+  {
+    "title": "Timecop",
+    "movie_url": "https://letterboxd.com/film/timecop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dx/7p/te/00/timecop-1200-1200-675-675-crop-000000.jpg?v=464fc818ce",
+    "saved_path": "letterboxd_backdrops\\Timecop_backdrop.jpg"
+  },
+  {
+    "title": "Die Hard With a Vengeance",
+    "movie_url": "https://letterboxd.com/film/die-hard-with-a-vengeance/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/80/bg/fj/k3/die-hard-with-a-vengeance-1200-1200-675-675-crop-000000.jpg?v=a377dcdba9",
+    "saved_path": "letterboxd_backdrops\\Die_Hard_With_a_Vengeance_backdrop.jpg"
+  },
+  {
+    "title": "1990: The Bronx Warriors",
+    "movie_url": "https://letterboxd.com/film/1990-the-bronx-warriors/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9s/0l/13/du/1990-the-bronx-warriors-1200-1200-675-675-crop-000000.jpg?v=d26d71a976",
+    "saved_path": "letterboxd_backdrops\\1990__The_Bronx_Warriors_backdrop.jpg"
+  },
+  {
+    "title": "Street Trash",
+    "movie_url": "https://letterboxd.com/film/street-trash/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/iy/j5/27/ii/9iqahnJXgz7B6HoQ74psYqxigNg-1200-1200-675-675-crop-000000.jpg?v=c5535aca46",
+    "saved_path": "letterboxd_backdrops\\Street_Trash_backdrop.jpg"
+  },
+  {
+    "title": "The Decline of Western Civilization Part II: The Metal Years",
+    "movie_url": "https://letterboxd.com/film/the-decline-of-western-civilization-part-ii-the-metal-years/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2j/6x/qg/a9/decline-western-civilization-ii-1200-1200-675-675-crop-000000.jpg?v=7acc1c5e26",
+    "saved_path": "letterboxd_backdrops\\The_Decline_of_Western_Civilization_Part_II__The_Metal_Years_backdrop.jpg"
+  },
+  {
+    "title": "The Hitcher",
+    "movie_url": "https://letterboxd.com/film/the-hitcher/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0a/im/as/c4/the-hitcher-1200-1200-675-675-crop-000000.jpg?v=c4ca301792",
+    "saved_path": "letterboxd_backdrops\\The_Hitcher_backdrop.jpg"
+  },
+  {
+    "title": "Dead Ringers",
+    "movie_url": "https://letterboxd.com/film/dead-ringers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ty/x1/1g/85/dead-ringers-1200-1200-675-675-crop-000000.jpg?v=bda95fdce1",
+    "saved_path": "letterboxd_backdrops\\Dead_Ringers_backdrop.jpg"
+  },
+  {
+    "title": "The Heroic Trio",
+    "movie_url": "https://letterboxd.com/film/the-heroic-trio/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/6t/vf/ku/fe/9tXji48wuuKbwrf0S04pVhN8rZa-1200-1200-675-675-crop-000000.jpg?v=7fc1e81432",
+    "saved_path": "letterboxd_backdrops\\The_Heroic_Trio_backdrop.jpg"
+  },
+  {
+    "title": "Sexy Beast",
+    "movie_url": "https://letterboxd.com/film/sexy-beast/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pw/h3/5e/v7/sexy%20beast-1200-1200-675-675-crop-000000.jpg?v=fe92754151",
+    "saved_path": "letterboxd_backdrops\\Sexy_Beast_backdrop.jpg"
+  },
+  {
+    "title": "Rawhead Rex",
+    "movie_url": "https://letterboxd.com/film/rawhead-rex/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jb/h5/ao/eq/vsNcTJRKFXkkVhITQrzAMcKuzio-1200-1200-675-675-crop-000000.jpg?v=be6a1c2541",
+    "saved_path": "letterboxd_backdrops\\Rawhead_Rex_backdrop.jpg"
+  },
+  {
+    "title": "Piranha 3D",
+    "movie_url": "https://letterboxd.com/film/piranha-3d/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4f/k1/ug/hm/piranha-1200-1200-675-675-crop-000000.jpg?v=fd4fd157e5",
+    "saved_path": "letterboxd_backdrops\\Piranha_3D_backdrop.jpg"
+  },
+  {
+    "title": "Violent Cop",
+    "movie_url": "https://letterboxd.com/film/violent-cop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/bo/nr/6k/km/5iVabNRj6ukaNj1xGOT2HLEVCoe-1200-1200-675-675-crop-000000.jpg?v=0cf5e618bd",
+    "saved_path": "letterboxd_backdrops\\Violent_Cop_backdrop.jpg"
+  },
+  {
+    "title": "Madame Web",
+    "movie_url": "https://letterboxd.com/film/madame-web/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2r/v9/d2/tg/madame%20web-1200-1200-675-675-crop-000000.jpg?v=8c5f410c79",
+    "saved_path": "letterboxd_backdrops\\Madame_Web_backdrop.jpg"
+  },
+  {
+    "title": "Ravenous",
+    "movie_url": "https://letterboxd.com/film/ravenous/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wh/nh/66/zz/ravenous-1200-1200-675-675-crop-000000.jpg?v=b57a1cc16c",
+    "saved_path": "letterboxd_backdrops\\Ravenous_backdrop.jpg"
+  },
+  {
+    "title": "Blood Games",
+    "movie_url": "https://letterboxd.com/film/blood-games/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/pt/do/ye/50/foMSWPLxi6OsllHXFfjlqYoYbBg-1200-1200-675-675-crop-000000.jpg?v=8bd16e0780",
+    "saved_path": "letterboxd_backdrops\\Blood_Games_backdrop.jpg"
+  },
+  {
+    "title": "Rollerball",
+    "movie_url": "https://letterboxd.com/film/rollerball/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/x6/mj/57/hc/rollerball-1200-1200-675-675-crop-000000.jpg?v=9873c07414",
+    "saved_path": "letterboxd_backdrops\\Rollerball_backdrop.jpg"
+  },
+  {
+    "title": "TerrorVision",
+    "movie_url": "https://letterboxd.com/film/terrorvision/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/46/8a/ok/e7/i2ylmnAJBuxAwyV4cvPlyj6LwUd-1200-1200-675-675-crop-000000.jpg?v=e64a3c8a62",
+    "saved_path": "letterboxd_backdrops\\TerrorVision_backdrop.jpg"
+  },
+  {
+    "title": "The Taking of Beverly Hills",
+    "movie_url": "https://letterboxd.com/film/the-taking-of-beverly-hills/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Hundreds of Beavers",
+    "movie_url": "https://letterboxd.com/film/hundreds-of-beavers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/43/iv/r5/4g/hundreds-1200-1200-675-675-crop-000000.jpg?v=15f9aa37e6",
+    "saved_path": "letterboxd_backdrops\\Hundreds_of_Beavers_backdrop.jpg"
+  },
+  {
+    "title": "The Naked Gun: From the Files of Police Squad!",
+    "movie_url": "https://letterboxd.com/film/the-naked-gun-from-the-files-of-police-squad/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4d/od/3k/u0/naked-gun-1200-1200-675-675-crop-000000.jpg?v=ad95aa355c",
+    "saved_path": "letterboxd_backdrops\\The_Naked_Gun__From_the_Files_of_Police_Squad__backdrop.jpg"
+  },
+  {
+    "title": "O.J.: Made in America",
+    "movie_url": "https://letterboxd.com/film/oj-made-in-america/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/62/0s/zf/i7/oj-made-in-america-1200-1200-675-675-crop-000000.jpg?v=54cdaa47ee",
+    "saved_path": "letterboxd_backdrops\\O_J___Made_in_America_backdrop.jpg"
+  },
+  {
+    "title": "Meatball Machine Kodoku",
+    "movie_url": "https://letterboxd.com/film/meatball-machine-kodoku/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yu/h8/kn/b2/lY5HvPXAJLHY4k7I92zfH7JE5fO-1200-1200-675-675-crop-000000.jpg?v=8c388d8d64",
+    "saved_path": "letterboxd_backdrops\\Meatball_Machine_Kodoku_backdrop.jpg"
+  },
+  {
+    "title": "Cherry 2000",
+    "movie_url": "https://letterboxd.com/film/cherry-2000/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xq/64/hm/xn/vjlBasTA8imogIxQLHzsUrCMjJB-1200-1200-675-675-crop-000000.jpg?v=ec3ba4957b",
+    "saved_path": "letterboxd_backdrops\\Cherry_2000_backdrop.jpg"
+  },
+  {
+    "title": "White Line Fever",
+    "movie_url": "https://letterboxd.com/film/white-line-fever/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Eaten Alive",
+    "movie_url": "https://letterboxd.com/film/eaten-alive/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lq/by/b6/g4/eaten%20alive-1200-1200-675-675-crop-000000.jpg?v=91b077f083",
+    "saved_path": "letterboxd_backdrops\\Eaten_Alive_backdrop.jpg"
+  },
+  {
+    "title": "Cyborg",
+    "movie_url": "https://letterboxd.com/film/cyborg/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xd/ad/gq/bz/cyborg-1200-1200-675-675-crop-000000.jpg?v=ab1c369d7a",
+    "saved_path": "letterboxd_backdrops\\Cyborg_backdrop.jpg"
+  },
+  {
+    "title": "Black Sheep",
+    "movie_url": "https://letterboxd.com/film/black-sheep-2006/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/41/7j/nd/67/black-sheep-1200-1200-675-675-crop-000000.jpg?v=b46d103749",
+    "saved_path": "letterboxd_backdrops\\Black_Sheep_backdrop.jpg"
+  },
+  {
+    "title": "Monkey Man",
+    "movie_url": "https://letterboxd.com/film/monkey-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ka/ly/yp/rr/monkey-man-1200-1200-675-675-crop-000000.jpg?v=39110197d4",
+    "saved_path": "letterboxd_backdrops\\Monkey_Man_backdrop.jpg"
+  },
+  {
+    "title": "Cruel Jaws",
+    "movie_url": "https://letterboxd.com/film/cruel-jaws/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/dc/6x/ed/mk/vCQRs9QMADZEbGiS4hJkjAzis36-1200-1200-675-675-crop-000000.jpg?v=345094e01e",
+    "saved_path": "letterboxd_backdrops\\Cruel_Jaws_backdrop.jpg"
+  },
+  {
+    "title": "Godzilla Minus One",
+    "movie_url": "https://letterboxd.com/film/godzilla-minus-one/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wt/xq/8w/wb/godzilla-1200-1200-675-675-crop-000000.jpg?v=5defa22bec",
+    "saved_path": "letterboxd_backdrops\\Godzilla_Minus_One_backdrop.jpg"
+  },
+  {
+    "title": "A Nightmare on Elm Street 3: Dream Warriors",
+    "movie_url": "https://letterboxd.com/film/a-nightmare-on-elm-street-3-dream-warriors/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/l5/7t/ft/f5/nightmare-on-elm-street-three-1200-1200-675-675-crop-000000.jpg?v=203145cb06",
+    "saved_path": "letterboxd_backdrops\\A_Nightmare_on_Elm_Street_3__Dream_Warriors_backdrop.jpg"
+  },
+  {
+    "title": "The Baby",
+    "movie_url": "https://letterboxd.com/film/the-baby/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0w/ux/qy/a8/pIudMAEOmYLh0YiqyrXupfwgoSf-1200-1200-675-675-crop-000000.jpg?v=735cc0e0ee",
+    "saved_path": "letterboxd_backdrops\\The_Baby_backdrop.jpg"
+  },
+  {
+    "title": "Vice Squad",
+    "movie_url": "https://letterboxd.com/film/vice-squad/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/fh/ax/nw/pu/vice%20quad-1200-1200-675-675-crop-000000.jpg?v=9fa2f8acdc",
+    "saved_path": "letterboxd_backdrops\\Vice_Squad_backdrop.jpg"
+  },
+  {
+    "title": "Suitable Flesh",
+    "movie_url": "https://letterboxd.com/film/suitable-flesh/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ku/dc/8m/lb/SuitableFlesh-1200-1200-675-675-crop-000000.jpg?v=cf6b28b6f8",
+    "saved_path": "letterboxd_backdrops\\Suitable_Flesh_backdrop.jpg"
+  },
+  {
+    "title": "Crank",
+    "movie_url": "https://letterboxd.com/film/crank/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/00/uq/ls/k2/crank-1200-1200-675-675-crop-000000.jpg?v=5013039ffd",
+    "saved_path": "letterboxd_backdrops\\Crank_backdrop.jpg"
+  },
+  {
+    "title": "Crank: High Voltage",
+    "movie_url": "https://letterboxd.com/film/crank-high-voltage/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gu/i1/36/kv/crank-ii-1200-1200-675-675-crop-000000.jpg?v=233034e066",
+    "saved_path": "letterboxd_backdrops\\Crank__High_Voltage_backdrop.jpg"
+  },
+  {
+    "title": "Infested",
+    "movie_url": "https://letterboxd.com/film/infested-2023/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1x/56/89/qb/infested-1200-1200-675-675-crop-000000.jpg?v=61624a312c",
+    "saved_path": "letterboxd_backdrops\\Infested_backdrop.jpg"
+  },
+  {
+    "title": "Fight for Your Life",
+    "movie_url": "https://letterboxd.com/film/fight-for-your-life/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Hell Comes to Frogtown",
+    "movie_url": "https://letterboxd.com/film/hell-comes-to-frogtown/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/g1/eo/4o/6r/djPaKPZf6Pu0KdOiiVGrxdSYZT3-1200-1200-675-675-crop-000000.jpg?v=b3cb4b8b85",
+    "saved_path": "letterboxd_backdrops\\Hell_Comes_to_Frogtown_backdrop.jpg"
+  },
+  {
+    "title": "The Last Stop in Yuma County",
+    "movie_url": "https://letterboxd.com/film/the-last-stop-in-yuma-county/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ze/t0/u4/rj/TheLastStopinYumaCounty-WellGoUSA-OfficialStill-1340x754-7-1200-1200-675-675-crop-000000.jpg?v=faf4a602c7",
+    "saved_path": "letterboxd_backdrops\\The_Last_Stop_in_Yuma_County_backdrop.jpg"
+  },
+  {
+    "title": "Southern Comfort",
+    "movie_url": "https://letterboxd.com/film/southern-comfort/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/2t/m7/79/59/southern-comfort-1200-1200-675-675-crop-000000.jpg?v=10cadbad79",
+    "saved_path": "letterboxd_backdrops\\Southern_Comfort_backdrop.jpg"
+  },
+  {
+    "title": "Cutie Honey",
+    "movie_url": "https://letterboxd.com/film/cutie-honey/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/9i/13/dz/d4/cute-honey-1200-1200-675-675-crop-000000.jpg?v=96fa97bbd9",
+    "saved_path": "letterboxd_backdrops\\Cutie_Honey_backdrop.jpg"
+  },
+  {
+    "title": "Evil Dead",
+    "movie_url": "https://letterboxd.com/film/evil-dead/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/0r/tr/ed/48/evil-dead-1200-1200-675-675-crop-000000.jpg?v=a8a4394d1a",
+    "saved_path": "letterboxd_backdrops\\Evil_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Mandy",
+    "movie_url": "https://letterboxd.com/film/mandy-2018/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ol/d4/60/py/mandy-2018-1200-1200-675-675-crop-000000.jpg?v=201d43b0a4",
+    "saved_path": "letterboxd_backdrops\\Mandy_backdrop.jpg"
+  },
+  {
+    "title": "Xtro",
+    "movie_url": "https://letterboxd.com/film/xtro/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/70/0u/2j/bf/jayLkSF1eUPLwk7yxjZJ2HRLbi-1200-1200-675-675-crop-000000.jpg?v=d64a4982f6",
+    "saved_path": "letterboxd_backdrops\\Xtro_backdrop.jpg"
+  },
+  {
+    "title": "The Shining",
+    "movie_url": "https://letterboxd.com/film/the-shining/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/tm/ta/x1/yh/shining-1200-1200-675-675-crop-000000.jpg?v=3eeee4ee5a",
+    "saved_path": "letterboxd_backdrops\\The_Shining_backdrop.jpg"
+  },
+  {
+    "title": "The Human Centipede (First Sequence)",
+    "movie_url": "https://letterboxd.com/film/the-human-centipede-first-sequence/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/oi/ug/j9/ms/human-centipede-first-sequence-1200-1200-675-675-crop-000000.jpg?v=353b067f9b",
+    "saved_path": "letterboxd_backdrops\\The_Human_Centipede__First_Sequence__backdrop.jpg"
+  },
+  {
+    "title": "The Killing",
+    "movie_url": "https://letterboxd.com/film/the-killing/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5n/cq/p5/g0/the-killing-1200-1200-675-675-crop-000000.jpg?v=e9cf46d1ac",
+    "saved_path": "letterboxd_backdrops\\The_Killing_backdrop.jpg"
+  },
+  {
+    "title": "Maximum Overdrive",
+    "movie_url": "https://letterboxd.com/film/maximum-overdrive/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/of/li/4j/8a/maximum%20overdrive-1200-1200-675-675-crop-000000.jpg?v=d2413c353b",
+    "saved_path": "letterboxd_backdrops\\Maximum_Overdrive_backdrop.jpg"
+  },
+  {
+    "title": "The Room",
+    "movie_url": "https://letterboxd.com/film/the-room/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ay/jb/b5/xa/the-room-1200-1200-675-675-crop-000000.jpg?v=b2e17b62e4",
+    "saved_path": "letterboxd_backdrops\\The_Room_backdrop.jpg"
+  },
+  {
+    "title": "The Core",
+    "movie_url": "https://letterboxd.com/film/the-core/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/v8/34/pn/ma/the-core-1200-1200-675-675-crop-000000.jpg?v=f1d3f1f2c9",
+    "saved_path": "letterboxd_backdrops\\The_Core_backdrop.jpg"
+  },
+  {
+    "title": "Roadgames",
+    "movie_url": "https://letterboxd.com/film/roadgames/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/yk/rk/qj/a9/roadgames3-1200-1200-675-675-crop-000000.jpg?v=124e553f6d",
+    "saved_path": "letterboxd_backdrops\\Roadgames_backdrop.jpg"
+  },
+  {
+    "title": "From Beijing with Love",
+    "movie_url": "https://letterboxd.com/film/from-beijing-with-love/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/k7/an/il/2i/from%20beijing-1200-1200-675-675-crop-000000.jpg?v=14d4e394f3",
+    "saved_path": "letterboxd_backdrops\\From_Beijing_with_Love_backdrop.jpg"
+  },
+  {
+    "title": "Money Plane",
+    "movie_url": "https://letterboxd.com/film/money-plane/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/xq/7a/6e/75/money-plane-1200-1200-675-675-crop-000000.jpg?v=a3668df17f",
+    "saved_path": "letterboxd_backdrops\\Money_Plane_backdrop.jpg"
+  },
+  {
+    "title": "Space Cop",
+    "movie_url": "https://letterboxd.com/film/space-cop/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/tn/mp/j6/w3/space-cop-1200-1200-675-675-crop-000000.jpg?v=9a66f07b95",
+    "saved_path": "letterboxd_backdrops\\Space_Cop_backdrop.jpg"
+  },
+  {
+    "title": "The Host",
+    "movie_url": "https://letterboxd.com/film/the-host/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ay/w8/53/v2/the-host-1200-1200-675-675-crop-000000.jpg?v=1b3344a979",
+    "saved_path": "letterboxd_backdrops\\The_Host_backdrop.jpg"
+  },
+  {
+    "title": "Zu: Warriors from the Magic Mountain",
+    "movie_url": "https://letterboxd.com/film/zu-warriors-from-the-magic-mountain/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vc/97/d9/s9/5kyWT24LGX3YIsFCZ3msq05muom-1200-1200-675-675-crop-000000.jpg?v=c7a1c6484d",
+    "saved_path": "letterboxd_backdrops\\Zu__Warriors_from_the_Magic_Mountain_backdrop.jpg"
+  },
+  {
+    "title": "Sudden Death",
+    "movie_url": "https://letterboxd.com/film/sudden-death/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/67/zj/vk/gn/sudden-death-1200-1200-675-675-crop-000000.jpg?v=66d2d8fe6a",
+    "saved_path": "letterboxd_backdrops\\Sudden_Death_backdrop.jpg"
+  },
+  {
+    "title": "The Beekeeper",
+    "movie_url": "https://letterboxd.com/film/the-beekeeper-2024/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/go/8o/i2/6r/beekeerp-1200-1200-675-675-crop-000000.jpg?v=1ba59a06a5",
+    "saved_path": "letterboxd_backdrops\\The_Beekeeper_backdrop.jpg"
+  },
+  {
+    "title": "Air Force One",
+    "movie_url": "https://letterboxd.com/film/air-force-one/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/v8/rq/na/js/air-force-one-1200-1200-675-675-crop-000000.jpg?v=e342706bb5",
+    "saved_path": "letterboxd_backdrops\\Air_Force_One_backdrop.jpg"
+  },
+  {
+    "title": "Blonde Death",
+    "movie_url": "https://letterboxd.com/film/blonde-death/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Master of the Flying Guillotine",
+    "movie_url": "https://letterboxd.com/film/master-of-the-flying-guillotine/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/y9/0d/35/bv/jNT3juMuB0PlG5RcnbjSX3FmIfS-1200-1200-675-675-crop-000000.jpg?v=bdd3a14878",
+    "saved_path": "letterboxd_backdrops\\Master_of_the_Flying_Guillotine_backdrop.jpg"
+  },
+  {
+    "title": "Kill",
+    "movie_url": "https://letterboxd.com/film/kill-2023-1/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/jr/2r/3l/h2/kill-1200-1200-675-675-crop-000000.jpg?v=f66354993a",
+    "saved_path": "letterboxd_backdrops\\Kill_backdrop.jpg"
+  },
+  {
+    "title": "God of Gamblers",
+    "movie_url": "https://letterboxd.com/film/god-of-gamblers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vd/sw/oq/hb/god-1200-1200-675-675-crop-000000.jpg?v=9b6d581c58",
+    "saved_path": "letterboxd_backdrops\\God_of_Gamblers_backdrop.jpg"
+  },
+  {
+    "title": "Coreys",
+    "movie_url": "https://letterboxd.com/film/coreys-2024/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4a/70/ry/91/IMG_0968-1200-1200-675-675-crop-000000.jpg?v=042d7aa713",
+    "saved_path": "letterboxd_backdrops\\Coreys_backdrop.jpg"
+  },
+  {
+    "title": "The Mask",
+    "movie_url": "https://letterboxd.com/film/the-mask-2023/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Hot Rod",
+    "movie_url": "https://letterboxd.com/film/hot-rod/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/vc/43/v7/fl/hot-rod-1200-1200-675-675-crop-000000.jpg?v=3428088136",
+    "saved_path": "letterboxd_backdrops\\Hot_Rod_backdrop.jpg"
+  },
+  {
+    "title": "Sleepwalkers",
+    "movie_url": "https://letterboxd.com/film/sleepwalkers/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/g3/0l/xg/sk/sleepwalkers-1200-1200-675-675-crop-000000.jpg?v=59ac68776e",
+    "saved_path": "letterboxd_backdrops\\Sleepwalkers_backdrop.jpg"
+  },
+  {
+    "title": "Bullitt",
+    "movie_url": "https://letterboxd.com/film/bullitt/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/3y/oh/ej/ed/bullitt-1200-1200-675-675-crop-000000.jpg?v=ddd5f5538f",
+    "saved_path": "letterboxd_backdrops\\Bullitt_backdrop.jpg"
+  },
+  {
+    "title": "Baby Cat",
+    "movie_url": "https://letterboxd.com/film/baby-cat-2023/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hr/ug/b5/fi/zDmHnuHTr62tqJvPaCTEOJwGH5D-1200-1200-675-675-crop-000000.jpg?v=62f7797f09",
+    "saved_path": "letterboxd_backdrops\\Baby_Cat_backdrop.jpg"
+  },
+  {
+    "title": "Near Dark",
+    "movie_url": "https://letterboxd.com/film/near-dark/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ox/3t/m8/95/near-dark-1200-1200-675-675-crop-000000.jpg?v=dff1ec0a76",
+    "saved_path": "letterboxd_backdrops\\Near_Dark_backdrop.jpg"
+  },
+  {
+    "title": "Blood Diner",
+    "movie_url": "https://letterboxd.com/film/blood-diner/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/wj/vf/yv/ec/4XPqFX5VxNvump53GDJyTfKvDDe-1200-1200-675-675-crop-000000.jpg?v=b7944cf89a",
+    "saved_path": "letterboxd_backdrops\\Blood_Diner_backdrop.jpg"
+  },
+  {
+    "title": "Fight of Fury",
+    "movie_url": "https://letterboxd.com/film/fight-of-fury/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Twilight of the Warriors: Walled In",
+    "movie_url": "https://letterboxd.com/film/twilight-of-the-warriors-walled-in/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5z/nx/cn/v3/WalledIn-1200-1200-675-675-crop-000000.jpg?v=fca7e790ac",
+    "saved_path": "letterboxd_backdrops\\Twilight_of_the_Warriors__Walled_In_backdrop.jpg"
+  },
+  {
+    "title": "It Follows",
+    "movie_url": "https://letterboxd.com/film/it-follows/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/hk/6q/84/oi/it-follows-1200-1200-675-675-crop-000000.jpg?v=153860ef84",
+    "saved_path": "letterboxd_backdrops\\It_Follows_backdrop.jpg"
+  },
+  {
+    "title": "My Husband's Not Gay",
+    "movie_url": "https://letterboxd.com/film/my-husbands-not-gay/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "The Art of Dying",
+    "movie_url": "https://letterboxd.com/film/the-art-of-dying-1991/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Tombstone",
+    "movie_url": "https://letterboxd.com/film/tombstone/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gn/vy/dq/w4/tombstone-1200-1200-675-675-crop-000000.jpg?v=65e8f00a4c",
+    "saved_path": "letterboxd_backdrops\\Tombstone_backdrop.jpg"
+  },
+  {
+    "title": "Cannibal Holocaust",
+    "movie_url": "https://letterboxd.com/film/cannibal-holocaust/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/h3/rj/3z/xy/cannibal-holocaust-1200-1200-675-675-crop-000000.jpg?v=806f5e8855",
+    "saved_path": "letterboxd_backdrops\\Cannibal_Holocaust_backdrop.jpg"
+  },
+  {
+    "title": "Trap",
+    "movie_url": "https://letterboxd.com/film/trap-2024/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/bd/4t/jj/zo/trap-1200-1200-675-675-crop-000000.jpg?v=a6363887cb",
+    "saved_path": "letterboxd_backdrops\\Trap_backdrop.jpg"
+  },
+  {
+    "title": "Bad Lieutenant",
+    "movie_url": "https://letterboxd.com/film/bad-lieutenant/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4b/1e/u4/js/bad-lieutenant-1200-1200-675-675-crop-000000.jpg?v=ef2dd3e57b",
+    "saved_path": "letterboxd_backdrops\\Bad_Lieutenant_backdrop.jpg"
+  },
+  {
+    "title": "Child's Play 2",
+    "movie_url": "https://letterboxd.com/film/childs-play-2/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/45/39/b4/er/childs-play-2-1200-1200-675-675-crop-000000.jpg?v=14f571e746",
+    "saved_path": "letterboxd_backdrops\\Child_s_Play_2_backdrop.jpg"
+  },
+  {
+    "title": "Get Out",
+    "movie_url": "https://letterboxd.com/film/get-out-2017/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/n1/db/zy/ha/get-out-160-1200-1200-675-675-crop-000000.jpg?v=4686a15e0a",
+    "saved_path": "letterboxd_backdrops\\Get_Out_backdrop.jpg"
+  },
+  {
+    "title": "Cemetery Man",
+    "movie_url": "https://letterboxd.com/film/cemetery-man/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5q/4s/pn/i7/cemetery%20man-1200-1200-675-675-crop-000000.jpg?v=ffc9d0bfc7",
+    "saved_path": "letterboxd_backdrops\\Cemetery_Man_backdrop.jpg"
+  },
+  {
+    "title": "Dawn of the Dead",
+    "movie_url": "https://letterboxd.com/film/dawn-of-the-dead-2004/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/tx/np/24/bt/3ABFCC3C-1CAC-49B5-9ABD-DF30B112DF68-1200-1200-675-675-crop-000000.jpg?v=079a772d99",
+    "saved_path": "letterboxd_backdrops\\Dawn_of_the_Dead_backdrop.jpg"
+  },
+  {
+    "title": "Furious",
+    "movie_url": "https://letterboxd.com/film/furious/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Leviathan",
+    "movie_url": "https://letterboxd.com/film/leviathan/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/j9/ex/50/2w/leviathan-1200-1200-675-675-crop-000000.jpg?v=9a4e58b9f4",
+    "saved_path": "letterboxd_backdrops\\Leviathan_backdrop.jpg"
+  },
+  {
+    "title": "Titane",
+    "movie_url": "https://letterboxd.com/film/titane/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/5g/me/s2/md/770BABCB-6657-4426-A10E-CC362AA9ADCF-1200-1200-675-675-crop-000000.jpg?v=67e83427dc",
+    "saved_path": "letterboxd_backdrops\\Titane_backdrop.jpg"
+  },
+  {
+    "title": "Strange Darling",
+    "movie_url": "https://letterboxd.com/film/strange-darling/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/a7/w1/nr/3j/strange-1200-1200-675-675-crop-000000.jpg?v=8bbb716a1b",
+    "saved_path": "letterboxd_backdrops\\Strange_Darling_backdrop.jpg"
+  },
+  {
+    "title": "Tuff Turf",
+    "movie_url": "https://letterboxd.com/film/tuff-turf/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/gv/f1/yn/vh/tuff-1200-1200-675-675-crop-000000.jpg?v=ce888e2438",
+    "saved_path": "letterboxd_backdrops\\Tuff_Turf_backdrop.jpg"
+  },
+  {
+    "title": "V/H/S/Beyond",
+    "movie_url": "https://letterboxd.com/film/v-h-s-beyond/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/1f/55/dp/aq/wRow6EWljQBmpxi28vIhJvj7IjB-1200-1200-675-675-crop-000000.jpg?v=d4e09cdf06",
+    "saved_path": "letterboxd_backdrops\\V_H_S_Beyond_backdrop.jpg"
+  },
+  {
+    "title": "The Substance",
+    "movie_url": "https://letterboxd.com/film/the-substance/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/ju/7r/z4/9i/xfSVZf7naMoGuqoHaQhbvfPrfWs-1200-1200-675-675-crop-000000.jpg?v=adde104f43",
+    "saved_path": "letterboxd_backdrops\\The_Substance_backdrop.jpg"
+  },
+  {
+    "title": "Dead Heat",
+    "movie_url": "https://letterboxd.com/film/dead-heat/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/j4/cm/ti/yw/q21Tt5rxYnnOwqTO4HOBMCwqpAm-1200-1200-675-675-crop-000000.jpg?v=1a3c5c1e00",
+    "saved_path": "letterboxd_backdrops\\Dead_Heat_backdrop.jpg"
+  },
+  {
+    "title": "Castle Freak",
+    "movie_url": "https://letterboxd.com/film/castle-freak/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/mi/c9/x0/9a/gggdkmSWasCCwtEItnvQw9NpFLi-1200-1200-675-675-crop-000000.jpg?v=03c4b8b09a",
+    "saved_path": "letterboxd_backdrops\\Castle_Freak_backdrop.jpg"
+  },
+  {
+    "title": "Ichi the Killer",
+    "movie_url": "https://letterboxd.com/film/ichi-the-killer/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/7d/xn/sb/4k/ichi-the-killer-1200-1200-675-675-crop-000000.jpg?v=8434b2f87e",
+    "saved_path": "letterboxd_backdrops\\Ichi_the_Killer_backdrop.jpg"
+  },
+  {
+    "title": "Terrifier 3",
+    "movie_url": "https://letterboxd.com/film/terrifier-3/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/v0/yr/qg/7z/eQEgKIRF7KeVGBQ8IYcklpU8RPf-1200-1200-675-675-crop-000000.jpg?v=7ce527d06a",
+    "saved_path": "letterboxd_backdrops\\Terrifier_3_backdrop.jpg"
+  },
+  {
+    "title": "Zombie Nightmare",
+    "movie_url": "https://letterboxd.com/film/zombie-nightmare/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "The King of Kong: A Fistful of Quarters",
+    "movie_url": "https://letterboxd.com/film/the-king-of-kong-a-fistful-of-quarters/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/lf/09/87/0y/kingofkong-1200-1200-675-675-crop-000000.jpg?v=d9eeeccfdf",
+    "saved_path": "letterboxd_backdrops\\The_King_of_Kong__A_Fistful_of_Quarters_backdrop.jpg"
+  },
+  {
+    "title": "Tai-Chi Master",
+    "movie_url": "https://letterboxd.com/film/tai-chi-master/",
+    "backdrop_url": "https://a.ltrbxd.com/resized/sm/upload/4k/lu/gq/6j/thai-chi-master-1200-1200-675-675-crop-000000.jpg?v=3f21010ef2",
+    "saved_path": "letterboxd_backdrops\\Tai-Chi_Master_backdrop.jpg"
+  },
+  {
+    "title": "Parole Violators",
+    "movie_url": "https://letterboxd.com/film/parole-violators/",
+    "backdrop_url": null,
+    "saved_path": null
+  },
+  {
+    "title": "Gramps Goes to College",
+    "movie_url": "https://letterboxd.com/film/gramps-goes-to-college/",
+    "backdrop_url": null,
+    "saved_path": null
+  }
+]

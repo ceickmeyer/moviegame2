@@ -1,0 +1,29 @@
+# Version control
+.git
+.gitignore
+
+# Node.js
+node_modules
+npm-debug.log
+# Build output
+# build - Commented out to include build directory in Docker image
+.svelte-kit
+.svelte-kit
+
+# Data files and static files (will be mounted as volumes in docker-compose.yml)
+# data/ - Commented out as we need the directory structure
+static/
+
+# Environment variables
+.env
+.env.*
+
+# Editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
