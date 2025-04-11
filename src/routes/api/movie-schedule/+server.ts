@@ -60,7 +60,7 @@ function getUsedMovieIds(): string[] {
 export const GET: RequestHandler = async ({ request }) => {
     try {
         // Check if we're on Vercel
-        const isVercel = process.env.VERCEL === '1';
+        const isVercel = !!process.env.VERCEL_URL;
         
         // Determine paths based on environment
         let approvedCluesPath;
@@ -167,8 +167,9 @@ export const GET: RequestHandler = async ({ request }) => {
             todayMovie,
             upcomingMovies: upcomingMoviesWithDates
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error generating movie schedule:', error);
+        console.error('Error details:', error.message, error.stack);
         return json({ error: 'Failed to generate movie schedule' }, { status: 500 });
     }
 };

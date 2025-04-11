@@ -243,8 +243,8 @@ export function loadGameData(): Promise<void> {
       
       // Try all possible paths for movies data - prioritize API endpoint
       const moviePaths = [
-        "/api/clues-data?type=movies", // Use the API endpoint that knows the correct path
-        "./data/letterboxd_movies.json", // For Vercel
+        "/api/clues-data?type=movies", // Use the API endpoint that knows the correct path, but it's not working
+        "./data/letterboxd_movies.json", // For Vercel - this might not be correct
         "./static/letterboxd_movies.json", // For Vercel
         "/data/letterboxd_movies.json",
         "/static/letterboxd_movies.json",
@@ -279,8 +279,8 @@ export function loadGameData(): Promise<void> {
       // Try all possible paths for clues data
       const cluePaths = [
         "/api/clues-data?type=approved", // Use the API endpoint that knows the correct path
-        "./data/approved_clues.json", // For Vercel
-        "./static/approved_clues.json", // For Vercel
+        "./data/approved_clues.json", // For Vercel - this might not be correct
+        "./static/approved_clues.json", // For Vercel - this might not be correct
         "/data/approved_clues.json",
         "/static/approved_clues.json",
         "/approved_clues.json",
