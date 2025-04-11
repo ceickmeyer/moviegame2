@@ -12,8 +12,25 @@ export const GET = async ({ url }: RequestEvent) => {
     }
     
     // Determine the base paths based on environment
-    const dataPath = process.env.NODE_ENV === 'production' ? '/app/data' : 'data';
-    const staticPath = process.env.NODE_ENV === 'production' ? '/app/static' : 'static';
+    // Check if we're on Vercel
+    const isVercel = process.env.VERCEL === '1';
+    
+    // Use appropriate paths based on environment
+    let dataPath, staticPath;
+    
+    if (isVercel) {
+      // On Vercel, use relative paths
+      dataPath = './data';
+      staticPath = './static';
+    } else if (process.env.NODE_ENV === 'production') {
+      // In Docker production
+      dataPath = '/app/data';
+      staticPath = '/app/static';
+    } else {
+      // Local development
+      dataPath = 'data';
+      staticPath = 'static';
+    }
     
     let fileData;
     

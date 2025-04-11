@@ -59,40 +59,47 @@ function getUsedMovieIds(): string[] {
 
 export const GET: RequestHandler = async ({ request }) => {
     try {
+        // Check if we're on Vercel
+        const isVercel = process.env.VERCEL === '1';
+        
+        // Determine paths based on environment
+        let approvedCluesPath;
+        let staticMoviesPath, dataMoviesPath;
+        
+        if (isVercel) {
+            // On Vercel, use relative paths
+            approvedCluesPath = path.resolve('./static/approved_clues.json');
+            staticMoviesPath = path.resolve('./static/letterboxd_movies.json');
+            dataMoviesPath = path.resolve('./data/letterboxd_movies.json');
+        } else if (process.env.NODE_ENV === 'production') {
+            // In Docker production
+            approvedCluesPath = path.resolve('/app/static/approved_clues.json');
+            staticMoviesPath = path.resolve('/app/static/letterboxd_movies.json');
+            dataMoviesPath = path.resolve('/app/data/letterboxd_movies.json');
+        } else {
+            // Local development
+            approvedCluesPath = path.resolve('static/approved_clues.json');
+            staticMoviesPath = path.resolve('static/letterboxd_movies.json');
+            dataMoviesPath = path.resolve('data/letterboxd_movies.json');
+        }
+        
         // Read the approved clues
-        const approvedCluesPath = process.env.NODE_ENV === 'production'
-            ? path.resolve('/app/static/approved_clues.json')
-            : path.resolve('static/approved_clues.json');
         const approvedClues: Clue[] = JSON.parse(fs.readFileSync(approvedCluesPath, 'utf-8'));
         
         // Read the movies data - try both data and static directories
         let moviesData: Movie[] = [];
         let moviesDataPath: string;
         
-        if (process.env.NODE_ENV === 'production') {
-            // Try static directory first, then data
-            try {
-                moviesDataPath = path.resolve('/app/static/letterboxd_movies.json');
-                moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
-                console.log('Successfully loaded movies from /app/static/letterboxd_movies.json');
-            } catch (error) {
-                console.log('Failed to load from /app/static, trying /app/data...');
-                moviesDataPath = path.resolve('/app/data/letterboxd_movies.json');
-                moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
-                console.log('Successfully loaded movies from /app/data/letterboxd_movies.json');
-            }
-        } else {
-            // Development environment
-            try {
-                moviesDataPath = path.resolve('static/letterboxd_movies.json');
-                moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
-                console.log('Successfully loaded movies from static/letterboxd_movies.json');
-            } catch (error) {
-                console.log('Failed to load from static/, trying data/...');
-                moviesDataPath = path.resolve('data/letterboxd_movies.json');
-                moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
-                console.log('Successfully loaded movies from data/letterboxd_movies.json');
-            }
+        // Try static directory first, then data
+        try {
+            moviesDataPath = staticMoviesPath;
+            moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
+            console.log(`Successfully loaded movies from ${moviesDataPath}`);
+        } catch (error) {
+            console.log(`Failed to load from ${staticMoviesPath}, trying ${dataMoviesPath}...`);
+            moviesDataPath = dataMoviesPath;
+            moviesData = JSON.parse(fs.readFileSync(moviesDataPath, 'utf-8'));
+            console.log(`Successfully loaded movies from ${moviesDataPath}`);
         }
         
         // Count clues per movie

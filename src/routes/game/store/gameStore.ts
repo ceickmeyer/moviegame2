@@ -241,9 +241,11 @@ export function loadGameData(): Promise<void> {
       let moviesData: Movie[] = [];
       let moviesLoaded = false;
       
-      // Try all possible paths for movies data - prioritize data directory
+      // Try all possible paths for movies data - prioritize API endpoint
       const moviePaths = [
         "/api/clues-data?type=movies", // Use the API endpoint that knows the correct path
+        "./data/letterboxd_movies.json", // For Vercel
+        "./static/letterboxd_movies.json", // For Vercel
         "/data/letterboxd_movies.json",
         "/static/letterboxd_movies.json",
         "/letterboxd_movies.json",
@@ -260,7 +262,7 @@ export function loadGameData(): Promise<void> {
           console.log(`Successfully loaded movies from ${path}`);
           moviesLoaded = true;
         } catch (error) {
-          console.log(`Failed to load movies from ${path}`);
+          console.log(`Failed to load movies from ${path}:`, error instanceof Error ? error.message : String(error));
         }
       }
       
@@ -277,6 +279,8 @@ export function loadGameData(): Promise<void> {
       // Try all possible paths for clues data
       const cluePaths = [
         "/api/clues-data?type=approved", // Use the API endpoint that knows the correct path
+        "./data/approved_clues.json", // For Vercel
+        "./static/approved_clues.json", // For Vercel
         "/data/approved_clues.json",
         "/static/approved_clues.json",
         "/approved_clues.json",
@@ -293,7 +297,7 @@ export function loadGameData(): Promise<void> {
           console.log(`Successfully loaded clues from ${path}`);
           cluesLoaded = true;
         } catch (error) {
-          console.log(`Failed to load clues from ${path}`);
+          console.log(`Failed to load clues from ${path}:`, error instanceof Error ? error.message : String(error));
         }
       }
       
@@ -427,8 +431,15 @@ export async function startNewGame(): Promise<void> {
   try {
     // Fetch today's movie directly from the API endpoint
     // This ensures we use exactly the same movie as shown on the dashboard
+    console.log("Fetching movie schedule from API...");
     const response = await fetch(`/api/movie-schedule?_=${Date.now()}`);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movie schedule: ${response.status} ${response.statusText}`);
+    }
+    
     const data = await response.json();
+    console.log("Movie schedule data received:", data);
     
     if (!data.todayMovie) {
       gameState.set("error");
@@ -542,9 +553,9 @@ export async function startNewGame(): Promise<void> {
     feedback.set("");
     showDropdown.set(false);
   } catch (error) {
-    console.error("Error starting new game:", error);
+    console.error("Error starting new game:", error instanceof Error ? error.message : String(error));
     gameState.set("error");
-    feedback.set("Failed to start a new game. Please try again.");
+    feedback.set(`Failed to start a new game: ${error instanceof Error ? error.message : "Unknown error"}. Please try again.`);
   }
 }
 
