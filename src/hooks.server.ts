@@ -1,14 +1,10 @@
 // hooks.server.ts
 import { redirect, type Handle } from '@sveltejs/kit';
-import { downloadDatabaseIfOnVercel } from '$lib/vercel-sqlite';
 
 // Simple admin password - in a real app, this would be stored securely
 const ADMIN_PASSWORD = 'movieadmin123';
 
 export const handle: Handle = async ({ event, resolve }) => {
-    // Initialize database by downloading from external storage if on Vercel
-    await downloadDatabaseIfOnVercel();
-    
     // Get the auth cookie
     const authCookie = event.cookies.get('admin_auth');
     
@@ -47,7 +43,7 @@ export const handle: Handle = async ({ event, resolve }) => {
                       event.url.pathname.includes('clues-') || 
                       event.url.pathname.includes('static-'));
     
-    // If it's nwhy is this shit not loadingot a public path or game API and not authenticated, redirect to login
+    // If it's not a public path or game API and not authenticated, redirect to login
     if (!isPublicPath && !isGameApi && authCookie !== ADMIN_PASSWORD) {
         console.log(`Redirecting unauthenticated request for ${event.url.pathname} to login`);
         throw redirect(303, '/login');
