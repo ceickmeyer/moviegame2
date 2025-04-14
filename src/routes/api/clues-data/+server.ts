@@ -7,10 +7,17 @@ import type { ApprovedClue } from '$lib/types/clueTypes';
 
 export const GET = async ({ url }: RequestEvent) => {
   try {
+    // Add cache control headers
+    const headers = {
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    };
+    
     const dataType = url.searchParams.get('type');
     
     if (!dataType || (dataType !== 'approved' && dataType !== 'movies')) {
-      return json({ error: 'Invalid data type requested' }, { status: 400 });
+      return json({ error: 'Invalid data type requested' }, { status: 400, headers });
     }
     
     if (dataType === 'approved') {
@@ -21,7 +28,7 @@ export const GET = async ({ url }: RequestEvent) => {
       
       if (error) {
         console.error('Error fetching approved clues:', error);
-        return json({ error: 'Failed to fetch approved clues' }, { status: 500 });
+        return json({ error: 'Failed to fetch approved clues' }, { status: 500, headers });
       }
       
       // Transform to match the expected format in the frontend
@@ -39,7 +46,7 @@ export const GET = async ({ url }: RequestEvent) => {
         is_approved: true
       }));
       
-      return json(approvedClues);
+      return json(approvedClues, { headers });
     } else { // dataType === 'movies'
       // Fetch movies from Supabase
       const { data: movies, error } = await supabase

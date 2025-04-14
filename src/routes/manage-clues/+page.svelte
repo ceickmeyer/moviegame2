@@ -3,6 +3,7 @@
     import type { ApprovedClue } from '$lib/types/clueTypes';
     import type { Movie } from '$lib/utils/sentenceExtractor';
     
+    
     let approvedClues: ApprovedClue[] = [];
     let loading = true;
     let searchTerm = '';
@@ -10,32 +11,23 @@
     let editingClue: ApprovedClue | null = null;
     let editedText = '';
     
-    onMount(async () => {
-      try {
-        // Load approved clues using the API endpoint
-        const approvedResponse = await fetch('/api/clues-data?type=approved');
-        approvedClues = await approvedResponse.json();
-        
-        // Load movie data using the API endpoint
-        try {
-          const moviesResponse = await fetch('/api/clues-data?type=movies');
-          const movies: Movie[] = await moviesResponse.json();
-          
-          // Create a map of movie IDs to movie objects for quick lookup
-          moviesMap = movies.reduce<Record<string, Movie>>((map, movie) => {
-            map[movie.id || `${movie.title}-${movie.year}`] = movie;
-            return map;
-          }, {});
-        } catch (error) {
-          console.error('Error loading movies:', error);
-        }
-        
-        loading = false;
-      } catch (error) {
-        console.error('Error loading clues:', error);
-        loading = false;
-      }
-    });
+// In routes\manage-clues\+page.svelte
+// Update the fetch call to include a timestamp to prevent caching
+onMount(async () => {
+  try {
+    // Add timestamp to prevent caching
+    const approvedResponse = await fetch(`/api/clues-data?type=approved&_=${Date.now()}`);
+    approvedClues = await approvedResponse.json();
+    
+    // Same for movies data
+    const moviesResponse = await fetch(`/api/clues-data?type=movies&_=${Date.now()}`);
+    const movies: Movie[] = await moviesResponse.json();
+    // ...rest of your code
+  } catch (error) {
+    console.error('Error loading clues:', error);
+    loading = false;
+  }
+});
     
     // Start editing a clue
     function startEditing(clue: ApprovedClue): void {
@@ -192,6 +184,25 @@
     <a href="/review-selector" class="nav-link">Back to Review Tool</a>
     <a href="/" class="nav-link">Home</a>
   </div>
+</div>
+
+<!-- In routes\manage-clues\+page.svelte -->
+<div class="filters">
+  <div class="search-box">
+    <input 
+      type="text" 
+      placeholder="Search by movie title or clue text..." 
+      bind:value={searchTerm}
+    />
+  </div>
+  <button class="refresh-btn" on:click={async () => {
+    loading = true;
+    const response = await fetch(`/api/clues-data?type=approved&_=${Date.now()}`);
+    approvedClues = await response.json();
+    loading = false;
+  }}>
+    Refresh Data
+  </button>
 </div>
 
 <style>
