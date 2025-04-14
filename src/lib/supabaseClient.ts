@@ -1,14 +1,29 @@
 import { createClient } from '@supabase/supabase-js'
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from '$env/static/private'
+import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public'
 
-// For local development with environment variables
-let supabaseUrl = SUPABASE_URL;
-let supabaseAnonKey = SUPABASE_ANON_KEY;
+// Create the Supabase client with options for better data type handling
+export const supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
+  db: {
+    schema: 'public',
+  },
+  global: {
+    headers: { 'x-typesafe': 'true' }, // This helps with automatic type conversion
+  },
+})
 
-// For Vercel deployment
-if (process.env.VERCEL) {
-  supabaseUrl = process.env.PUBLIC_SUPABASE_URL || SUPABASE_URL;
-  supabaseAnonKey = process.env.PUBLIC_SUPABASE_ANON_KEY || SUPABASE_ANON_KEY;
+// Helper function to parse JSONB arrays if needed as fallback
+export function parseJsonbArray(value: any): string[] {
+  if (!value) return [];
+  
+  if (typeof value === 'string') {
+    try {
+      const parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      console.error('Error parsing JSONB field:', e);
+      return [];
+    }
+  }
+  
+  return Array.isArray(value) ? value : [];
 }
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)

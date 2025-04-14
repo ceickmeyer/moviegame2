@@ -8,10 +8,10 @@ import { supabase } from "$lib/supabaseClient";
 export const load = (async () => {
   try {
     // Fetch movies from Supabase
-    const { data: moviesData, error: moviesError } = await supabase
+    const { data: rawMoviesData, error: moviesError } = await supabase
       .from('movies')
       .select('*');
-      
+     
     if (moviesError) {
       console.error("Error fetching movies:", moviesError);
       return {
@@ -22,19 +22,28 @@ export const load = (async () => {
       };
     }
     
+    // Process the raw data to ensure JSONB fields are properly parsed
+    const moviesData = rawMoviesData.map(movie => ({
+      ...movie,
+      // Ensure actors is always an array
+      actors: typeof movie.actors === 'string' 
+        ? JSON.parse(movie.actors) 
+        : (Array.isArray(movie.actors) ? movie.actors : [])
+    }));
+   
     // Get count of approved clues
     const { count: approvedCount, error: approvedError } = await supabase
       .from('movie_clues')
       .select('*', { count: 'exact', head: true });
-      
+     
     if (approvedError) {
       console.error("Error getting approved clue count:", approvedError);
     }
-
+    
     return {
       movies: moviesData || [],
       approvedCount: approvedCount || 0,
-      rejectedCount: 0, // Rejected clues aren't stored in the database
+      rejectedCount: 0,
     };
   } catch (error) {
     console.error("Error loading data:", error);
