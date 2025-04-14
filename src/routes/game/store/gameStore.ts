@@ -8,6 +8,7 @@ import {
 } from "svelte/store";
 import type { Movie } from "$lib/utils/sentenceExtractor";
 import type { ApprovedClue } from "$lib/types/clueTypes";
+import { getMovies, getApprovedClues } from "$lib/data";
 
 export const preloadedPoster: Writable<string | null> = writable(null);
 export const usedMovieIds: Writable<string[]> = writable([]);
@@ -234,10 +235,12 @@ export function getOrdinalSuffix(num: number): string {
 }
 
 // Game actions
+// Update this function in your gameStore.ts file
+
 export function loadGameData(): Promise<void> {
   return new Promise(async (resolve, reject) => {
     try {
-      // First try the API endpoint which now works on Vercel
+      // First try the API endpoint which now works with Supabase
       try {
         console.log("Loading movies and clues from API endpoints...");
         const [moviesResponse, cluesResponse] = await Promise.all([
@@ -261,30 +264,9 @@ export function loadGameData(): Promise<void> {
         
         console.log("Successfully loaded data from API endpoints");
       } catch (apiError) {
-        console.log("API endpoints failed, falling back to static files...");
-        
-        // Fallback to static files if API fails
-        try {
-          // Load static files with proper typing
-          type StaticMovieData = { default: Movie[] };
-          type StaticClueData = { default: Array<Omit<ApprovedClue, 'rating'> & { rating: string }> };
-          
-          const moviesData = (await import('$lib/../../static/letterboxd_movies.json',
-            { assert: { type: 'json' } })) as StaticMovieData;
-          const cluesData = (await import('$lib/../../static/approved_clues.json',
-            { assert: { type: 'json' } })) as StaticClueData;
-          
-          allMovies.set(moviesData.default);
-          approvedClues.set(cluesData.default.map(clue => ({
-            ...clue,
-            rating: clue.rating ? Number(clue.rating) : 0
-          })));
-          
-          console.log("Successfully loaded data from static files");
-        } catch (staticError) {
-          console.error("Failed to load data from both API and static files:", staticError);
-          throw new Error("Could not load game data from any location");
-        }
+        console.log("API endpoints failed:", apiError);
+        reject(new Error("Could not load game data"));
+        return;
       }
 
       // Load game history from localStorage
@@ -303,6 +285,7 @@ export function loadGameData(): Promise<void> {
     }
   });
 }
+
 
 // Load used movie IDs from localStorage
 export function loadUsedMovieIds(): void {

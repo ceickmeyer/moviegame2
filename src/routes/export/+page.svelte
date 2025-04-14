@@ -7,7 +7,7 @@
     
     onMount(async () => {
       try {
-        const response = await fetch('/approved_clues.json');
+        const response = await fetch('/api/clues-data?type=approved');
         approvedClues = await response.json();
         loading = false;
       } catch (error) {

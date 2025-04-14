@@ -1,11 +1,18 @@
-// routes\api\stats\toggle-clue-status\+server.ts
+// routes/api/stats/toggle-clue-status/+server.ts
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import type { ApprovedClue, RejectedClue } from '$lib/types/clueTypes';
-import { readStaticFile, writeStaticFile } from '$lib/utils/fileHelper';
+import { supabase } from "$lib/supabaseClient";
 
 interface ToggleRequest {
-  clue: ApprovedClue | RejectedClue;
+  clue: {
+    id: string;
+    movieId: string;
+    movieTitle: string;
+    movieYear: string | number;
+    clueText: string;
+    approvedAt?: string;
+    rejectedAt?: string;
+  };
   currentStatus: 'approved' | 'rejected';
 }
 
@@ -20,71 +27,41 @@ export const POST: RequestHandler = async ({ request }) => {
       );
     }
 
-    // Read the files using our helper functions
-    let approvedClues: ApprovedClue[] = [];
-    let rejectedClues: RejectedClue[] = [];
-
-    try {
-      approvedClues = readStaticFile("approved_clues.json");
-    } catch (error) {
-      console.log("No existing approved_clues.json, starting with empty array");
-      approvedClues = [];
-    }
-
-    try {
-      rejectedClues = readStaticFile("rejected_clues.json");
-    } catch (error) {
-      console.log("No existing rejected_clues.json, starting with empty array");
-      rejectedClues = [];
-    }
-
-    // Perform the status toggle
     if (currentStatus === "approved") {
-      // Move from approved to rejected
-      const clueToMove = approvedClues.find((c) => c.id === clue.id);
-
-      if (!clueToMove) {
-        return json(
-          { success: false, error: "Clue not found in approved list" },
-          { status: 404 }
-        );
+      // Change from approved to rejected
+      // In Supabase this could be either updating an is_approved field or doing a soft delete
+      // For this example, let's assume we're deleting the clue
+      const { error } = await supabase
+        .from('movie_clues')
+        .delete()
+        .eq('id', clue.id);
+        
+      if (error) {
+        console.error('Error deleting clue:', error);
+        return json({ success: false, error: 'Database error' }, { status: 500 });
       }
-
-      // Remove from approved
-      approvedClues = approvedClues.filter((c) => c.id !== clue.id);
-
-      // Add to rejected with current timestamp
-      rejectedClues.push({
-        ...clueToMove,
-        rejectedAt: new Date().toISOString(),
-      } as RejectedClue);
     } else if (currentStatus === "rejected") {
-      // Move from rejected to approved
-      const clueToMove = rejectedClues.find((c) => c.id === clue.id);
-
-      if (!clueToMove) {
-        return json(
-          { success: false, error: "Clue not found in rejected list" },
-          { status: 404 }
-        );
+      // Change from rejected to approved
+      // In Supabase, we would reinsert the clue
+      const { error } = await supabase
+        .from('movie_clues')
+        .insert([{
+          id: clue.id,
+          movie_id: clue.movieId,
+          movie_title: clue.movieTitle,
+          movie_year: clue.movieYear,
+          clue_text: clue.clueText,
+          approved_at: new Date().toISOString()
+        }]);
+        
+      if (error) {
+        console.error('Error inserting clue:', error);
+        return json({ success: false, error: 'Database error' }, { status: 500 });
       }
-
-      // Remove from rejected
-      rejectedClues = rejectedClues.filter((c) => c.id !== clue.id);
-
-      // Add to approved with current timestamp
-      approvedClues.push({
-        ...clueToMove,
-        approvedAt: new Date().toISOString(),
-      } as ApprovedClue);
     } else {
       return json({ success: false, error: "Invalid status" }, { status: 400 });
     }
-
-    // Write the updated files using our helper
-    writeStaticFile("approved_clues.json", approvedClues);
-    writeStaticFile("rejected_clues.json", rejectedClues);
-
+    
     return json({
       success: true,
       message: `Clue ${

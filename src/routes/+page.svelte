@@ -6,6 +6,8 @@
 	// State for movie schedule visibility
 	let isScheduleRevealed = false;
 	
+	export let data;
+
 	// Toggle movie schedule visibility
 	function toggleScheduleVisibility() {
 		isScheduleRevealed = !isScheduleRevealed;
@@ -74,7 +76,7 @@
 			
 			// Try to load the last few approved clues as recent activity
 			try {
-				const approvedResponse = await fetch('/approved_clues.json');
+				const approvedResponse = await fetch('/api/clues-data?type=approved');
 				const approvedClues = await approvedResponse.json();
 				
 				// Process approved clues

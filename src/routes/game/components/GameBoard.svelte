@@ -19,8 +19,8 @@
     
 onMount(async () => {
   try {
-    // Fetch the JSON list of backdrop paths
-    const response = await fetch('/backdrop_images.json');
+    // Fetch the list of backdrop paths from the API
+    const response = await fetch('/api/backdrop-images');
     const backdropPaths = await response.json();
     
     if (backdropPaths.length > 0) {

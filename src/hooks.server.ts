@@ -1,10 +1,14 @@
 // hooks.server.ts
 import { redirect, type Handle } from '@sveltejs/kit';
+import { downloadDatabaseIfOnVercel } from '$lib/vercel-sqlite';
 
 // Simple admin password - in a real app, this would be stored securely
 const ADMIN_PASSWORD = 'movieadmin123';
 
 export const handle: Handle = async ({ event, resolve }) => {
+    // Initialize database by downloading from external storage if on Vercel
+    await downloadDatabaseIfOnVercel();
+    
     // Get the auth cookie
     const authCookie = event.cookies.get('admin_auth');
     
@@ -25,6 +29,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         '/api/movie-schedule',
         '/api/clues-data',
         '/api/static-data',
+        '/api/backdrop-images',
         '/login',
         '/static',
         '/favicon.png'

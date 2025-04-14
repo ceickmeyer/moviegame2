@@ -1,7 +1,7 @@
-// routes\api\update-clue\+server.ts
+// routes/api/update-clue/+server.ts
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { readStaticFile, writeStaticFile } from '$lib/utils/fileHelper';
+import { supabase } from "$lib/supabaseClient";
 
 export const POST: RequestHandler = async ({ request }) => {
   try {
@@ -11,29 +11,15 @@ export const POST: RequestHandler = async ({ request }) => {
       return json({ success: false, error: 'Missing required fields' }, { status: 400 });
     }
     
-    // Read the current approved clues
-    let approvedClues;
-    try {
-      approvedClues = readStaticFile("approved_clues.json");
-    } catch (error) {
-      return json({ success: false, error: 'Failed to read clues data' }, { status: 500 });
-    }
+    // Update the clue text in Supabase
+    const { error } = await supabase
+      .from('movie_clues')
+      .update({ clue_text: clueText })
+      .eq('id', id);
     
-    // Find and update the clue
-    const clueIndex = approvedClues.findIndex((clue: any) => clue.id === id);
-    
-    if (clueIndex === -1) {
-      return json({ success: false, error: 'Clue not found' }, { status: 404 });
-    }
-    
-    // Update the clue text
-    approvedClues[clueIndex].clueText = clueText;
-    
-    // Write the updated clues back to the file
-    try {
-      writeStaticFile("approved_clues.json", approvedClues);
-    } catch (error) {
-      return json({ success: false, error: 'Failed to write updated clues' }, { status: 500 });
+    if (error) {
+      console.error('Error updating clue:', error);
+      return json({ success: false, error: 'Database error' }, { status: 500 });
     }
     
     return json({ success: true });

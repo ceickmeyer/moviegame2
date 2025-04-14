@@ -1,27 +1,38 @@
-// routes\api\stats\+server.ts
+// routes/api/stats/+server.ts
 import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
-import type { ApprovedClue } from "$lib/types/clueTypes";
-import { readStaticFile } from "$lib/utils/fileHelper";
+import { supabase } from "$lib/supabaseClient";
 
 export const GET: RequestHandler = async () => {
   try {
-    // Read the approved clues file using our helper
-    let approvedClues: ApprovedClue[] = [];
+    // Get count of approved clues
+    const { count: approvedCluesCount, error: countError } = await supabase
+      .from('movie_clues')
+      .select('*', { count: 'exact', head: true });
     
-    try {
-      approvedClues = readStaticFile("approved_clues.json");
-    } catch (error) {
-      console.log("No existing approved_clues.json, starting with empty array");
-      return json({ count: 0, movieCount: 0 });
+    if (countError) {
+      console.error("Error getting clue count:", countError);
+      return json({ error: "Failed to get stats" }, { status: 500 });
     }
-
-    // Count unique movies
-    const uniqueMovies = new Set(approvedClues.map((clue) => clue.movieId));
-
+    
+    // Get count of unique movies that have clues
+    const { data: moviesWithClues, error: moviesError } = await supabase
+      .from('movie_clues')
+      .select('movie_id')
+      .limit(1000); // Add a reasonable limit
+    
+    if (moviesError) {
+      console.error("Error getting movies with clues:", moviesError);
+      return json({ error: "Failed to get stats" }, { status: 500 });
+    }
+    
+    // Count unique movie IDs
+    const uniqueMovieIds = new Set(moviesWithClues.map(clue => clue.movie_id));
+    const movieCount = uniqueMovieIds.size;
+    
     return json({
-      count: approvedClues.length,
-      movieCount: uniqueMovies.size,
+      count: approvedCluesCount || 0,
+      movieCount: movieCount,
     });
   } catch (error) {
     console.error("Error getting stats:", error);
