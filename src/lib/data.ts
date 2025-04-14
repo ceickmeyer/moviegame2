@@ -22,7 +22,7 @@ export async function getMovies(): Promise<Movie[]> {
 
 export async function getMovieReviews(movieId: string) {
   const { data: reviews, error } = await supabase
-    .from('movie_reviews')  // Assuming you have a movie_reviews table
+    .from('movie_reviews')
     .select('*')
     .eq('movie_id', movieId);
 

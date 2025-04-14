@@ -299,7 +299,7 @@ async function saveSelectedSentences() {
     const sentences = Array.from(selectedSentences.values());
     
     // Log what we're sending to help debug
-    console.log("Sending clues to save:", sentences);
+    console.log("Sending clues to save:", sentences.length, "clues");
     
     const response = await fetch('/api/batch-approve-clues', {
       method: 'POST',
@@ -320,7 +320,13 @@ async function saveSelectedSentences() {
       })
     });
     
+    if (!response.ok) {
+      console.error("Error response from server:", await response.text());
+      throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+    }
+    
     const result = await response.json();
+    console.log("Server response:", result);
     
     if (result.success) {
       // Update counts
@@ -350,7 +356,7 @@ async function saveSelectedSentences() {
     }
   } catch (error) {
     console.error('Error saving clues:', error);
-    alert('Error saving clues');
+    alert('Error saving clues: ' + (error instanceof Error ? error.message : String(error)));
   } finally {
     savingInProgress = false;
   }
