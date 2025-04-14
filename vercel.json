@@ -31,5 +31,8 @@
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
-  ]
+  ],
+  "env": {
+    "DATABASE_DOWNLOAD_URL": "@movie_game_database_url"
+  }
 }
