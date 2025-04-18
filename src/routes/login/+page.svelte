@@ -1,10 +1,15 @@
+<!-- routes/login/+page.svelte -->
 <script lang="ts">
     import { enhance } from '$app/forms';
     import { fade } from 'svelte/transition';
+    import { page } from '$app/stores';
     
     export let form;
     let loading = false;
     let password = '';
+    
+    // Get the redirectTo parameter from the URL
+    $: redirectTo = $page.url.searchParams.get('redirectTo') || '/';
 </script>
 
 <svelte:head>
@@ -43,6 +48,9 @@
                     autocomplete="current-password"
                 />
             </div>
+            
+            <!-- Add hidden input for redirectTo -->
+            <input type="hidden" name="redirectTo" value={redirectTo}>
             
             <button type="submit" class="login-button" disabled={loading}>
                 {loading ? 'Logging in...' : 'Log In'}
