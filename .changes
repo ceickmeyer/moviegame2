@@ -1,17 +1,91 @@
-manage-clues should really only load the clues from the movie_clues table rather than all of them
 
-the /game/ seems to fill the terminal with all the movies possible and how many reviews which slows down load. it should only show THAT DAY's movie.
+the /game/ seems to fill the terminal with all the movies possible and how many reviews which slows down load. it should only show THAT DAYs movie.
 i'd like it if the user went to /game/ it just dropped them directly into the game, currently it has some spinner and briefly shows the stats.
+
+for the /game/ each piece of information like 'movie year', genre, 3rd billed, director, etc are shown one at at time, so the user doesn't know what's coming next. can we make little cards where they see what information has not been revealed.
+
 
 the genres are stored as this: "[\"Horror\", \"Action\", \"Science Fiction\", \"Fantasy\"]"
 the actors are stored like this: "[\"Barbara Anne Constable\", \"Christopher J. Hart\", \"Claudia Angelique Rademaker\", \"Joseph P. McGlynn\", \"Adam Jagwani\"]"
 
-causing them to be display like this: 1st Billed: ["Lily Sullivan"
+causing them to be display like this: 1st Billed: ["Lily Sullivan", i'd like to remove the extra brackets, quotes, etc.
 
-for the /game/ each piece of information like 'movie year', genre, 3rd billed, director, etc are shown one at at time, so the user doesn't know what's coming next. can we make little cards where they see what information has not been revealed.
 
 the review-selector has an ever-present display of how many clues have been selected, can i also add a button next to that to 'save' the clues so i don't have to scroll all the way to the bottom of the page?
 
 the review selector has the selected clues at the very bottom of the page, it would be great if each had a little 'edit' button so i could change the text.
 
+currently i select the clues by clicking sentences. is it possible to select them by highlighting them instead? if not that's fine.
+
 the saved clues aren't saving the 'reviewer' correctly it should pull them from the review url, so https://letterboxd.com/furious_iz/film/a-boy-and-his-dog/2/ is reviewed by 'furious_iz'
+
+the manage-clues page is slow to load. manage-clues should really only load the clues from the movie_clues table rather than all of them
+
+overall i'd like to make everything just slicker faster load better and not load data that isn't needed, specifically the game section.
+
+🔧 Performance + UX Improvements
+/game/ Page Optimizations
+
+    Issue: Currently loads all movies and reviews, slowing down performance.
+
+    Fix: Only fetch and load the movie for the current day.
+
+    Bonus UX: On visiting /game/, immediately drop users into the game. Avoid initial spinner/stats delay.
+
+Incremental Hint Cards
+
+    Current: Hints (e.g., year, genre, director, 3rd billed actor) appear sequentially, but it's unclear what comes next.
+
+    Update: Display unrevealed hint types as “locked” cards, so users can anticipate upcoming info without seeing the actual content.
+
+Improved Genre & Actor Formatting
+
+    Issue: Genre and actor fields are displayed with JSON formatting like ["Horror", "Action"] or ["Lily Sullivan"].
+
+    Fix: Parse and display these as clean, comma-separated strings like:
+
+        Genres: Horror, Action, Science Fiction
+
+        1st Billed: Lily Sullivan
+
+🛠 Review Selector Enhancements
+Floating 'Save Clues' Button
+
+    Current: Have to scroll to the bottom to save.
+
+    Update: Add a floating or adjacent button near the clue count to trigger the same "save" function.
+
+Editable Clues
+
+    Update: Each selected clue (at the bottom of the selector) should have a small 'Edit' button to allow on-the-spot text editing.
+
+Sentence Selection by Highlighting
+
+    Request: Can we support selecting review text by highlighting instead of clicking full sentences?
+
+        If not technically feasible or introduces bugs, keep the click-to-select.
+
+Reviewer Attribution
+
+    Issue: Reviewer isn't saved properly.
+
+    Fix: Extract reviewer name from review URL, e.g.:
+
+        https://letterboxd.com/furious_iz/film/a-boy-and-his-dog/2/ → reviewer = furious_iz
+
+📉 Manage Clues Page
+Performance Fix
+
+    Issue: Page is slow due to over-fetching data.
+
+    Fix: Only query and load clues from the movie_clues table (not entire movies or all reviews).
+
+💡 General Goals
+
+    Prioritize lazy-loading and minimal data fetching — fetch only what is absolutely needed for the user’s current view.
+
+    Optimize database queries (maybe use Supabase RPC functions or filters to reduce client work).
+
+    Minimize load times, especially for game flow and admin actions.
+
+    Use progressive rendering where possible — show basic UI immediately and fill in data as it loads.
