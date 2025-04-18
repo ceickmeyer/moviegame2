@@ -1,4 +1,4 @@
-<!-- routes\game\components\ReviewCard.svelte -->
+<!-- Updated ReviewCard.svelte with improved layout -->
 <script lang="ts">
     import { fly } from 'svelte/transition';
     
@@ -45,7 +45,7 @@
       return null;
     }
     
-    // Generate the user profile URL instead of review URL
+    // Generate the user profile URL
     function getReviewUrl(): string | null {
       if (clue.reviewUrl) {
         // Extract the username from the review URL
@@ -70,20 +70,18 @@
     const hasLink = !!reviewUrl;
 </script>
 
-<div class="review-card" in:fly={{ y: 20, duration: 300, delay: index * 100 }}>
+<div class="review-card" in:fly={{ y: 20, duration: 300, delay: index * 75 }}>
     <div class="review-text">{clue.clueText}</div>
     
     <div class="review-metadata">
         {#if reviewer && hasLink}
             <div class="review-author">
-                <span class="author-icon">👤</span>
                 <a href={reviewUrl} target="_blank" rel="noopener noreferrer" class="author-name">
                     @{reviewer}
                 </a>
             </div>
         {:else if reviewer}
             <div class="review-author">
-                <span class="author-icon">👤</span>
                 <span class="author-name">@{reviewer}</span>
             </div>
         {/if}
@@ -110,8 +108,8 @@
         backdrop-filter: blur(5px);
         border-radius: 8px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        padding: 1.5rem;
-        margin-bottom: 1rem;
+        padding: 1.2rem;
+        margin-bottom: 0.7rem;
         position: relative;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         color: inherit;
@@ -124,41 +122,35 @@
     }
     
     .review-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.5;
         color: #fff;
-        padding-top: 0.5rem; /* Add top padding to avoid overlap with metadata */
-        max-width: calc(100% - 200px); /* Leave space for metadata on right */
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
     }
     
     .review-metadata {
         display: flex;
         gap: 8px;
         position: absolute;
-        top: 0.75rem;
-        right: 0.75rem;
-        max-width: 250px; /* Limit width to prevent oversized metadata */
-        flex-wrap: wrap; /* Allow items to wrap if needed */
-        justify-content: flex-end; /* Align items to the right */
+        top: 0.5rem;
+        right: 0.5rem;
+        max-width: 250px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
     
     .review-author {
         background-color: rgba(33, 150, 243, 0.15);
         border-radius: 4px;
-        padding: 0.3rem 0.5rem;
+        padding: 0.2rem 0.4rem;
         display: flex;
         align-items: center;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
-    }
-    
-    .author-icon {
-        margin-right: 0.25rem;
-        font-size: 0.8rem;
-        flex-shrink: 0;
     }
     
     .author-name {
@@ -181,10 +173,10 @@
     .review-rating {
         background-color: rgba(0, 192, 48, 0.15);
         border-radius: 4px;
-        padding: 0.3rem 0.5rem;
+        padding: 0.2rem 0.4rem;
         display: flex;
         align-items: center;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         flex-shrink: 0;
     }
     
@@ -200,10 +192,10 @@
     .review-liked {
         background-color: rgba(255, 144, 16, 0.15);
         border-radius: 4px;
-        padding: 0.3rem 0.5rem;
+        padding: 0.2rem 0.4rem;
         display: flex;
         align-items: center;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         flex-shrink: 0;
     }
     
@@ -214,16 +206,7 @@
     /* Mobile responsiveness */
     @media (max-width: 480px) {
         .review-text {
-            max-width: 100%;
-            padding-top: 2.5rem; /* More space for metadata on top */
-        }
-        
-        .review-metadata {
-            max-width: 100%;
-            width: calc(100% - 1.5rem);
-            top: 0.5rem;
-            right: 0.75rem;
-            justify-content: flex-end;
+            padding-top: 1.8rem;
         }
     }
 </style>

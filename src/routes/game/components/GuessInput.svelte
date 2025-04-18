@@ -89,26 +89,47 @@
   .guess-input-container {
     position: relative;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .input-with-button {
     display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   input {
     flex: 1;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ccc;
+    padding: 0.9rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
     color: #333;
     font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    background-color: white;
+    box-shadow: 0 0 0 2px rgba(255, 62, 0, 0.3);
   }
   
   button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    padding: 0 1.5rem;
+    background-color: var(--accent-color, #ff3e00);
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #e83700;
   }
   
   .dropdown {
@@ -116,25 +137,28 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgba(44, 52, 64, 0.95);
-    backdrop-filter: blur(5px);
+    background-color: rgba(44, 52, 64, 0.97);
+    backdrop-filter: blur(10px);
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     max-height: 300px;
     overflow-y: auto;
     z-index: 100;
+    margin-top: 2px;
   }
   
   .dropdown-item {
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 1.2rem;
     cursor: pointer;
     color: #fff;
-    transition: background-color 0.2s;
+    border-left: 3px solid transparent;
+    transition: all 0.15s ease;
   }
   
   .dropdown-item:hover,
   .dropdown-item:focus {
     background-color: rgba(33, 150, 243, 0.2);
+    border-left-color: var(--accent-color, #ff3e00);
     outline: none;
   }
   
@@ -146,5 +170,21 @@
     color: #aaa;
     margin-left: 0.5rem;
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    input {
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    button {
+      padding: 0 1.2rem;
+      font-size: 0.9rem;
+    }
+    
+    .dropdown-item {
+      padding: 0.7rem 1rem;
+    }
   }
 </style>

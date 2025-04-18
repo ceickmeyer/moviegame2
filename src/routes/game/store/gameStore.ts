@@ -139,7 +139,13 @@ export const isLoading: Writable<boolean> = writable(false);
 export const displayableClues: Readable<GameClue[]> = derived(
   [currentClues, revealedClueIndex],
   ([$currentClues, $revealedClueIndex]) => {
-    return $currentClues.slice(0, $revealedClueIndex);
+    // Ensure the clues are sorted by length (shortest first) every time they're accessed
+    const sortedClues = [...$currentClues].sort((a, b) => 
+      a.clueText.length - b.clueText.length
+    );
+    
+    // Return only the number of clues that should be visible
+    return sortedClues.slice(0, $revealedClueIndex);
   }
 );
 
@@ -382,7 +388,6 @@ export function ensureInitialInfo(): void {
     return; // Skip if no movie, already have info, or loading
   }
   
-  console.log("Ensuring initial info is set for movie:", movie.title);
   
   // Get first phase
   const phases = get(phaseConfig);
@@ -483,48 +488,24 @@ export async function startNewGame(): Promise<void> {
         const movieClues = await cluesResponse.json();
         
         // Apply our clue ordering strategy directly on these clues
-        const cluesByLength = movieClues.reduce(
-          (groups, clue) => {
-            const textLength = clue.clue_text.length;
-            
-            // Transform the clue into our expected format
-            const processedClue = {
-              id: clue.id,
-              movieId: clue.movie_id,
-              movieTitle: clue.movie_title,
-              movieYear: clue.movie_year,
-              clueText: clue.clue_text,
-              approvedAt: clue.approved_at,
-              rating: clue.rating,
-              is_liked: clue.is_liked,
-              reviewer: clue.reviewer || extractReviewerFromUrl(clue.review_url),
-              reviewUrl: clue.review_url
-            };
-            
-            if (textLength < 100) {
-              groups.short.push(processedClue);
-            } else if (textLength < 200) {
-              groups.medium.push(processedClue);
-            } else {
-              groups.long.push(processedClue);
-            }
-            
-            return groups;
-          },
-          {
-            short: [] as GameClue[],
-            medium: [] as GameClue[],
-            long: [] as GameClue[],
-          }
+        // Transform all clues to our expected format
+        const transformedClues = movieClues.map(clue => ({
+          id: clue.id,
+          movieId: clue.movie_id,
+          movieTitle: clue.movie_title,
+          movieYear: clue.movie_year,
+          clueText: clue.clue_text,
+          approvedAt: clue.approved_at,
+          rating: clue.rating,
+          is_liked: clue.is_liked,
+          reviewer: clue.reviewer || extractReviewerFromUrl(clue.review_url),
+          reviewUrl: clue.review_url
+        }));
+        
+        // Sort clues by text length (shortest first)
+        const sortedClues = [...transformedClues].sort((a, b) => 
+          a.clueText.length - b.clueText.length
         );
-        
-        // 2. Shuffle each group for randomness
-        const shuffledShort = shuffleArray(cluesByLength.short);
-        const shuffledMedium = shuffleArray(cluesByLength.medium);
-        const shuffledLong = shuffleArray(cluesByLength.long);
-        
-        // 3. Combine the groups, starting with short clues, then medium, then long
-        const sortedClues = [...shuffledShort, ...shuffledMedium, ...shuffledLong];
         
         // Set the sorted clues
         currentClues.set(sortedClues);

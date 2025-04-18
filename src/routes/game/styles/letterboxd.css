@@ -140,109 +140,107 @@ button {
   margin-top: 0;
 }
 
-.banner-container {
+.game-content {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  height: 675px; /* Match backdrop height of 675px */
-  background-color: #cfd9de; /* Match the light blue/gray box color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-  overflow: hidden;
-  margin-top: 0;
-  padding-top: 0;
+  max-width: 850px; /* Narrower for better readability */
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
 }
-
-.banner-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center; /* Center the image */
-}
-
-/* ==================== */
-/* Review Components    */
-/* ==================== */
 .review-card {
   display: block;
-  text-decoration: none;
-  background-color: var(--card-bg);
+  background-color: rgba(44, 52, 64, 0.8);
+  backdrop-filter: blur(5px);
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 1.2rem 1.2rem; /* Increased top padding */
+  margin-bottom: 0.7rem;
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   color: inherit;
 }
-
-a.review-card:hover {
+.review-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background-color: var(--card-bg-accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(50, 58, 70, 0.9);
 }
 
-a.review-card::after {
-  content: "↗";
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
+/* Increase padding at the top to make room for metadata */
 .review-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-  padding-top: 0.5rem; /* Add top padding to avoid overlap with metadata */
-  max-width: calc(100% - 200px); /* Leave space for metadata on right */
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+  position: relative;
+  padding-top: 1.2rem; /* Space between metadata and text */
 }
 
+/* Adjust metadata positioning */
 .review-metadata {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: 0.5rem; /* Distance from top of card */
+  right: 0.5rem;
   display: flex;
-  gap: 8px;
-  max-width: 180px; /* Limit width to prevent oversized metadata */
-  flex-wrap: wrap; /* Allow items to wrap if needed */
-  justify-content: flex-end; /* Align items to the right */
+  gap: 0.4rem;
+  z-index: 10; /* Ensure it's above the text */
+  width: auto; /* Allow natural width */
+  max-width: 100%; /* Prevent overflow */
 }
-
+/* Improve appearance of review author */
 .review-author {
-  background-color: var(--author-bg);
+  background-color: rgba(33, 150, 243, 0.15);
   border-radius: 4px;
-  padding: 0.3rem 0.5rem;
+  padding: 0.2rem 0.4rem;
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
 }
 
-.author-icon {
-  margin-right: 0.25rem;
+.meta-item, .review-author, .review-rating, .review-liked {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
   font-size: 0.8rem;
-  flex-shrink: 0;
+  background-color: rgba(30, 35, 42, 0.7); /* Dark background to stand out */
+  margin-left: 0.2rem;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+@media (max-width: 480px) {
+  .review-card {
+    padding-top: 2.5rem; /* More space at top on small screens */
+  }
+  
+  .review-text {
+    padding-top: 0; /* No additional padding needed */
+  }
+  
+  .review-metadata {
+    top: 0.5rem;
+    right: 0.5rem;
+    max-width: calc(100% - 2rem); /* Prevent overflow */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: flex-end;
+  }
 }
 
 .author-name {
-  color: var(--author-color);
+  color: #64B5F6;
   font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .review-rating {
   background-color: var(--rating-bg);
   border-radius: 4px;
-  padding: 0.3rem 0.5rem;
+  padding: 0.25rem 0.4rem;
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
 }
 
@@ -258,10 +256,10 @@ a.review-card::after {
 .review-liked {
   background-color: var(--likes-bg);
   border-radius: 4px;
-  padding: 0.3rem 0.5rem;
+  padding: 0.25rem 0.4rem;
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
 }
 
@@ -273,22 +271,29 @@ a.review-card::after {
 /* Section Styles       */
 /* ==================== */
 .section-title {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
   color: var(--text-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 500;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .reviews-section,
 .guessing-section {
-  margin-bottom: 2rem;
-  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .no-reviews {
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
   color: var(--text-secondary);
   font-style: italic;
@@ -297,85 +302,75 @@ a.review-card::after {
 }
 
 /* ==================== */
-/* Game Progress UI     */
-/* ==================== */
-.guesses-counter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1.5rem auto;
-  padding: 1rem;
-  max-width: 400px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-}
-
-.guess-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.guess-dot {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: var(--card-bg);
-  border: 2px solid #202830;
-  transition: all 0.2s ease;
-}
-
-.guess-dot.used {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  transform: scale(0.85);
-}
-
-.guesses-remaining-text {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text-color);
-}
-
-/* ==================== */
 /* Info Pills/Tags      */
 /* ==================== */
 .info-pill {
-  display: inline-flex;
+  position: relative;
+  min-height: 2.2rem;
+  min-width: 100px;
+  display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.5rem 0.75rem;
-  background-color: var(--card-bg-accent);
   border-radius: 4px;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
 }
 
-.info-pill.year {
-  background-color: var(--info-bg);
-  color: var(--info-color);
+.info-pill.year.revealed {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #64B5F6;
 }
 
-.info-pill.genre {
-  background-color: var(--success-bg);
-  color: var(--success-color);
+.info-pill.genre.revealed {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #81C784;
 }
 
-.info-pill.actor {
-  background-color: var(--warning-bg);
-  color: var(--warning-color);
+.info-pill.actor.revealed {
+  background-color: rgba(255, 152, 0, 0.2);
+  color: #FFB74D;
 }
 
-.info-pill.director {
-  background-color: var(--accent-light);
-  color: var(--accent-color);
+.info-pill.director.revealed {
+  background-color: rgba(255, 62, 0, 0.2);
+  color: #FF7043;
 }
 
-.info-pill.rating {
-  background-color: var(--rating-bg);
-  color: var(--rating-color);
+.info-pill.rating.revealed {
+  background-color: rgba(0, 192, 48, 0.2);
+  color: #4CD964;
+}
+
+.info-pill.allGenres.revealed {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #81C784;
+}
+
+/* Locked info styling */
+.info-pill.locked {
+  background-color: rgba(100, 100, 100, 0.2);
+  color: transparent;
+  border: 1px dashed rgba(170, 170, 170, 0.4);
+  overflow: hidden;
+}
+
+.info-pill.locked::before {
+  content: "🔒";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.locked-content {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 /* ==================== */
@@ -424,8 +419,12 @@ a.review-card::after {
 /* ==================== */
 .feedback {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 6px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feedback.error {
@@ -436,6 +435,120 @@ a.review-card::after {
 .feedback.success {
   background-color: var(--success-bg);
   border: 1px solid var(--success-border);
+}
+
+/* ==================== */
+/* Game Progress UI     */
+/* ==================== */
+.guesses-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.75rem auto;
+  padding: 0.6rem;
+  max-width: 320px;
+  background-color: rgba(20, 24, 28, 0.7);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.guess-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.guess-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgba(44, 52, 64, 0.8);
+  border: 2px solid #202830;
+  transition: all 0.2s ease;
+}
+
+.guess-dot.used {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: scale(0.85);
+}
+
+.guesses-remaining-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ==================== */
+/* Movie Info Styling   */
+/* ==================== */
+.movie-info {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  padding: 1.25rem;
+  background-color: rgba(44, 52, 64, 0.75);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.info-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+}
+
+/* Backdrop styling */
+.backdrop-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.backdrop-image {
+  width: 100%;
+  max-width: 1200px;
+  height: 675px;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(0.85);
+}
+
+.faded::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 24, 28, 0.65);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Logo styling */
+.logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 0.75rem;
 }
 
 /* ==================== */
@@ -474,33 +587,72 @@ a.review-card::after {
 /* Responsive Styles    */
 /* ==================== */
 @media (max-width: 768px) {
-  .movie-result {
-    flex-direction: column;
-    align-items: center;
+  .game-content {
+    padding: 0.75rem;
   }
-
-  .movie-poster {
-    margin-bottom: 1rem;
+  
+  .reviews-section,
+  .guessing-section {
+    padding: 0 0.5rem;
   }
-
-  .banner-container {
-    height: 400px; /* Smaller height on mobile */
+  
+  .guesses-counter {
+    max-width: 90%;
+    padding: 0.5rem;
   }
-
-  .review-text {
-    max-width: 100%;
-    padding-top: 2.5rem; /* More space for metadata on top */
+  
+  .guess-dots {
+    gap: 0.4rem;
   }
-
-  .review-metadata {
-    max-width: 100%;
-    width: calc(100% - 1.5rem);
-    justify-content: flex-end;
+  
+  .guess-dot {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .guesses-remaining-text {
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    max-width: 180px;
+  }
+  
+  .section-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .info-pill {
+    min-width: 85px;
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
-  .banner-container {
-    height: 300px;
+  .backdrop-image {
+    height: 100vh;
+    object-fit: cover;
+    object-position: top;
   }
+  
+  .guess-dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .logo {
+    max-width: 160px;
+  }
+  
+  .review-text {
+    padding-top: 1.75rem;
+  }
+}
+
+/* Additional side fades for backdrop edges */
+.faded.faded-sides:after {
+  box-shadow: 
+      inset 100px -100px 100px 50px #14181c,  /* Left edge */
+      inset -100px 0px 100px 50px #14181c; /* Right edge */
 }
