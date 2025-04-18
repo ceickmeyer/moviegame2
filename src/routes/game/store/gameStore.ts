@@ -109,7 +109,7 @@ export const availableInfoTypes = [
     position: 1,
     description: "First-billed Actor",
   },
-  { id: "rating", type: "rating", description: "Letterboxd Rating" },
+  { id: "rating", type: "rating", description: "Rating" },
 ];
 
 // Game stores with type annotations
@@ -219,7 +219,7 @@ export const stats = derived(
       }
     }
     
-    return { played, won, avgGuesses, streak: currentStreak, bestStreak: 0 };
+    return { played, won, avgGuesses, streak: currentStreak, bestStreak };
   }
 );
 
@@ -259,6 +259,12 @@ export function loadGameData(): Promise<void> {
       loadGameHistory();
       loadPhaseConfig();
       loadUsedMovieIds();
+      
+      // Try to ensure initial info is set if we already have a movie
+      if (get(currentMovie)) {
+        ensureInitialInfo();
+      }
+      
       resolve();
     } catch (error) {
       console.error("Error loading game data:", error);
@@ -370,6 +376,60 @@ function getPosterPath(movie: Movie): string | null {
   return `/posters/${titleFormatted}_${year}.jpg`;
 }
 
+export function ensureInitialInfo(): void {
+  const movie = get(currentMovie);
+  if (!movie || get(revealedInfo).length > 0 || get(isLoading)) {
+    return; // Skip if no movie, already have info, or loading
+  }
+  
+  console.log("Ensuring initial info is set for movie:", movie.title);
+  
+  // Get first phase
+  const phases = get(phaseConfig);
+  if (phases.length === 0) {
+    console.warn("No phase configuration found, using defaults");
+    phaseConfig.set([...defaultPhaseConfig]);
+  }
+  
+  const firstPhase = phases.length > 0 ? phases[0] : defaultPhaseConfig[0];
+  const infoTypes = firstPhase.infoTypes;
+  
+  // Generate info for first phase
+  const firstPhaseInfo = infoTypes.map(infoType => {
+    return generateInfoItem(movie, infoType);
+  }).filter(Boolean);
+  
+  if (firstPhaseInfo.length > 0) {
+    console.log("Setting initial info in ensureInitialInfo:", firstPhaseInfo);
+    revealedInfo.set(firstPhaseInfo);
+    
+    // Update locked status
+    allPossibleInfo.update(items => {
+      return items.map(item => {
+        // Check if this item matches something in first phase info
+        const isRevealed = firstPhaseInfo.some(
+          info => info.type === item.type && 
+                 (info.position === item.position || 
+                  (!info.position && !item.position))
+        );
+        
+        if (isRevealed) {
+          return { ...item, locked: false };
+        }
+        return item;
+      });
+    });
+  } else {
+    // Fallback to year if nothing else
+    const yearInfo = generateInfoItem(movie, "year");
+    if (yearInfo) {
+      console.log("Using fallback year info:", yearInfo);
+      revealedInfo.set([yearInfo]);
+    }
+  }
+}
+
+
 // Optimized startNewGame that directly fetches today's movie
 export async function startNewGame(): Promise<void> {
   try {
@@ -417,7 +477,6 @@ export async function startNewGame(): Promise<void> {
     currentMovie.set(selectedMovie);
     
     // Fetch the specific clues for this movie directly
-    // This avoids loading all clues unnecessarily
     try {
       const cluesResponse = await fetch(`/api/movie-clues?movieId=${movieId}&_=${Date.now()}`);
       if (cluesResponse.ok) {
@@ -493,6 +552,11 @@ export async function startNewGame(): Promise<void> {
     guessInput.set("");
     guessCount.set(0);
     
+    // Clear previous state to avoid any carryover issues
+    revealedInfo.set([]);
+    
+    console.log("Setting up movie information...");
+    
     // Initialize all possible info items (both revealed and locked)
     const allInfoItems: InfoItem[] = [];
     
@@ -510,17 +574,83 @@ export async function startNewGame(): Promise<void> {
     
     // Initialize with phase 1 information - these will be unlocked
     const phases = get(phaseConfig);
-    const firstPhase = phases[0];
+    console.log("Phase config:", phases);
+    
+    if (phases.length === 0) {
+      console.error("No phase configuration found!");
+      // Fall back to default phases if none are configured
+      phaseConfig.set([...defaultPhaseConfig]);
+    }
+    
+    // Always get the first phase, which should show information at the start
+    const firstPhase = phases.length > 0 ? phases[0] : defaultPhaseConfig[0];
     
     // Reveal all information for the first phase
     const firstPhaseInfo = generatePhaseInfoItems(
       selectedMovie,
       firstPhase.infoTypes
     );
-    revealedInfo.set(firstPhaseInfo);
     
-    // Update the locked status for revealed items
-    updateLockedStatus(firstPhase.infoTypes);
+    console.log("Initial first phase info:", firstPhaseInfo);
+    
+    // Ensure we always have at least one piece of information to show
+    let finalFirstPhaseInfo = [...firstPhaseInfo];
+    if (finalFirstPhaseInfo.length === 0) {
+      console.warn("No info found for first phase, adding fallback info...");
+      
+      // If no info is available for the first phase, try to get the year
+      const yearInfo = generateInfoItem(selectedMovie, "year");
+      if (yearInfo) {
+        finalFirstPhaseInfo.push(yearInfo);
+      }
+      
+      // If still no info, try to get any available info
+      if (finalFirstPhaseInfo.length === 0) {
+        for (const infoType of ["firstGenre", "director", "firstActor", "rating"]) {
+          const info = generateInfoItem(selectedMovie, infoType);
+          if (info) {
+            finalFirstPhaseInfo.push(info);
+            break;
+          }
+        }
+      }
+    }
+    
+    console.log("Final first phase info:", finalFirstPhaseInfo);
+    
+    // Make sure to IMMEDIATELY set the revealed info before updating lock status
+    if (finalFirstPhaseInfo.length > 0) {
+      // Critical fix: Set the revealed info immediately
+      revealedInfo.set(finalFirstPhaseInfo);
+      
+      // Update the locked status for revealed items
+      const revealedTypes = finalFirstPhaseInfo.map(info => 
+        getInfoTypeFromItem(info)
+      ).filter(Boolean);
+      
+      console.log("Revealed types:", revealedTypes);
+      
+      // Important: Make sure to update lock status AFTER setting revealed info
+      setTimeout(() => {
+        updateLockedStatus(revealedTypes);
+      }, 10);
+    } else {
+      console.error("Failed to generate any initial movie information!");
+    }
+
+    // Make sure we have at least one clue to show
+    if (get(currentClues).length === 0) {
+      console.log("No clues available for this movie. Using placeholder.");
+      // Create a placeholder clue if none are available
+      currentClues.set([{
+        id: "placeholder",
+        movieId: selectedMovie.id || `${selectedMovie.title}-${selectedMovie.year}`,
+        movieTitle: selectedMovie.title,
+        movieYear: selectedMovie.year,
+        clueText: "No reviews available for this movie. Try using the movie information to guess!",
+        approvedAt: new Date().toISOString()
+      }]);
+    }
 
     gameState.set("playing");
     feedback.set("");
@@ -532,6 +662,7 @@ export async function startNewGame(): Promise<void> {
     feedback.set(`Failed to start a new game: ${error instanceof Error ? error.message : "Unknown error"}. Please try again.`);
     isLoading.set(false);
   }
+  ensureInitialInfo();
 }
 
 // Helper function to extract reviewer from URL
@@ -544,14 +675,18 @@ function extractReviewerFromUrl(url?: string): string | undefined {
 
 // Update locked status for revealed info types
 function updateLockedStatus(revealedTypes: string[]): void {
+  console.log("Updating lock status for:", revealedTypes);
   allPossibleInfo.update(items => {
-    return items.map(item => {
+    const updatedItems = items.map(item => {
       const infoType = getInfoTypeFromItem(item);
-      if (revealedTypes.includes(infoType)) {
+      if (infoType && revealedTypes.includes(infoType)) {
+        console.log(`Unlocking item: ${infoType}`);
         return { ...item, locked: false };
       }
       return item;
     });
+    console.log("Updated all possible info items");
+    return updatedItems;
   });
 }
 

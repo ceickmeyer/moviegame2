@@ -1,7 +1,8 @@
 // src/lib/supabaseDB.ts
 import { supabase } from './supabaseClient';
 import type { Movie } from './utils/sentenceExtractor';
-import type { Clue, ApprovedClue } from './types/clueTypes';
+import type { ClueBase, ApprovedClue } from './types/clueTypes';
+import { ensureArray } from './utils/dataHelpers';
 
 // Export interfaces (if they aren't already defined elsewhere)
 export interface SupabaseMovie {

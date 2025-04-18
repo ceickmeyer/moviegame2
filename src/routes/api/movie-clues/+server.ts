@@ -5,11 +5,11 @@ import { supabase } from '$lib/supabaseClient';
 
 export const GET = async ({ url }: RequestEvent) => {
   try {
-    // Add cache control headers to ensure fresh data
+    // Add cache control headers to allow caching for 1 hour
+    // Clues for a specific movie don't change frequently
     const headers = {
-      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
+      'Cache-Control': 'public, max-age=3600',
+      'Expires': new Date(Date.now() + 3600000).toUTCString()
     };
     
     const movieId = url.searchParams.get('movieId');
@@ -18,10 +18,11 @@ export const GET = async ({ url }: RequestEvent) => {
       return json({ error: 'Movie ID is required' }, { status: 400, headers });
     }
     
-    // Fetch clues for the specific movie
+    // Fetch clues for the specific movie with a more efficient query
+    // Use a single query with all needed fields
     const { data: clues, error } = await supabase
       .from('movie_clues')
-      .select('*')
+      .select('id, movie_id, movie_title, movie_year, clue_text, approved_at, rating, is_liked, reviewer, review_url')
       .eq('movie_id', movieId);
     
     if (error) {

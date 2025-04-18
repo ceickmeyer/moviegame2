@@ -2,6 +2,7 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { supabase } from '$lib/supabaseClient';
+import { ensureArray } from '$lib/utils/dataHelpers';
 
 interface Movie {
     id: string;
@@ -37,47 +38,59 @@ function seededRandom(seed: string): number {
     return (hash & 0x7fffffff) / 0x7fffffff;
 }
 
+// Fix: Updated to point to the correct poster path
+function getPosterPath(movie: Movie): string | null {
+  if (!movie) return null;
+  // Convert movie title to filename format
+  const titleFormatted = movie.title.replace(/\s+/g, "_").replace(/[^\w\-]/g, "_");
+  const year = movie.year;
+  return `/posters/${titleFormatted}_${year}.jpg`;
+}
+
 export const GET: RequestHandler = async () => {
     try {
-        // Get all movies from Supabase
-        const { data: moviesData, error: moviesError } = await supabase
+        // Cache control headers - cache for 1 hour since the daily movie only changes once per day
+        const headers = {
+            'Cache-Control': 'public, max-age=3600',
+            'Expires': new Date(Date.now() + 3600000).toUTCString()
+        };
+        
+        // Get movies with clue counts in a single query using Supabase's built-in count feature
+        const { data: moviesWithClueCount, error: moviesError } = await supabase
             .from('movies')
-            .select('*');
+            .select(`
+                *,
+                clueCount:movie_clues(count)
+            `);
         
         if (moviesError) {
             console.error('Error fetching movies:', moviesError);
-            return json({ error: 'Failed to fetch movies' }, { status: 500 });
+            return json({ error: 'Failed to fetch movies' }, { status: 500, headers });
         }
         
-        // For each movie, get the count of clues
-// Update the code where you process movie data
-const moviesWithClueCount = await Promise.all(moviesData.map(async (movie) => {
-    const { count, error: countError } = await supabase
-      .from('movie_clues')
-      .select('*', { count: 'exact', head: true })
-      .eq('movie_id', movie.id);
-    
-    // Ensure genres and actors are arrays
-    const genres = movie.genres ? 
-      (Array.isArray(movie.genres) ? movie.genres : 
-       (typeof movie.genres === 'string' ? movie.genres.split(',') : 
-        (typeof movie.genres === 'object' ? Object.values(movie.genres) : []))) : [];
-        
-    const actors = movie.actors ? 
-      (Array.isArray(movie.actors) ? movie.actors : 
-       (typeof movie.actors === 'string' ? movie.actors.split(',') : 
-        (typeof movie.actors === 'object' ? Object.values(movie.actors) : []))) : [];
-    
-    return {
-      ...movie,
-      clueCount: count || 0,
-      genres: genres,
-      actors: actors
-    };
-  }));
+        // Process the movies to ensure arrays are properly formatted
+        const processedMovies = moviesWithClueCount.map(movie => {
+            // Extract the count from the nested count object
+            const clueCount = movie.clueCount?.length > 0 ? movie.clueCount[0].count : 0;
+            
+            // Fix: Use ensureArray to properly parse JSONB arrays
+            const genres = ensureArray(movie.genres);
+            const actors = ensureArray(movie.actors);
+            
+            // Fix: Update poster_path to use the correct relative path
+            const poster_path = getPosterPath(movie);
+            
+            return {
+                ...movie,
+                clueCount,
+                genres,
+                actors,
+                poster_path
+            };
+        });
         
         // Filter movies with at least 6 approved clues
-        let eligibleMovies = moviesWithClueCount.filter(movie => movie.clueCount >= 6);
+        let eligibleMovies = processedMovies.filter(movie => movie.clueCount >= 6);
         
         if (eligibleMovies.length === 0) {
             return json({
@@ -103,16 +116,19 @@ const moviesWithClueCount = await Promise.all(moviesData.map(async (movie) => {
         const upcomingMoviesWithDates: MovieWithDate[] = upcomingMovies.map((movie: any, index: number) => {
             const date = new Date();
             date.setDate(date.getDate() + index + 1);
+            // Ensure upcoming movies also have correct poster paths
+            const poster_path = getPosterPath(movie);
             return {
                 ...movie,
-                scheduledDate: date.toISOString().split('T')[0]
+                scheduledDate: date.toISOString().split('T')[0],
+                poster_path
             };
         });
         
         return json({
             todayMovie,
             upcomingMovies: upcomingMoviesWithDates
-        });
+        }, { headers });
     } catch (error: any) {
         console.error('Error generating movie schedule:', error);
         console.error('Error details:', error.message, error.stack);

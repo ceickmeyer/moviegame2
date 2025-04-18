@@ -1,4 +1,4 @@
-<!-- Updated routes\game\components\GameBoard.svelte -->
+<!-- routes\game\components\GameBoard.svelte -->
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
     import { onMount } from 'svelte';
@@ -12,27 +12,40 @@
       feedback,
       displayableClues,
       currentClues,
-      isLoading
+      isLoading,
+      revealedInfo,
+      phaseConfig,
+      currentMovie,
+      allPossibleInfo,
+      ensureInitialInfo,
+      formatArray
     } from '../store/gameStore';
     
+    // Accept backdropPaths as a prop
+    export let backdropPaths: string[] = [];
+    
     let backgroundImage = '/letterboxd_backdrops/default.jpg';
-
-    onMount(async () => {
+    
+    onMount(() => {
       try {
-        // Fetch the list of backdrop paths from the API
-        const response = await fetch('/api/backdrop-images');
-        const backdropPaths = await response.json();
-        
-        if (backdropPaths.length > 0) {
+        // Use the provided backdropPaths instead of fetching them
+        if (backdropPaths && backdropPaths.length > 0) {
           // Select random image
           const randomIndex = Math.floor(Math.random() * backdropPaths.length);
           backgroundImage = backdropPaths[randomIndex];
           
-          console.log("Selected backdrop:", backgroundImage);
-          
           // Preload the image
           const img = new Image();
           img.src = backgroundImage;
+        }
+        
+        // Verify we have revealed info at game start
+        console.log("Game startup - revealed info count:", $revealedInfo.length);
+        
+        // If no revealed info, try to initialize it using the exported function
+        if ($revealedInfo.length === 0 && $currentMovie) {
+          console.warn("No revealed info at game start - attempting to fix");
+          ensureInitialInfo(); // Call the function from gameStore
         }
       } catch (error) {
         console.error("Error loading backdrop:", error);
@@ -42,6 +55,12 @@
     
     $: guessesRemaining = $maxGuesses - $guessCount;
     $: guessesArray = Array.from({ length: $maxGuesses }, (_, i) => i < $guessCount);
+    
+    // Watch for changes to currentMovie and make sure we have revealed info
+    $: if ($currentMovie && $revealedInfo.length === 0 && !$isLoading) {
+      console.log("Current movie changed but no revealed info - attempting to fix");
+      ensureInitialInfo(); // Call the function from gameStore
+    }
 </script>
 
 <div class="game-board" in:fade={{ duration: 300 }}>
@@ -61,6 +80,8 @@
       <!-- Scrollable game content on top of backdrop -->
       <div class="game-content">
           <img src="/logo.png" alt="Movie Game Logo" class="logo" />
+          
+          <!-- More compact guess counter -->
           <div class="guesses-counter">
               <div class="guess-dots">
                   {#each guessesArray as used, i}
@@ -72,7 +93,7 @@
               </div>
           </div>
           
-          <!-- Movie Information -->
+          <!-- Movie Information (now with better styling) -->
           <MovieInfo />
           
           <!-- Reviews Section -->
@@ -142,7 +163,7 @@
         height: 675px;
         object-fit: cover;
         object-position: center top;
-        filter: brightness(1); /* Makes the image slightly darker */
+        filter: brightness(0.85); /* Makes the image darker for better readability */
     }
     
     /* Dark overlay for backdrop */
@@ -153,7 +174,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(20, 24, 28, 0.5); /* Adds a slight dark tint */
+        background-color: rgba(20, 24, 28, 0.65); /* Darker tint for better visibility */
         z-index: 1;
         pointer-events: none; /* Allows clicks to pass through */
     }
@@ -178,14 +199,14 @@
         position: relative;
         z-index: 2;
         width: 100%;
-        max-width: 1000px;
+        max-width: 850px; /* Slightly narrower for better readability */
         margin: 0 auto;
-        padding: 2rem;
+        padding: 1.5rem;
     }
     
     .section-title {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -194,11 +215,11 @@
     
     .reviews-section, 
     .guessing-section {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
     
     .no-reviews {
-        padding: 2rem;
+        padding: 1.5rem;
         text-align: center;
         color: #aaa;
         font-style: italic;
@@ -206,14 +227,14 @@
         border-radius: 8px;
     }
     
-    /* Styles for guesses counter */
+    /* Styles for guesses counter - more compact */
     .guesses-counter {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 1.5rem auto;
-        padding: 1rem;
-        max-width: 400px;
+        margin: 0.75rem auto;
+        padding: 0.6rem;
+        max-width: 320px;
         background-color: rgba(20, 24, 28, 0.7);
         border-radius: 8px;
         backdrop-filter: blur(5px);
@@ -222,13 +243,13 @@
     .guess-dots {
         display: flex;
         justify-content: center;
-        gap: 0.75rem;
-        margin-bottom: 0.75rem;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
     }
     
     .guess-dot {
-        width: 24px;
-        height: 24px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background-color: rgba(44, 52, 64, 0.8);
         border: 2px solid #202830;
@@ -242,7 +263,7 @@
     }
     
     .guesses-remaining-text {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
         font-weight: 500;
         color: #fff;
     }
@@ -250,13 +271,14 @@
     .logo {
         display: block;
         margin: 0 auto; /* Centers the image horizontally */
-        max-width: 500px; /* Set an appropriate max-width */
+        max-width: 260px; /* Smaller, more compact logo */
         height: auto; /* Maintain aspect ratio */
+        margin-bottom: 0.75rem;
     }
 
     .feedback {
         margin-top: 1rem;
-        padding: 1rem;
+        padding: 0.75rem;
         border-radius: 6px;
     }
     
@@ -315,33 +337,34 @@
   
   .guesses-counter {
     max-width: 100%;
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
   
   .guess-dots {
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   
   .guess-dot {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
   
   .guesses-remaining-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   
   .logo {
-    max-width: 320px;
+    max-width: 200px;
   }
   
   .reviews-section,
   .guessing-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
   
   .section-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -353,10 +376,13 @@
   }
   
   .guess-dot {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
-
+  
+  .logo {
+    max-width: 180px;
+  }
 }
     
     /* Additional side fades for harder edge control */

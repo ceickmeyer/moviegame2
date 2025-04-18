@@ -1,19 +1,39 @@
 // routes/game/+page.server.ts
-import { json } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad } from './$types';
 
-export const load = (async () => {
+export const load: PageServerLoad = async ({ fetch }) => {
   try {
-    // We'll just return success here because the actual data loading
-    // happens through the API endpoints
+    // Fetch the movie schedule (today's movie)
+    const movieResponse = await fetch(`/api/movie-schedule?_=${Date.now()}`);
+    const movieData = await movieResponse.json();
+    
+    if (!movieData.todayMovie) {
+      return {
+        error: 'No movie scheduled for today. At least 6 review clues are needed per movie.'
+      };
+    }
+    
+    // Get the movie ID
+    const movieId = movieData.todayMovie.id || `${movieData.todayMovie.title}-${movieData.todayMovie.year}`;
+    
+    // Fetch clues for this movie
+    const cluesResponse = await fetch(`/api/movie-clues?movieId=${movieId}&_=${Date.now()}`);
+    const cluesData = await cluesResponse.json();
+    
+    // Fetch backdrop images
+    const backdropResponse = await fetch('/api/backdrop-images');
+    const backdropPaths = await backdropResponse.json();
+    
+    // Return all the data needed for the page
     return {
-      success: true,
+      todayMovie: movieData.todayMovie,
+      clues: cluesData,
+      backdropPaths: backdropPaths
     };
   } catch (error) {
-    console.error("Error loading data:", error);
+    console.error('Error loading game data:', error);
     return {
-      success: false,
-      error: "Failed to load game data",
+      error: 'Failed to load game data'
     };
   }
-}) satisfies PageServerLoad;
+};

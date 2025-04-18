@@ -34,18 +34,31 @@ export const POST: RequestHandler = async ({ request }) => {
     );
 
     let newCluesAdded = 0;
-    const cluesInsertData = data.clues.map(clue => ({
-      id: `${clue.movieId}-${Date.now()}-${Math.floor(Math.random() * 1000000)}`,
-      movie_id: clue.movieId,
-      movie_title: clue.movieTitle,
-      movie_year: clue.movieYear,
-      clue_text: clue.clueText,
-      rating: clue.rating,
-      is_liked: clue.is_liked,
-      reviewer: clue.reviewer || 'Anonymous',
-      review_url: clue.reviewUrl || '',
-      approved_at: new Date().toISOString()
-    }));
+    // Function to extract reviewer name from URL
+    function extractReviewerFromUrl(url?: string): string {
+      if (!url) return 'Anonymous';
+      
+      const match = url.match(/letterboxd\.com\/([^\/]+)/);
+      return match && match[1] ? match[1] : 'Anonymous';
+    }
+
+    const cluesInsertData = data.clues.map(clue => {
+      // Extract reviewer from URL if not provided
+      const reviewer = clue.reviewer || extractReviewerFromUrl(clue.reviewUrl);
+      
+      return {
+        id: `${clue.movieId}-${Date.now()}-${Math.floor(Math.random() * 1000000)}`,
+        movie_id: clue.movieId,
+        movie_title: clue.movieTitle,
+        movie_year: clue.movieYear,
+        clue_text: clue.clueText,
+        rating: clue.rating,
+        is_liked: clue.is_liked,
+        reviewer: reviewer,
+        review_url: clue.reviewUrl || '',
+        approved_at: new Date().toISOString()
+      };
+    });
 
     // Insert clues into Supabase
     const { data: insertedClues, error } = await supabase

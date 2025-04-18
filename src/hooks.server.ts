@@ -44,7 +44,7 @@ export const handle: Handle = async ({ event, resolve }) => {
                       event.url.pathname.includes('static-'));
     
     // If it's not a public path or game API and not authenticated, redirect to login
-    if (!isPublicPath && !isGameApi && authCookie !== ADMIN_PASSWORD) {
+    if (!isPublicPath && !isGameApi && !authCookie) {
         console.log(`Redirecting unauthenticated request for ${event.url.pathname} to login`);
         throw redirect(303, '/login');
     }
