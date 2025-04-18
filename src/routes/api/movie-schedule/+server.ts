@@ -50,19 +50,31 @@ export const GET: RequestHandler = async () => {
         }
         
         // For each movie, get the count of clues
-        const moviesWithClueCount = await Promise.all(moviesData.map(async (movie) => {
-            const { count, error: countError } = await supabase
-                .from('movie_clues')
-                .select('*', { count: 'exact', head: true })
-                .eq('movie_id', movie.id);
-            
-            return {
-                ...movie,
-                clueCount: count || 0,
-                genres: Array.isArray(movie.genres) ? movie.genres : (movie.genres ? movie.genres.split(',') : []),
-                actors: Array.isArray(movie.actors) ? movie.actors : (movie.actors ? movie.actors.split(',') : [])
-            };
-        }));
+// Update the code where you process movie data
+const moviesWithClueCount = await Promise.all(moviesData.map(async (movie) => {
+    const { count, error: countError } = await supabase
+      .from('movie_clues')
+      .select('*', { count: 'exact', head: true })
+      .eq('movie_id', movie.id);
+    
+    // Ensure genres and actors are arrays
+    const genres = movie.genres ? 
+      (Array.isArray(movie.genres) ? movie.genres : 
+       (typeof movie.genres === 'string' ? movie.genres.split(',') : 
+        (typeof movie.genres === 'object' ? Object.values(movie.genres) : []))) : [];
+        
+    const actors = movie.actors ? 
+      (Array.isArray(movie.actors) ? movie.actors : 
+       (typeof movie.actors === 'string' ? movie.actors.split(',') : 
+        (typeof movie.actors === 'object' ? Object.values(movie.actors) : []))) : [];
+    
+    return {
+      ...movie,
+      clueCount: count || 0,
+      genres: genres,
+      actors: actors
+    };
+  }));
         
         // Filter movies with at least 6 approved clues
         let eligibleMovies = moviesWithClueCount.filter(movie => movie.clueCount >= 6);

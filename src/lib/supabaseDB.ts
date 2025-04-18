@@ -40,12 +40,13 @@ export async function getMovies(): Promise<Movie[]> {
     return [];
   }
 
-  return movies.map(movie => ({
-    ...movie,
-    genres: Array.isArray(movie.genres) ? movie.genres : (movie.genres ? movie.genres.split(',') : []),
-    actors: Array.isArray(movie.actors) ? movie.actors : (movie.actors ? movie.actors.split(',') : []),
-    reviews: [] // Reviews will be loaded separately
-  }));
+// In lib/data.ts and lib/supabaseDB.ts
+return movies.map(movie => ({
+  ...movie,
+  genres: ensureArray(movie.genres),
+  actors: ensureArray(movie.actors),
+  reviews: [] // Reviews will be loaded separately
+}));
 }
 
 export async function getMovieReviews(movieId: string) {

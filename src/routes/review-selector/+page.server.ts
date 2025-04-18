@@ -23,13 +23,20 @@ export const load = (async () => {
     }
     
     // Process the raw data to ensure JSONB fields are properly parsed
-    const moviesData = rawMoviesData.map(movie => ({
-      ...movie,
-      // Ensure actors is always an array
-      actors: typeof movie.actors === 'string' 
-        ? JSON.parse(movie.actors) 
-        : (Array.isArray(movie.actors) ? movie.actors : [])
-    }));
+// Process the raw data to ensure JSONB fields are properly parsed
+const moviesData = rawMoviesData.map(movie => ({
+  ...movie,
+  // Ensure genres is always an array
+  genres: movie.genres ? 
+    (Array.isArray(movie.genres) ? movie.genres : 
+     (typeof movie.genres === 'string' ? movie.genres.split(',') : 
+      (typeof movie.genres === 'object' ? Object.values(movie.genres) : []))) : [],
+  // Ensure actors is always an array
+  actors: movie.actors ? 
+    (Array.isArray(movie.actors) ? movie.actors : 
+     (typeof movie.actors === 'string' ? JSON.parse(typeof movie.actors === 'string' ? movie.actors : '[]') : 
+      (typeof movie.actors === 'object' ? Object.values(movie.actors) : []))) : []
+}));
    
     // Get count of approved clues
     const { count: approvedCount, error: approvedError } = await supabase

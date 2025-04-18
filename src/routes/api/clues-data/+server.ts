@@ -4,6 +4,7 @@ import type { RequestEvent } from '@sveltejs/kit';
 import { supabase } from '$lib/supabaseClient';
 import type { Movie } from '$lib/utils/sentenceExtractor';
 import type { ApprovedClue } from '$lib/types/clueTypes';
+import { ensureArray, parseJsonbField } from '$lib/utils/dataHelpers';
 
 export const GET = async ({ url }: RequestEvent) => {
   try {
@@ -39,10 +40,10 @@ export const GET = async ({ url }: RequestEvent) => {
         movieYear: clue.movie_year,
         clueText: clue.clue_text,
         approvedAt: clue.approved_at,
-        rating: clue.rating,
-        is_liked: clue.is_liked,
-        reviewer: clue.reviewer,
-        reviewUrl: clue.review_url,
+        rating: clue.rating ? Number(clue.rating) : undefined,
+        is_liked: !!clue.is_liked,
+        reviewer: clue.reviewer || 'Anonymous',
+        reviewUrl: clue.review_url || '',
         is_approved: true
       }));
       
@@ -58,9 +59,14 @@ export const GET = async ({ url }: RequestEvent) => {
         return json({ error: 'Failed to fetch movies' }, { status: 500 });
       }
       
+      console.log(`Fetched ${movies?.length || 0} movies from Supabase`);
+      
       // Transform to match the expected format
       const transformedMovies: Movie[] = await Promise.all(movies.map(async (movie) => {
-        // Get reviews for this movie
+        // Convert the integer ID to string to match what's expected
+        const movieIdString = movie.id.toString();
+        
+        // Explicitly fetch reviews for this movie from the movie_reviews table
         const { data: reviews, error: reviewsError } = await supabase
           .from('movie_reviews')
           .select('*')
@@ -70,27 +76,37 @@ export const GET = async ({ url }: RequestEvent) => {
           console.error(`Error fetching reviews for movie ${movie.id}:`, reviewsError);
         }
         
+        console.log(`Movie ${movie.title} (ID: ${movie.id}): ${reviews?.length || 0} reviews found`);
+        
+        // Process JSON fields properly
+        const genres = parseJsonbField(movie.genres);
+        const actors = parseJsonbField(movie.actors);
+        
         return {
-          id: movie.id,
+          id: movieIdString,
           title: movie.title,
           year: movie.year,
           director: movie.director,
-          rating: movie.rating,
-          genres: Array.isArray(movie.genres) ? movie.genres : (movie.genres ? movie.genres.split(',') : []),
-          actors: Array.isArray(movie.actors) ? movie.actors : (movie.actors ? movie.actors.split(',') : []),
+          rating: movie.rating ? Number(movie.rating) : undefined,
+          genres: genres,
+          actors: actors,
           is_liked: !!movie.is_liked,
           poster_path: movie.poster_path,
           reviews: (reviews || []).map(review => ({
             text: review.text,
-            rating: review.rating,
+            rating: review.rating ? Number(review.rating) : undefined,
             is_liked: !!review.is_liked,
-            author: review.author,
+            author: review.author || null,
             url: review.url
           }))
         };
       }));
       
-      return json(transformedMovies);
+      // Final check of transformed data
+      const moviesWithReviews = transformedMovies.filter(m => m.reviews && m.reviews.length > 0);
+      console.log(`After transformation: ${moviesWithReviews.length} movies have reviews`);
+      
+      return json(transformedMovies, { headers });
     }
   } catch (error) {
     console.error(`Error fetching ${url.searchParams.get('type')} data:`, error);

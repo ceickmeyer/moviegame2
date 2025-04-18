@@ -89,6 +89,7 @@ let selectedSentences: Map<string, {
   return `${movieId}:${sentenceText}`;
 }
 
+// Replace this function in routes/review-selector/+page.svelte
 async function loadMovieReviews() {
   loadingReviews = true;
   movieReviews = [];
@@ -103,132 +104,123 @@ async function loadMovieReviews() {
     
     const movie = data.movies[currentMovieIndex];
     console.log("Current movie:", movie.title);
+    console.log("Movie ID type:", typeof movie.id);
+    console.log("Movie ID value:", movie.id);
     
-    if (!movie.reviews || movie.reviews.length === 0) {
-      console.log("No reviews found for movie");
-      loadingReviews = false;
-      return;
-    }
+    let hasProcessedReviews = false;
     
-    // Log a sample review to debug
-    console.log("Sample review from letterboxd_movies.json:", JSON.stringify(movie.reviews[0], null, 2));
-    
-    // Create a set to track unique sentences across all reviews
-    const processedSentences = new Set<string>();
-    
-    // Process each review
-    movieReviews = movie.reviews.map(review => {
-      const reviewText = review.text || "";
-      const sentences = extractSentences(reviewText);
-      let currentPosition = 0;
+    // First, check if movie already has reviews
+    if (movie.reviews && movie.reviews.length > 0) {
+      console.log(`Movie has ${movie.reviews.length} existing reviews`);
       
-      // Extract reviewer information and URL
-      let reviewer = review.author;
-      let reviewUrl = review.url;
-      
-      // Log review details for debugging
-      console.log("Processing review:", {
-        reviewText: reviewText.substring(0, 50) + "...",
-        url: reviewUrl,
-        author: reviewer
-      });
-      
-      // If no reviewer but we have a URL, try to extract it
-      if (!reviewer && reviewUrl) {
-        const match = reviewUrl?.match(/letterboxd\.com\/([^\/]+)/);
-        if (match && match[1]) {
-          reviewer = match[1];
-          console.log("Extracted reviewer from URL:", reviewer);
-        }
-      }
-      
-      // Filter out duplicate sentences across reviews
-      const uniqueSentences = sentences.filter(sentence => {
-        if (processedSentences.has(sentence)) {
-          return false; // Skip duplicates
-        }
-        processedSentences.add(sentence);
-        return true;
-      });
-      
-      // Process each unique sentence in the review
-      const parsedSentences = uniqueSentences.map(sentence => {
-        // Find the sentence in the original text to get its position
-        const startIndex = reviewText.indexOf(sentence, currentPosition);
+      // Process existing reviews
+      for (const review of movie.reviews) {
+        if (!review.text) continue;
         
-        // If not found from current position, search from beginning
-        const actualStartIndex = startIndex !== -1 ? startIndex : reviewText.indexOf(sentence);
-        const finalStartIndex = actualStartIndex !== -1 ? actualStartIndex : 0;
+        const sentences = extractSentences(review.text);
+        console.log(`Extracted ${sentences.length} sentences from review`);
         
-        const endIndex = finalStartIndex + sentence.length;
-        currentPosition = endIndex;
-        
-        // Redact sensitive information
-        const redactedText = redactSensitiveInfo(sentence, movie);
-        
-        // Create a hash to identify this sentence
-        const movieId = movie.id || `${movie.title}-${movie.year}`;
-        
-        // Create a more robust hash that includes the entire sentence
-        const hash = generateSentenceHash(movieId, sentence);
-        
-        // Check if this sentence is already approved
-        const isApproved = approvedCluesMap.has(hash);
-        
-        // If already approved, add to selected sentences map
-        if (isApproved) {
-          selectedSentences.set(hash, {
-            text: redactedText,
-            movieId,
-            movieTitle: movie.title,
-            movieYear: movie.year,
+        const parsedSentences = sentences.map((sentence, index) => {
+          const redactedSentence = redactSensitiveInfo(sentence, movie);
+          const hash = generateSentenceHash(movie.id, redactedSentence);
+          
+          return {
+            original: sentence,
+            redacted: redactedSentence,
+            selected: false,
+            hash: hash,
+            isApproved: approvedCluesMap.has(hash),
+            startIndex: index,
+            endIndex: index,
             rating: review.rating,
             is_liked: review.is_liked,
-            reviewer: reviewer,
-            reviewUrl: reviewUrl
-          });
-        }
+            reviewer: review.author,
+            reviewUrl: review.url
+          };
+        });
         
-        return {
-          original: sentence,
-          redacted: redactedText,
-          selected: isApproved,
-          hash,
-          isApproved,
-          startIndex: finalStartIndex,
-          endIndex,
-          rating: review.rating,
-          is_liked: review.is_liked,
-          reviewer: reviewer,
-          reviewUrl: reviewUrl
-        };
-      });
-      
-      return {
-        reviewText,
-        parsedSentences,
-        rating: review.rating,
-        is_liked: review.is_liked,
-        reviewer: reviewer,
-        reviewUrl: reviewUrl
-      };
-    });
-    
-    // Filter out reviews with no valid sentences
-    movieReviews = movieReviews.filter(review => review.parsedSentences.length > 0);
-    
-    // Log a sample of processed data
-    if (movieReviews.length > 0 && movieReviews[0].parsedSentences.length > 0) {
-      console.log("Sample processed sentence:", {
-        text: movieReviews[0].parsedSentences[0].redacted.substring(0, 50) + "...",
-        reviewer: movieReviews[0].parsedSentences[0].reviewer,
-        url: movieReviews[0].parsedSentences[0].reviewUrl
-      });
+        if (parsedSentences.length > 0) {
+          movieReviews.push({
+            reviewText: review.text,
+            parsedSentences,
+            rating: review.rating,
+            is_liked: review.is_liked,
+            reviewer: review.author,
+            reviewUrl: review.url
+          });
+          hasProcessedReviews = true;
+        }
+      }
     }
     
-    loadingReviews = false;
+    // If no reviews were found or processed, try to fetch them directly
+    if (!hasProcessedReviews) {
+      console.log("No existing reviews found, trying direct API fetch...");
+      const movieId = movie.id;
+      
+      try {
+        // Direct API call to get reviews for the current movie
+        const response = await fetch(`/api/movie-reviews?movieId=${movieId}&_=${Date.now()}`);
+        if (response.ok) {
+          const reviewsData = await response.json();
+          console.log(`API returned ${reviewsData.length} reviews for movie ${movieId}`);
+          
+          if (reviewsData && reviewsData.length > 0) {
+            // Process each review
+            for (const review of reviewsData) {
+              // Skip empty reviews
+              if (!review.text) continue;
+              
+              const sentences = extractSentences(review.text);
+              console.log(`Extracted ${sentences.length} sentences from review`);
+              
+              const parsedSentences = sentences.map((sentence, index) => {
+                const redactedSentence = redactSensitiveInfo(sentence, movie);
+                const hash = generateSentenceHash(movieId, redactedSentence);
+                
+                return {
+                  original: sentence,
+                  redacted: redactedSentence,
+                  selected: false,
+                  hash: hash,
+                  isApproved: approvedCluesMap.has(hash),
+                  startIndex: index,
+                  endIndex: index,
+                  rating: review.rating,
+                  is_liked: review.is_liked,
+                  reviewer: review.author,
+                  reviewUrl: review.url
+                };
+              });
+              
+              if (parsedSentences.length > 0) {
+                movieReviews.push({
+                  reviewText: review.text,
+                  parsedSentences,
+                  rating: review.rating,
+                  is_liked: review.is_liked,
+                  reviewer: review.author,
+                  reviewUrl: review.url
+                });
+                hasProcessedReviews = true;
+              }
+            }
+          }
+        }
+      } catch (reviewError) {
+        console.error("Error fetching reviews:", reviewError);
+      }
+    }
+    
+    console.log(`Processed ${movieReviews.length} reviews with usable sentences`);
+    
+    if (movieReviews.length === 0) {
+      console.warn(`No usable reviews found for movie "${movie.title}"`);
+    }
+    
   } catch (error) {
     console.error('Error loading movie reviews:', error);
+  } finally {
     loadingReviews = false;
   }
 }

@@ -1,0 +1,17 @@
+manage-clues should really only load the clues from the movie_clues table rather than all of them
+
+the /game/ seems to fill the terminal with all the movies possible and how many reviews which slows down load. it should only show THAT DAY's movie.
+i'd like it if the user went to /game/ it just dropped them directly into the game, currently it has some spinner and briefly shows the stats.
+
+the genres are stored as this: "[\"Horror\", \"Action\", \"Science Fiction\", \"Fantasy\"]"
+the actors are stored like this: "[\"Barbara Anne Constable\", \"Christopher J. Hart\", \"Claudia Angelique Rademaker\", \"Joseph P. McGlynn\", \"Adam Jagwani\"]"
+
+causing them to be display like this: 1st Billed: ["Lily Sullivan"
+
+for the /game/ each piece of information like 'movie year', genre, 3rd billed, director, etc are shown one at at time, so the user doesn't know what's coming next. can we make little cards where they see what information has not been revealed.
+
+the review-selector has an ever-present display of how many clues have been selected, can i also add a button next to that to 'save' the clues so i don't have to scroll all the way to the bottom of the page?
+
+the review selector has the selected clues at the very bottom of the page, it would be great if each had a little 'edit' button so i could change the text.
+
+the saved clues aren't saving the 'reviewer' correctly it should pull them from the review url, so https://letterboxd.com/furious_iz/film/a-boy-and-his-dog/2/ is reviewed by 'furious_iz'
