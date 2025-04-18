@@ -5,40 +5,40 @@
     import MovieInfo from './MovieInfo.svelte';
     import ReviewCard from './ReviewCard.svelte';
     import GuessInput from './GuessInput.svelte';
+    import LoadingSpinner from './LoadingSpinner.svelte';
     import {
       guessCount,
       maxGuesses,
       feedback,
       displayableClues,
-      currentClues
+      currentClues,
+      isLoading
     } from '../store/gameStore';
     
     let backgroundImage = '/letterboxd_backdrops/default.jpg';
 
-
-    
-onMount(async () => {
-  try {
-    // Fetch the list of backdrop paths from the API
-    const response = await fetch('/api/backdrop-images');
-    const backdropPaths = await response.json();
-    
-    if (backdropPaths.length > 0) {
-      // Select random image
-      const randomIndex = Math.floor(Math.random() * backdropPaths.length);
-      backgroundImage = backdropPaths[randomIndex];
-      
-      console.log("Selected backdrop:", backgroundImage);
-      
-      // Preload the image
-      const img = new Image();
-      img.src = backgroundImage;
-    }
-  } catch (error) {
-    console.error("Error loading backdrop:", error);
-    backgroundImage = '/letterboxd_backdrops/default.jpg';
-  }
-});
+    onMount(async () => {
+      try {
+        // Fetch the list of backdrop paths from the API
+        const response = await fetch('/api/backdrop-images');
+        const backdropPaths = await response.json();
+        
+        if (backdropPaths.length > 0) {
+          // Select random image
+          const randomIndex = Math.floor(Math.random() * backdropPaths.length);
+          backgroundImage = backdropPaths[randomIndex];
+          
+          console.log("Selected backdrop:", backgroundImage);
+          
+          // Preload the image
+          const img = new Image();
+          img.src = backgroundImage;
+        }
+      } catch (error) {
+        console.error("Error loading backdrop:", error);
+        backgroundImage = '/letterboxd_backdrops/default.jpg';
+      }
+    });
     
     $: guessesRemaining = $maxGuesses - $guessCount;
     $: guessesArray = Array.from({ length: $maxGuesses }, (_, i) => i < $guessCount);
@@ -52,68 +52,75 @@ onMount(async () => {
         </div>
     </div>
     
-    <!-- Scrollable game content on top of backdrop -->
-    <div class="game-content">
-        <img src="/logo.png" alt="Movie Game Logo" class="logo" />
-        <div class="guesses-counter">
-            <div class="guess-dots">
-                {#each guessesArray as used, i}
-                    <div class="guess-dot {used ? 'used' : ''}"></div>
-                {/each}
-            </div>
-            <div class="guesses-remaining-text">
-                {guessesRemaining} {guessesRemaining === 1 ? 'guess' : 'guesses'} remaining
-            </div>
-        </div>
-        
-        <!-- Movie Information -->
-        <MovieInfo />
-        
-        <!-- Reviews Section -->
-        <div class="reviews-section">
-            <h3 class="section-title flex justify-between items-center">
-                <span>Reviews</span>
-                <span class="text-secondary text-sm">
-                    {$displayableClues.length} of {$currentClues.length}
-                </span>
-            </h3>
-            
-            {#if $displayableClues.length > 0}
-                {#each $displayableClues as clue, index}
-                    <ReviewCard {clue} {index} />
-                {/each}
-            {:else}
-                <div class="no-reviews card">
-                    <p>No reviews available for this movie.</p>
-                </div>
-            {/if}
-        </div>
-        
-        <!-- Guessing Section -->
-        <div class="guessing-section">
-            <h3 class="section-title">Make Your Guess</h3>
-            <GuessInput />
-            
-            {#if $feedback}
-                <div 
-                    class="feedback {$feedback.includes('not correct') ? 'error' : 'success'}" 
-                    in:fly={{ y: 20, duration: 300 }}
-                >
-                    {$feedback}
-                </div>
-            {/if}
-        </div>
-    </div>
+    <!-- Loading State -->
+    {#if $isLoading}
+      <div class="loading-overlay">
+        <LoadingSpinner text="Loading today's movie..." />
+      </div>
+    {:else}
+      <!-- Scrollable game content on top of backdrop -->
+      <div class="game-content">
+          <img src="/logo.png" alt="Movie Game Logo" class="logo" />
+          <div class="guesses-counter">
+              <div class="guess-dots">
+                  {#each guessesArray as used, i}
+                      <div class="guess-dot {used ? 'used' : ''}"></div>
+                  {/each}
+              </div>
+              <div class="guesses-remaining-text">
+                  {guessesRemaining} {guessesRemaining === 1 ? 'guess' : 'guesses'} remaining
+              </div>
+          </div>
+          
+          <!-- Movie Information -->
+          <MovieInfo />
+          
+          <!-- Reviews Section -->
+          <div class="reviews-section">
+              <h3 class="section-title flex justify-between items-center">
+                  <span>Reviews</span>
+                  <span class="text-secondary text-sm">
+                      {$displayableClues.length} of {$currentClues.length}
+                  </span>
+              </h3>
+              
+              {#if $displayableClues.length > 0}
+                  {#each $displayableClues as clue, index}
+                      <ReviewCard {clue} {index} />
+                  {/each}
+              {:else}
+                  <div class="no-reviews card">
+                      <p>No reviews available for this movie.</p>
+                  </div>
+              {/if}
+          </div>
+          
+          <!-- Guessing Section -->
+          <div class="guessing-section">
+              <h3 class="section-title">Make Your Guess</h3>
+              <GuessInput />
+              
+              {#if $feedback}
+                  <div 
+                      class="feedback {$feedback.includes('not correct') ? 'error' : 'success'}" 
+                      in:fly={{ y: 20, duration: 300 }}
+                  >
+                      {$feedback}
+                  </div>
+              {/if}
+          </div>
+      </div>
+    {/if}
 </div>
 
 <style>
     .game-board {
         position: relative;
         width: 100%;
-        
         background-color: #14181c;
         color: #fff;
         overflow-x: hidden;
+        min-height: 100vh; /* Ensure board covers full viewport height */
     }
     
     /* Fixed backdrop styling */
@@ -149,6 +156,21 @@ onMount(async () => {
         background-color: rgba(20, 24, 28, 0.5); /* Adds a slight dark tint */
         z-index: 1;
         pointer-events: none; /* Allows clicks to pass through */
+    }
+    
+    /* Loading overlay styling */
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        background-color: rgba(20, 24, 28, 0.6);
     }
     
     /* Game content that scrolls over the backdrop */
@@ -286,8 +308,6 @@ onMount(async () => {
         border-collapse: separate;
     }
     
-
-    
 @media (max-width: 768px) {
   .game-content {
     padding: 1rem;
@@ -336,19 +356,8 @@ onMount(async () => {
     width: 16px;
     height: 16px;
   }
-  
-  .review-card {
-    padding: 1.25rem 1rem;
-  }
-  
-  .review-text {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding-top: 2.5rem;
-    max-width: 100%;
-  }
-}
 
+}
     
     /* Additional side fades for harder edge control */
     .faded.faded-sides:after {

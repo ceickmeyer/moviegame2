@@ -1,4 +1,6 @@
 // routes\game\store\gameStore.ts
+// Optimized to load only the daily movie and avoid loading all data
+
 import {
   writable,
   derived,
@@ -8,32 +10,12 @@ import {
 } from "svelte/store";
 import type { Movie } from "$lib/utils/sentenceExtractor";
 import type { ApprovedClue } from "$lib/types/clueTypes";
-import { getMovies, getApprovedClues } from "$lib/data";
 
 export const preloadedPoster: Writable<string | null> = writable(null);
 export const usedMovieIds: Writable<string[]> = writable([]);
 
-function getPosterPath(movie: Movie): string | null {
-  if (!movie) return null;
-  // Convert movie title to filename format
-  const titleFormatted = movie.title
-    .replace(/\s+/g, "_")
-    .replace(/[^\w\-]/g, "_");
-  const year = movie.year;
-  return `/posters/${titleFormatted}_${year}.jpg`;
-}
-
-function preloadImage(src: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(src);
-    img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
-    img.src = src;
-  });
-}
-
 // Define types for game-specific data structures
-export type GameState = "ready" | "playing" | "success" | "failed" | "error";
+export type GameState = "playing" | "success" | "failed" | "error";
 
 export interface GameClue {
   id: string;
@@ -44,8 +26,8 @@ export interface GameClue {
   approvedAt: string;
   rating?: number;
   is_liked?: boolean;
-  reviewer?: string; // Add this field to store the reviewer username
-  reviewUrl?: string; // Add this field to store the review URL
+  reviewer?: string;
+  reviewUrl?: string;
 }
 
 export interface GameHistoryEntry {
@@ -60,6 +42,7 @@ export interface InfoItem {
   type: "year" | "genre" | "actor" | "director" | "allGenres" | "rating";
   position?: number;
   value: string | number | string[] | null;
+  locked?: boolean; // New property to track if this info is still locked
 }
 
 export interface PhaseConfig {
@@ -130,7 +113,7 @@ export const availableInfoTypes = [
 ];
 
 // Game stores with type annotations
-export const gameState: Writable<GameState> = writable("ready");
+export const gameState: Writable<GameState> = writable("playing"); // Start directly in playing mode
 export const allMovies: Writable<Movie[]> = writable([]);
 export const approvedClues: Writable<ApprovedClue[]> = writable([]);
 export const currentMovie: Writable<Movie | null> = writable(null);
@@ -141,12 +124,16 @@ export const filteredMovies: Writable<Movie[]> = writable([]);
 export const guessCount: Writable<number> = writable(0);
 export const maxGuesses: Writable<number> = writable(6);
 export const revealedInfo: Writable<InfoItem[]> = writable([]);
+export const allPossibleInfo: Writable<InfoItem[]> = writable([]); // Store for all possible info items (including locked ones)
 export const feedback: Writable<string> = writable("");
 export const showDropdown: Writable<boolean> = writable(false);
 export const gameHistory: Writable<GameHistoryEntry[]> = writable([]);
 export const phaseConfig: Writable<PhaseConfig[]> = writable([
   ...defaultPhaseConfig,
 ]);
+
+// Loading state
+export const isLoading: Writable<boolean> = writable(false);
 
 // Derived stores
 export const displayableClues: Readable<GameClue[]> = derived(
@@ -165,6 +152,35 @@ export const currentPhase: Readable<number> = derived(
   guessCount,
   ($guessCount) => $guessCount + 1
 );
+
+// Helper function to properly format arrays
+export function formatArray(arr: any[] | string | object | null | undefined): string[] {
+  if (!arr) return [];
+  
+  if (Array.isArray(arr)) return arr;
+  
+  if (typeof arr === 'string') {
+    try {
+      const parsed = JSON.parse(arr);
+      return Array.isArray(parsed) ? parsed : [arr];
+    } catch (e) {
+      // If it's not valid JSON, split by comma
+      return arr.split(',').map(item => item.trim());
+    }
+  }
+  
+  if (typeof arr === 'object') {
+    // Check if it's a PostgreSQL JSONB array (objects with numeric keys)
+    const keys = Object.keys(arr);
+    const isNumericKeysOnly = keys.every(key => !isNaN(Number(key)));
+    
+    if (isNumericKeysOnly) {
+      return Object.values(arr);
+    }
+  }
+  
+  return [arr.toString()];
+}
 
 // Derived store for player stats
 export const stats = derived(
@@ -203,7 +219,7 @@ export const stats = derived(
       }
     }
     
-    return { played, won, avgGuesses, streak: currentStreak, bestStreak };
+    return { played, won, avgGuesses, streak: currentStreak, bestStreak: 0 };
   }
 );
 
@@ -234,50 +250,15 @@ export function getOrdinalSuffix(num: number): string {
   return num + "th";
 }
 
-// Game actions
-// Update this function in your gameStore.ts file
-
+// Optimized initial game data loading - loads only minimal state info
 export function loadGameData(): Promise<void> {
   return new Promise(async (resolve, reject) => {
     try {
-      // First try the API endpoint which now works with Supabase
-      try {
-        console.log("Loading movies and clues from API endpoints...");
-        const [moviesResponse, cluesResponse] = await Promise.all([
-          fetch('/api/clues-data?type=movies'),
-          fetch('/api/clues-data?type=approved')
-        ]);
-        
-        if (!moviesResponse.ok || !cluesResponse.ok) {
-          throw new Error('API endpoints failed');
-        }
-        
-        const moviesData: Movie[] = await moviesResponse.json();
-        const cluesResponseData = await cluesResponse.json();
-        const cluesData: ApprovedClue[] = cluesResponseData.map((clue: any) => ({
-          ...clue,
-          rating: clue.rating ? Number(clue.rating) : 0
-        }));
-        
-        allMovies.set(moviesData);
-        approvedClues.set(cluesData);
-        
-        console.log("Successfully loaded data from API endpoints");
-      } catch (apiError) {
-        console.log("API endpoints failed:", apiError);
-        reject(new Error("Could not load game data"));
-        return;
-      }
-
-      // Load game history from localStorage
+      // Only load game history and phase config from localStorage
+      // We don't need to load all movies and clues anymore
       loadGameHistory();
-
-      // Load phase configuration from localStorage
       loadPhaseConfig();
-
-      // Load used movie IDs from localStorage
       loadUsedMovieIds();
-
       resolve();
     } catch (error) {
       console.error("Error loading game data:", error);
@@ -285,7 +266,6 @@ export function loadGameData(): Promise<void> {
     }
   });
 }
-
 
 // Load used movie IDs from localStorage
 export function loadUsedMovieIds(): void {
@@ -308,24 +288,6 @@ export function saveUsedMovieIds(): void {
   } catch (error) {
     console.error("Error saving used movie IDs:", error);
   }
-}
-
-// Get a date-based seed for consistent daily movie selection
-function getDailyMovieSeed(): string {
-  const now = new Date();
-  // Format as YYYY-MM-DD to change daily
-  return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-}
-
-// Get a deterministic random number from a string seed
-function seededRandom(seed: string): number {
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) {
-    hash = ((hash << 5) - hash) + seed.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
-  // Normalize to 0-1 range
-  return (hash & 0x7fffffff) / 0x7fffffff;
 }
 
 export function loadGameHistory(): void {
@@ -389,11 +351,31 @@ export function saveGameHistory(): void {
   }
 }
 
-// Modified to implement clue ordering strategy (shorter first with randomness)
+// Function to preload image
+function preloadImage(src: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(src);
+    img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+    img.src = src;
+  });
+}
+
+// Get a poster image path for a movie
+function getPosterPath(movie: Movie): string | null {
+  if (!movie) return null;
+  // Convert movie title to filename format
+  const titleFormatted = movie.title.replace(/\s+/g, "_").replace(/[^\w\-]/g, "_");
+  const year = movie.year;
+  return `/posters/${titleFormatted}_${year}.jpg`;
+}
+
+// Optimized startNewGame that directly fetches today's movie
 export async function startNewGame(): Promise<void> {
   try {
+    isLoading.set(true);
+    
     // Fetch today's movie directly from the API endpoint
-    // This ensures we use exactly the same movie as shown on the dashboard
     console.log("Fetching movie schedule from API...");
     const response = await fetch(`/api/movie-schedule?_=${Date.now()}`);
     
@@ -402,17 +384,26 @@ export async function startNewGame(): Promise<void> {
     }
     
     const data = await response.json();
-    console.log("Movie schedule data received:", data);
     
     if (!data.todayMovie) {
       gameState.set("error");
       feedback.set(
         "No movie scheduled for today. At least 6 review clues are needed per movie."
       );
+      isLoading.set(false);
       return;
     }
     
     const selectedMovie = data.todayMovie;
+    
+    // Ensure the movie object has properly formatted arrays
+    if (selectedMovie.genres) {
+      selectedMovie.genres = formatArray(selectedMovie.genres);
+    }
+    
+    if (selectedMovie.actors) {
+      selectedMovie.actors = formatArray(selectedMovie.actors);
+    }
     
     // Add this movie to the used list for tracking purposes
     const movieId = selectedMovie.id || `${selectedMovie.title}-${selectedMovie.year}`;
@@ -425,8 +416,63 @@ export async function startNewGame(): Promise<void> {
     // Set the current movie
     currentMovie.set(selectedMovie);
     
-    // Get the approved clues for this movie
-    const approvedCluesData = get(approvedClues);
+    // Fetch the specific clues for this movie directly
+    // This avoids loading all clues unnecessarily
+    try {
+      const cluesResponse = await fetch(`/api/movie-clues?movieId=${movieId}&_=${Date.now()}`);
+      if (cluesResponse.ok) {
+        const movieClues = await cluesResponse.json();
+        
+        // Apply our clue ordering strategy directly on these clues
+        const cluesByLength = movieClues.reduce(
+          (groups, clue) => {
+            const textLength = clue.clue_text.length;
+            
+            // Transform the clue into our expected format
+            const processedClue = {
+              id: clue.id,
+              movieId: clue.movie_id,
+              movieTitle: clue.movie_title,
+              movieYear: clue.movie_year,
+              clueText: clue.clue_text,
+              approvedAt: clue.approved_at,
+              rating: clue.rating,
+              is_liked: clue.is_liked,
+              reviewer: clue.reviewer || extractReviewerFromUrl(clue.review_url),
+              reviewUrl: clue.review_url
+            };
+            
+            if (textLength < 100) {
+              groups.short.push(processedClue);
+            } else if (textLength < 200) {
+              groups.medium.push(processedClue);
+            } else {
+              groups.long.push(processedClue);
+            }
+            
+            return groups;
+          },
+          {
+            short: [] as GameClue[],
+            medium: [] as GameClue[],
+            long: [] as GameClue[],
+          }
+        );
+        
+        // 2. Shuffle each group for randomness
+        const shuffledShort = shuffleArray(cluesByLength.short);
+        const shuffledMedium = shuffleArray(cluesByLength.medium);
+        const shuffledLong = shuffleArray(cluesByLength.long);
+        
+        // 3. Combine the groups, starting with short clues, then medium, then long
+        const sortedClues = [...shuffledShort, ...shuffledMedium, ...shuffledLong];
+        
+        // Set the sorted clues
+        currentClues.set(sortedClues);
+      }
+    } catch (clueError) {
+      console.error("Error fetching clues:", clueError);
+    }
 
     // Preload the movie poster
     const posterPath = getPosterPath(selectedMovie);
@@ -442,249 +488,154 @@ export async function startNewGame(): Promise<void> {
         });
     }
     
-    // Find all approved clues for this movie
-    const movieClues = approvedCluesData.filter(
-      (clue) =>
-        clue.movieId ===
-        (selectedMovie.id || `${selectedMovie.title}-${selectedMovie.year}`)
-    ) as GameClue[];
-
-  // Implementation of the clue ordering strategy:
-  // 1. Split clues into three groups based on length
-  const cluesByLength = movieClues.reduce(
-    (groups, clue) => {
-      const textLength = clue.clueText.length;
-
-      // Make sure to carry over reviewer and reviewUrl properties
-      const processedClue = {
-        ...clue,
-        reviewer: clue.reviewer || extractReviewerFromUrl(clue.reviewUrl),
-        reviewUrl: clue.reviewUrl,
-      };
-
-      if (textLength < 100) {
-        groups.short.push(processedClue);
-      } else if (textLength < 200) {
-        groups.medium.push(processedClue);
-      } else {
-        groups.long.push(processedClue);
+    // Reset game state
+    revealedClueIndex.set(1); // Show first review immediately
+    guessInput.set("");
+    guessCount.set(0);
+    
+    // Initialize all possible info items (both revealed and locked)
+    const allInfoItems: InfoItem[] = [];
+    
+    // Add items for each info type
+    availableInfoTypes.forEach(infoType => {
+      const infoItem = generateInfoItem(selectedMovie, infoType.id);
+      if (infoItem) {
+        infoItem.locked = true; // Start with all locked
+        allInfoItems.push(infoItem);
       }
-      return groups;
-    },
-    {
-      short: [] as GameClue[],
-      medium: [] as GameClue[],
-      long: [] as GameClue[],
-    }
-  );
-
-  // Helper function to extract a reviewer username from a Letterboxd URL
-  function extractReviewerFromUrl(url?: string): string | undefined {
-    if (!url) return undefined;
-
-    const match = url.match(/letterboxd\.com\/([^\/]+)/);
-    return match && match[1] ? match[1] : undefined;
-  }
-  // 2. Shuffle each group for randomness
-  const shuffledShort = shuffleArray(cluesByLength.short);
-  const shuffledMedium = shuffleArray(cluesByLength.medium);
-  const shuffledLong = shuffleArray(cluesByLength.long);
-
-  // 3. Combine the groups, starting with short clues, then medium, then long
-  const sortedClues = [...shuffledShort, ...shuffledMedium, ...shuffledLong];
-
-  // Set the sorted clues
-  currentClues.set(sortedClues);
-
-  // Reset game state
-  revealedClueIndex.set(1); // Show first review immediately
-  guessInput.set("");
-  guessCount.set(0);
-
-  // Initialize with phase 1 information
-  const phases = get(phaseConfig);
-  const firstPhase = phases[0];
-
-  // Reveal all information for the first phase
-  const firstPhaseInfo = generatePhaseInfoItems(
-    selectedMovie,
-    firstPhase.infoTypes
-  );
-  revealedInfo.set(firstPhaseInfo);
+    });
+    
+    // Set all possible info
+    allPossibleInfo.set(allInfoItems);
+    
+    // Initialize with phase 1 information - these will be unlocked
+    const phases = get(phaseConfig);
+    const firstPhase = phases[0];
+    
+    // Reveal all information for the first phase
+    const firstPhaseInfo = generatePhaseInfoItems(
+      selectedMovie,
+      firstPhase.infoTypes
+    );
+    revealedInfo.set(firstPhaseInfo);
+    
+    // Update the locked status for revealed items
+    updateLockedStatus(firstPhase.infoTypes);
 
     gameState.set("playing");
     feedback.set("");
     showDropdown.set(false);
+    isLoading.set(false);
   } catch (error) {
     console.error("Error starting new game:", error instanceof Error ? error.message : String(error));
     gameState.set("error");
     feedback.set(`Failed to start a new game: ${error instanceof Error ? error.message : "Unknown error"}. Please try again.`);
+    isLoading.set(false);
   }
 }
 
-export function startSpecificGame(specificMovie: Movie): void {
-  // Set the specified movie as current
-  currentMovie.set(specificMovie);
+// Helper function to extract reviewer from URL
+function extractReviewerFromUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  
+  const match = url.match(/letterboxd\.com\/([^\/]+)/);
+  return match && match[1] ? match[1] : undefined;
+}
 
-  // Get movie ID - either from the ID field or generate one from title+year
-  const movieId =
-    specificMovie.id || `${specificMovie.title}-${specificMovie.year}`;
-
-  // Preload poster if available
-  const posterPath = getPosterPath(specificMovie);
-  if (posterPath) {
-    preloadedPoster.set(null); // Reset while loading
-    preloadImage(posterPath)
-      .then((src) => {
-        preloadedPoster.set(src);
-      })
-      .catch((error) => {
-        console.error("Failed to preload movie poster:", error);
-        preloadedPoster.set(null);
-      });
-  }
-
-  // Find all approved clues for this movie
-  const approvedCluesData = get(approvedClues);
-  const movieClues = approvedCluesData.filter(
-    (clue) => clue.movieId === movieId
-  ) as GameClue[];
-
-  // If we don't have enough clues, show an error
-  if (movieClues.length < 6) {
-    gameState.set("error");
-    feedback.set(
-      "Not enough clues for this movie. At least 6 review clues are needed."
-    );
-    return;
-  }
-
-  // Implementation of the clue ordering strategy:
-  // 1. Split clues into three groups based on length
-  const cluesByLength = movieClues.reduce(
-    (groups, clue) => {
-      const textLength = clue.clueText.length;
-
-      // Make sure to carry over reviewer and reviewUrl properties
-      const processedClue = {
-        ...clue,
-        reviewer: clue.reviewer || extractReviewerFromUrl(clue.reviewUrl),
-        reviewUrl: clue.reviewUrl,
-      };
-
-      if (textLength < 100) {
-        groups.short.push(processedClue);
-      } else if (textLength < 200) {
-        groups.medium.push(processedClue);
-      } else {
-        groups.long.push(processedClue);
+// Update locked status for revealed info types
+function updateLockedStatus(revealedTypes: string[]): void {
+  allPossibleInfo.update(items => {
+    return items.map(item => {
+      const infoType = getInfoTypeFromItem(item);
+      if (revealedTypes.includes(infoType)) {
+        return { ...item, locked: false };
       }
-      return groups;
-    },
-    {
-      short: [] as GameClue[],
-      medium: [] as GameClue[],
-      long: [] as GameClue[],
-    }
-  );
-
-  // Helper function to extract a reviewer username from a Letterboxd URL
-  function extractReviewerFromUrl(url?: string): string | undefined {
-    if (!url) return undefined;
-
-    const match = url.match(/letterboxd\.com\/([^\/]+)/);
-    return match && match[1] ? match[1] : undefined;
-  }
-
-  // 2. Shuffle each group for randomness
-  const shuffledShort = shuffleArray(cluesByLength.short);
-  const shuffledMedium = shuffleArray(cluesByLength.medium);
-  const shuffledLong = shuffleArray(cluesByLength.long);
-
-  // 3. Combine the groups, starting with short clues, then medium, then long
-  const sortedClues = [...shuffledShort, ...shuffledMedium, ...shuffledLong];
-
-  // Set the sorted clues
-  currentClues.set(sortedClues);
-
-  // Reset game state
-  revealedClueIndex.set(1); // Show first review immediately
-  guessInput.set("");
-  guessCount.set(0);
-
-  // Initialize with phase 1 information
-  const phases = get(phaseConfig);
-  const firstPhase = phases[0];
-
-  // Reveal all information for the first phase
-  const firstPhaseInfo = generatePhaseInfoItems(
-    specificMovie,
-    firstPhase.infoTypes
-  );
-  revealedInfo.set(firstPhaseInfo);
-
-  gameState.set("playing");
-  feedback.set("");
-  showDropdown.set(false);
+      return item;
+    });
+  });
 }
 
-/**
- * Start a game from a movie ID (may be obfuscated)
- * @param movieIdParam The movie ID parameter from the URL
- */
-export function startGameFromMovieId(movieIdParam: string): boolean {
-  const allMoviesData = get(allMovies);
-  if (!allMoviesData || allMoviesData.length === 0) {
-    return false;
+// Helper to get info type id from an item
+function getInfoTypeFromItem(item: InfoItem): string {
+  switch (item.type) {
+    case "year":
+      return "year";
+    case "genre":
+      if (!item.position) return "firstGenre";
+      return "";
+    case "actor":
+      if (item.position === 1) return "firstActor";
+      if (item.position === 2) return "secondActor";
+      if (item.position === 3) return "thirdActor";
+      return "";
+    case "director":
+      return "director";
+    case "allGenres":
+      return "allGenres";
+    case "rating":
+      return "rating";
+    default:
+      return "";
   }
+}
 
-  // Try to decode the obfuscated ID
-  let decodedId;
-  try {
-    decodedId = atob(movieIdParam);
-  } catch (e) {
-    // If it's not base64, try the old format for backward compatibility
-    decodedId = movieIdParam;
+// Generate a single info item based on info type
+function generateInfoItem(movie: Movie, infoId: string): InfoItem | null {
+  switch (infoId) {
+    case "year":
+      return { type: "year", value: movie.year };
+    case "firstGenre":
+      if (movie.genres && movie.genres.length > 0) {
+        return { type: "genre", value: formatArray(movie.genres)[0] };
+      }
+      break;
+    case "thirdActor":
+      if (movie.actors && formatArray(movie.actors).length >= 3) {
+        return { type: "actor", position: 3, value: formatArray(movie.actors)[2] };
+      }
+      break;
+    case "director":
+      if (movie.director) {
+        return { type: "director", value: movie.director };
+      }
+      break;
+    case "secondActor":
+      if (movie.actors && formatArray(movie.actors).length >= 2) {
+        return { type: "actor", position: 2, value: formatArray(movie.actors)[1] };
+      }
+      break;
+    case "allGenres":
+      if (movie.genres && formatArray(movie.genres).length > 0) {
+        return { type: "allGenres", value: formatArray(movie.genres) };
+      }
+      break;
+    case "firstActor":
+      if (movie.actors && formatArray(movie.actors).length >= 1) {
+        return { type: "actor", position: 1, value: formatArray(movie.actors)[0] };
+      }
+      break;
+    case "rating":
+      if (movie.rating) {
+        return { type: "rating", value: movie.rating };
+      }
+      break;
   }
+  return null;
+}
 
-  // Find the specific movie
-  let movie: Movie | undefined;
+// Helper function to generate info items based on info types
+function generatePhaseInfoItems(movie: Movie, infoTypes: string[]): InfoItem[] {
+  const items: InfoItem[] = [];
 
-  if (decodedId.startsWith("id:")) {
-    // It's an ID-based reference
-    const actualId = decodedId.substring(3);
-    movie = allMoviesData.find((m) => m.id === actualId);
-  } else if (decodedId.startsWith("title:")) {
-    // It's a title+year reference
-    const titleYearString = decodedId.substring(6);
-    const [title, yearStr] = titleYearString.split(":");
-    movie = allMoviesData.find(
-      (m) => m.title === title && m.year.toString() === yearStr
-    );
-  } else {
-    // Fallback: try direct ID match
-    movie = allMoviesData.find((m) => m.id === movieIdParam);
-
-    // If not found, try matching by slug from title and year
-    if (!movie) {
-      movie = allMoviesData.find((m) => {
-        const slugTitle = m.title
-          .toLowerCase()
-          .replace(/[^\w\s-]/g, "")
-          .replace(/\s+/g, "-");
-
-        const generatedId = `${slugTitle}-${m.year}`;
-        return generatedId === movieIdParam;
-      });
+  infoTypes.forEach((infoId) => {
+    // Generate the appropriate info item based on the info type
+    const infoItem = generateInfoItem(movie, infoId);
+    if (infoItem) {
+      items.push(infoItem);
     }
-  }
+  });
 
-  if (movie) {
-    startSpecificGame(movie);
-    return true;
-  }
-
-  return false;
+  return items;
 }
 
 export function handleGuessInput(value: string): void {
@@ -698,26 +649,19 @@ export function handleGuessInput(value: string): void {
   }
 
   const query = value.toLowerCase();
-  const allMoviesData = get(allMovies);
-
-  const filtered = allMoviesData
-    .filter((movie) => movie.title.toLowerCase().includes(query))
-    .sort((a, b) => {
-      // Prioritize exact matches and starts-with matches
-      const aTitle = a.title.toLowerCase();
-      const bTitle = b.title.toLowerCase();
-
-      if (aTitle === query && bTitle !== query) return -1;
-      if (bTitle === query && aTitle !== query) return 1;
-      if (aTitle.startsWith(query) && !bTitle.startsWith(query)) return -1;
-      if (bTitle.startsWith(query) && !aTitle.startsWith(query)) return 1;
-
-      return aTitle.localeCompare(bTitle);
+  
+  // Fetch movie suggestions from API if needed
+  fetch(`/api/movie-suggestions?query=${query}`)
+    .then(response => response.json())
+    .then(data => {
+      filteredMovies.set(data);
+      showDropdown.set(data.length > 0);
     })
-    .slice(0, 12); // Increased from 8 to 12 results
-
-  filteredMovies.set(filtered);
-  showDropdown.set(filtered.length > 0);
+    .catch(error => {
+      console.error("Error fetching movie suggestions:", error);
+      filteredMovies.set([]);
+      showDropdown.set(false);
+    });
 }
 
 export function selectMovie(movie: Movie): void {
@@ -836,94 +780,9 @@ export function revealNextPhaseInfo(): void {
   // Update revealed info
   if (phaseInfoItems.length > 0) {
     revealedInfo.update((items) => [...items, ...phaseInfoItems]);
-  }
-}
-
-// Helper function to generate info items based on info types
-function generatePhaseInfoItems(movie: Movie, infoTypes: string[]): InfoItem[] {
-  const items: InfoItem[] = [];
-
-  infoTypes.forEach((infoId) => {
-    // Skip if this info type has already been revealed
-    if (isInfoAlreadyRevealed(infoId)) return;
-
-    // Generate the appropriate info item based on the info type
-    switch (infoId) {
-      case "year":
-        items.push({ type: "year", value: movie.year });
-        break;
-      case "firstGenre":
-        if (movie.genres && movie.genres.length > 0) {
-          items.push({ type: "genre", value: movie.genres[0] });
-        }
-        break;
-      case "thirdActor":
-        if (movie.actors && movie.actors.length >= 3) {
-          items.push({ type: "actor", position: 3, value: movie.actors[2] });
-        }
-        break;
-      case "director":
-        if (movie.director) {
-          items.push({ type: "director", value: movie.director });
-        }
-        break;
-      case "secondActor":
-        if (movie.actors && movie.actors.length >= 2) {
-          items.push({ type: "actor", position: 2, value: movie.actors[1] });
-        }
-        break;
-      case "allGenres":
-        if (movie.genres && movie.genres.length > 0) {
-          items.push({ type: "allGenres", value: movie.genres });
-        }
-        break;
-      case "firstActor":
-        if (movie.actors && movie.actors.length >= 1) {
-          items.push({ type: "actor", position: 1, value: movie.actors[0] });
-        }
-        break;
-      case "rating":
-        if (movie.rating) {
-          items.push({ type: "rating", value: movie.rating });
-        }
-        break;
-    }
-  });
-
-  return items;
-}
-
-// Helper function to check if info is already revealed
-function isInfoAlreadyRevealed(infoId: string): boolean {
-  const revealedItems = get(revealedInfo);
-
-  switch (infoId) {
-    case "year":
-      return revealedItems.some((item) => item.type === "year");
-    case "firstGenre":
-      return revealedItems.some(
-        (item) => item.type === "genre" && !item.position
-      );
-    case "thirdActor":
-      return revealedItems.some(
-        (item) => item.type === "actor" && item.position === 3
-      );
-    case "director":
-      return revealedItems.some((item) => item.type === "director");
-    case "secondActor":
-      return revealedItems.some(
-        (item) => item.type === "actor" && item.position === 2
-      );
-    case "allGenres":
-      return revealedItems.some((item) => item.type === "allGenres");
-    case "firstActor":
-      return revealedItems.some(
-        (item) => item.type === "actor" && item.position === 1
-      );
-    case "rating":
-      return revealedItems.some((item) => item.type === "rating");
-    default:
-      return false;
+    
+    // Update locked status for these info types
+    updateLockedStatus(currentPhase.infoTypes);
   }
 }
 

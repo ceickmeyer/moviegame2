@@ -54,6 +54,54 @@ let selectedSentences: Map<string, {
     // Store existing approved clues to show already selected sentences
     let approvedCluesMap: Map<string, boolean> = new Map();
     
+ 
+    // Function to start editing a selected sentence
+    function startEditingSentence(hash: string, text: string) {
+      editingSentence = hash;
+      editedSentenceText = text;
+    }
+    
+    // Function to cancel editing
+    function cancelEditingSentence() {
+      editingSentence = null;
+      editedSentenceText = '';
+    }
+    
+    // Function to save an edited sentence
+    function saveEditedSentence(hash: string) {
+      if (!editedSentenceText.trim()) {
+        // Don't save empty text
+        return;
+      }
+      
+      // Update the sentence text in the selectedSentences map
+      if (selectedSentences.has(hash)) {
+        const sentence = selectedSentences.get(hash);
+        if (sentence) {
+          selectedSentences.set(hash, {
+            ...sentence,
+            text: editedSentenceText
+          });
+          
+          // Force Svelte to update
+          selectedSentences = new Map(selectedSentences);
+          
+          // Clear editing state
+          editingSentence = null;
+          editedSentenceText = '';
+        }
+      }
+    }
+    
+    // Function to extract reviewer username from URL
+    function extractReviewerFromUrl(url?: string): string {
+      if (!url) return 'Anonymous';
+      
+      const match = url.match(/letterboxd\.com\/([^\/]+)/);
+      return match && match[1] ? match[1] : 'Anonymous';
+    }
+
+
     // Random starting point instead of always the first movie
     function initializeRandomMovie() {
       if (data.movies && data.movies.length > 0) {
@@ -410,11 +458,16 @@ async function saveSelectedSentences() {
   
   <div class="review-selector">
     <!-- Floating overlay to show selected clue count -->
-    <div class="clue-counter-overlay {selectedSentencesCount >= 6 ? 'complete' : selectedSentencesCount > 0 ? 'in-progress' : ''}">
-      <div class="counter-content">
-        <span class="counter-number">{selectedSentencesCount}</span>
-        <span class="counter-label">/ 6 clues selected</span>
-      </div>
+ 
+
+    <div class="floating-actions {selectedSentencesCount > 0 ? 'visible' : ''}">
+      <button 
+        class="floating-save-btn {savingInProgress ? 'saving' : ''}" 
+        on:click={saveSelectedSentences}
+        disabled={savingInProgress || selectedSentencesCount === 0}
+      >
+        {savingInProgress ? 'Saving...' : `Save ${selectedSentencesCount} Clues`}
+      </button>
     </div>
     <header>
       <h1>Interactive Review Selector</h1>
@@ -504,19 +557,22 @@ async function saveSelectedSentences() {
           {#if selectedSentencesCount > 0}
             <ul>
               {#each Array.from(selectedSentences.entries()) as [hash, sentence]}
-                <li>
+                <li class="selected-item">
                   <div class="selected-text">{sentence.text}</div>
-                  <button class="remove-btn" on:click={() => {
-                    // Find and deselect this sentence in the reviews
-                    let found = false;
-                    for (let i = 0; i < movieReviews.length && !found; i++) {
-                      const sentenceIndex = movieReviews[i].parsedSentences.findIndex(s => s.hash === hash);
-                      if (sentenceIndex !== -1) {
-                        toggleSentenceSelection(movieReviews[i].parsedSentences[sentenceIndex], i);
-                        found = true;
+                  <div class="selected-actions">
+                    <button class="edit-btn" on:click={() => startEditingSentence(hash, sentence.text)}>Edit</button>
+                    <button class="remove-btn" on:click={() => {
+                      // Find and deselect this sentence in the reviews
+                      let found = false;
+                      for (let i = 0; i < movieReviews.length && !found; i++) {
+                        const sentenceIndex = movieReviews[i].parsedSentences.findIndex(s => s.hash === hash);
+                        if (sentenceIndex !== -1) {
+                          toggleSentenceSelection(movieReviews[i].parsedSentences[sentenceIndex], i);
+                          found = true;
+                        }
                       }
-                    }
-                  }}>Remove</button>
+                    }}>Remove</button>
+                  </div>
                 </li>
               {/each}
             </ul>
@@ -554,6 +610,115 @@ async function saveSelectedSentences() {
   </div>
   
   <style>
+
+  /* Floating save button */
+  .floating-actions {
+    position: fixed;
+    bottom: 6rem; /* Position above the nav buttons */
+    right: 2rem;
+    z-index: 150;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+  
+  .floating-actions.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  .floating-save-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .floating-save-btn:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  .floating-save-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .floating-save-btn.saving {
+    background-color: #999;
+  }
+  
+  /* Improved selected sentences */
+  .selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .selected-text {
+    flex: 1;
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .selected-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  
+  .edit-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .edit-btn:hover {
+    background-color: #1976D2;
+  }
+  
+ 
+  
+  .rating {
+    color: #00c030;
+  }
+  
+  @media (max-width: 768px) {
+    .floating-actions {
+      bottom: 5rem;
+      right: 1rem;
+    }
+    
+    .floating-save-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
+    }
+  }
+
+
     /* Floating clue counter overlay */
     .clue-counter-overlay {
       position: fixed;
