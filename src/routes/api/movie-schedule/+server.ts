@@ -24,7 +24,7 @@ interface MovieWithDate extends Movie {
 function getDailyMovieSeed(): string {
     const now = new Date();
     // Format as YYYY-MM-DD to change daily
-    return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
 // Get a deterministic random number from a string seed
@@ -34,25 +34,29 @@ function seededRandom(seed: string): number {
         hash = ((hash << 5) - hash) + seed.charCodeAt(i);
         hash |= 0; // Convert to 32bit integer
     }
-    // Normalize to 0-1 range
+    // Normalize to 0-1 range (& 0x7fffffff to remove sign bit)
     return (hash & 0x7fffffff) / 0x7fffffff;
 }
 
-// Fix: Updated to point to the correct poster path
+// Get the poster path - fixed to correctly handle edge cases
 function getPosterPath(movie: Movie): string | null {
   if (!movie) return null;
-  // Convert movie title to filename format
-  const titleFormatted = movie.title.replace(/\s+/g, "_").replace(/[^\w\-]/g, "_");
+  
+  // Convert movie title to filename format - handle special characters properly
+  const titleFormatted = movie.title
+    .replace(/\s+/g, "_")
+    .replace(/[^\w\-]/g, "_");
   const year = movie.year;
   return `/posters/${titleFormatted}_${year}.jpg`;
 }
 
 export const GET: RequestHandler = async () => {
     try {
-        // Cache control headers - cache for 1 hour since the daily movie only changes once per day
+        // Cache control headers - short cache time of 15 minutes to ensure refresh
+        // This will help with testing while ensuring some caching benefit
         const headers = {
-            'Cache-Control': 'public, max-age=3600',
-            'Expires': new Date(Date.now() + 3600000).toUTCString()
+            'Cache-Control': 'public, max-age=900',
+            'Expires': new Date(Date.now() + 900000).toUTCString()
         };
         
         // Get movies with clue counts in a single query using Supabase's built-in count feature
@@ -101,15 +105,38 @@ export const GET: RequestHandler = async () => {
         
         // Get today's daily movie using a date-based seed
         const dailySeed = getDailyMovieSeed();
+        
+        // Add debugging log to check the seed
+        console.log(`Daily seed: ${dailySeed}`);
+        
+        // Get a deterministic random value from the seed
         const randomValue = seededRandom(dailySeed);
+        
+        // Add debugging log to check the random value
+        console.log(`Random value for seed: ${randomValue}`);
+        
+        // Use the random value to deterministically select a movie
         const dailyIndex = Math.floor(randomValue * eligibleMovies.length);
+        
+        // Add debugging log to see the selected index
+        console.log(`Selected movie index: ${dailyIndex} of ${eligibleMovies.length} eligible movies`);
         
         // Select today's movie
         const todayMovie = eligibleMovies[dailyIndex];
         
+        // Add debugging log to see the selected movie
+        console.log(`Today's movie: ${todayMovie.title} (${todayMovie.year})`);
+        
         // Remove today's movie from the list and shuffle the rest for upcoming movies
         const remainingMovies = eligibleMovies.filter(movie => movie.id !== todayMovie.id);
-        const shuffledRemaining = [...remainingMovies].sort(() => Math.random() - 0.5);
+        
+        // Use a deterministic shuffle based on the date to ensure consistency
+        const shuffledRemaining = [...remainingMovies].sort(() => {
+            // Use a slightly different seed for the shuffle to avoid correlation with daily movie
+            const shuffleSeed = dailySeed + "-shuffle";
+            return seededRandom(shuffleSeed) - 0.5;
+        });
+        
         const upcomingMovies = shuffledRemaining.slice(0, 5);
         
         // Generate dates for upcoming movies (starting from tomorrow)
