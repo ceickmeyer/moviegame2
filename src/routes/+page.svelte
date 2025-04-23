@@ -114,6 +114,97 @@
 			loadingMovies = false;
 		}
 	});
+
+	let advancingSchedule = false;
+  
+  // Add this function to your script section
+  async function advanceMovieSchedule() {
+    if (advancingSchedule) return;
+    
+    if (!confirm('Are you sure you want to advance to the next movie? This will immediately change today\'s game for all players.')) {
+      return;
+    }
+    
+    advancingSchedule = true;
+    
+    try {
+      const response = await fetch('/api/advance-movie-schedule', {
+        method: 'POST'
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        alert('Movie schedule advanced successfully! Refreshing page...');
+        window.location.reload();
+      } else {
+        alert(`Failed to advance schedule: ${result.error}`);
+      }
+    } catch (error) {
+      console.error('Error advancing schedule:', error);
+      alert('Error advancing schedule. Please try again.');
+    } finally {
+      advancingSchedule = false;
+    }
+  }
+
+
+    // Add these new variables
+	let showScheduleModal = false;
+  let keepTodayMovie = true;
+  let scheduleDays = 30;
+  let initializingSchedule = false;
+  let scheduleResult = null;
+  
+  // Add this new function
+  async function initializeMovieSchedule() {
+    if (initializingSchedule) return;
+    
+    // Validate inputs
+    if (scheduleDays < 7) {
+      scheduleResult = { success: false, message: 'Please schedule at least 7 days' };
+      return;
+    }
+    
+    if (scheduleDays > 365) {
+      scheduleResult = { success: false, message: 'Maximum scheduling period is 365 days' };
+      return;
+    }
+    
+    initializingSchedule = true;
+    scheduleResult = null;
+    
+    try {
+      const response = await fetch('/api/initialize-movie-schedule', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          keepToday: keepTodayMovie,
+          dayCount: scheduleDays
+        })
+      });
+      
+      scheduleResult = await response.json();
+      
+      if (scheduleResult.success) {
+        // Reload the page after a short delay to show the new schedule
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error initializing schedule:', error);
+      scheduleResult = { 
+        success: false, 
+        message: 'Error initializing schedule. Please try again.'
+      };
+    } finally {
+      initializingSchedule = false;
+    }
+  }
+
 </script>
 
 <svelte:head>
@@ -149,7 +240,7 @@
 				{isScheduleRevealed ? 'Hide Schedule' : 'Show Schedule'}
 			</button>
 		</div>
-		
+
 		{#if isScheduleRevealed}
 			<div class="schedule-content" in:slide={{ duration: 300 }}>
 				{#if loadingMovies}
@@ -157,7 +248,16 @@
 				{:else}
 					<div class="today-movie">
 						<h3>Today's Movie</h3>
-						
+
+						  <div class="schedule-actions">
+							<button class="action-btn advance-btn" on:click={advanceMovieSchedule} disabled={advancingSchedule}>
+							  {advancingSchedule ? 'Advancing...' : 'Skip to Next Movie'}
+							</button>
+							<button class="action-btn refresh-schedule-btn" on:click={() => showScheduleModal = true}>
+							  Manage Full Schedule
+							</button>
+						  </div>
+						  
 						{#if todayMovie}
 							<div class="movie-card">
 								{#if todayMovie.poster_path}
@@ -237,9 +337,103 @@
 	<form action="/logout" method="POST">
 		<button type="submit" class="logout-button">Log Out</button>
 	</form>
+
+	{#if showScheduleModal}
+  <div class="modal-overlay" transition:fade={{ duration: 150 }}>
+    <div class="modal-content" transition:slide={{ duration: 200 }}>
+      <h2>Manage Movie Schedule</h2>
+      
+      <p>
+        This will create a schedule for future movies, ensuring no duplicates occur in the rotation.
+        You can choose to keep today's movie or reset the entire schedule.
+      </p>
+      
+      <div class="form-group">
+        <label>
+          <input type="checkbox" bind:checked={keepTodayMovie}>
+          Keep today's scheduled movie
+        </label>
+        <p class="form-help">If checked, today's movie will remain the same and only future days will be updated.</p>
+      </div>
+      
+      <div class="form-group">
+        <label for="schedule-days">Number of days to schedule:</label>
+        <input 
+          type="number" 
+          id="schedule-days" 
+          bind:value={scheduleDays} 
+          min="7" 
+          max="365" 
+          step="1"
+        >
+        <p class="form-help">How many days to schedule in advance (minimum 7, maximum 365)</p>
+      </div>
+      
+      {#if scheduleResult}
+        <div class="result-message {scheduleResult.success ? 'success' : 'error'}">
+          {scheduleResult.message}
+        </div>
+      {/if}
+      
+      <div class="modal-actions">
+        <button class="cancel-btn" on:click={() => {
+          showScheduleModal = false;
+          scheduleResult = null;
+        }}>
+          Close
+        </button>
+        <button 
+          class="action-btn" 
+          disabled={initializingSchedule} 
+          on:click={initializeMovieSchedule}
+        >
+          {initializingSchedule ? 'Processing...' : 'Initialize Schedule'}
+        </button>
+      </div>
+    </div>
+  </div>
+{/if}
+
 </div>
 
 <style>
+
+
+.schedule-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .action-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+  }
+  
+  .action-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .advance-btn {
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .advance-btn:hover {
+    background-color: #F57C00;
+  }
+
 	.admin-dashboard {
 		max-width: 1200px;
 		margin: 0 auto;
@@ -415,6 +609,109 @@
 		margin-bottom: 2rem;
 	}
 	
+	.refresh-schedule-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    margin-left: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .refresh-schedule-btn:hover {
+    background-color: #0d8bf2;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-group input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-help {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .result-message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .result-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+  }
+  
+  .result-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .cancel-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #e0e0e0;
+  }
+
 	.menu-card {
 		display: flex;
 		align-items: center;

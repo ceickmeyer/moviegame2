@@ -238,54 +238,158 @@ async function getUpcomingMovies(todayMovieId: string | number, days: number = 5
     }
 }
 
+// Update the GET handler in routes/api/movie-schedule/+server.ts
+
 export const GET: RequestHandler = async () => {
     try {
-        // Cache control headers - short cache time of 15 minutes
-        const headers = {
-            'Cache-Control': 'public, max-age=900',
-            'Expires': new Date(Date.now() + 900000).toUTCString()
-        };
+      // Cache control headers - short cache time of 15 minutes
+      const headers = {
+        'Cache-Control': 'public, max-age=900',
+        'Expires': new Date(Date.now() + 900000).toUTCString()
+      };
+      
+      // Get today's date
+      const today = new Date();
+      const todayString = today.toISOString().split('T')[0];
+      
+      // Get today's scheduled movie
+      const { data: todaySchedule, error: todayError } = await supabase
+        .from('movie_schedule')
+        .select('movie_id')
+        .eq('date', todayString)
+        .single();
+      
+      let todayMovieId: string | number | null = null;
+      
+      // If no movie is scheduled for today, we need to create a schedule
+      if (todayError || !todaySchedule) {
+        console.log('No movie scheduled for today, initializing schedule...');
         
-        // Get or create today's movie
-        const todayMovieId = await getDailyMovie();
-        
-        if (!todayMovieId) {
-            return json({
-                todayMovie: null,
-                upcomingMovies: []
-            }, { headers });
+        // Try to initialize a new schedule
+        try {
+          const response = await fetch(`${request.url.origin}/api/initialize-movie-schedule`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+              keepToday: false, 
+              dayCount: 30 
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // Check for today's movie again
+            const { data: newSchedule } = await supabase
+              .from('movie_schedule')
+              .select('movie_id')
+              .eq('date', todayString)
+              .single();
+            
+            if (newSchedule) {
+              todayMovieId = newSchedule.movie_id;
+            } else {
+              return json({ error: 'Failed to schedule movie for today' }, { status: 500, headers });
+            }
+          } else {
+            return json({ error: result.error || 'Failed to initialize schedule' }, { status: 500, headers });
+          }
+        } catch (initError) {
+          console.error('Error initializing schedule:', initError);
+          return json({ error: 'Failed to initialize movie schedule' }, { status: 500, headers });
         }
-        
-        // Fetch the complete movie details
-        const { data: movieData, error: movieError } = await supabase
-            .from('movies')
-            .select('*')
-            .eq('id', todayMovieId)
-            .single();
-        
-        if (movieError || !movieData) {
-            console.error('Error fetching movie details:', movieError);
-            return json({ error: 'Failed to fetch movie details' }, { status: 500, headers });
-        }
-        
-        // Process movie to ensure arrays are properly formatted
-        const todayMovie = {
-            ...movieData,
-            genres: ensureArray(movieData.genres),
-            actors: ensureArray(movieData.actors),
-            poster_path: getPosterPath(movieData)
-        };
-        
-        // Get upcoming movies
-        const upcomingMovies = await getUpcomingMovies(todayMovieId);
-        
-        return json({
-            todayMovie,
-            upcomingMovies
+      } else {
+        todayMovieId = todaySchedule.movie_id;
+      }
+      
+      // Fetch the complete movie details for today
+      const { data: movieData, error: movieError } = await supabase
+        .from('movies')
+        .select('*')
+        .eq('id', todayMovieId)
+        .single();
+      
+      if (movieError || !movieData) {
+        console.error('Error fetching movie details:', movieError);
+        return json({ error: 'Failed to fetch movie details' }, { status: 500, headers });
+      }
+      
+      // Process movie to ensure arrays are properly formatted
+      const todayMovie = {
+        ...movieData,
+        genres: ensureArray(movieData.genres),
+        actors: ensureArray(movieData.actors),
+        poster_path: getPosterPath(movieData)
+      };
+      
+      // Get upcoming movies (next 5 days)
+      const upcomingDates = [];
+      for (let i = 1; i <= 5; i++) {
+        const date = new Date();
+        date.setDate(today.getDate() + i);
+        upcomingDates.push(date.toISOString().split('T')[0]);
+      }
+      
+      // Fetch the upcoming scheduled movies
+      const { data: upcomingSchedules, error: upcomingError } = await supabase
+        .from('movie_schedule')
+        .select('date, movie_id')
+        .in('date', upcomingDates)
+        .order('date');
+      
+      if (upcomingError) {
+        console.error('Error fetching upcoming schedule:', upcomingError);
+        return json({ 
+          todayMovie,
+          upcomingMovies: [] 
         }, { headers });
+      }
+      
+      // Fetch details for all upcoming movies in a single query
+      const upcomingMovieIds = upcomingSchedules.map(schedule => schedule.movie_id);
+      
+      const { data: upcomingMoviesData, error: upcomingMoviesError } = await supabase
+        .from('movies')
+        .select('*')
+        .in('id', upcomingMovieIds);
+      
+      if (upcomingMoviesError) {
+        console.error('Error fetching upcoming movies:', upcomingMoviesError);
+        return json({ 
+          todayMovie,
+          upcomingMovies: [] 
+        }, { headers });
+      }
+      
+      // Create a map of movie ID to movie data for quick lookup
+      const moviesMap = {};
+      upcomingMoviesData.forEach(movie => {
+        moviesMap[movie.id] = movie;
+      });
+      
+      // Build the upcoming movies array with dates
+      const upcomingMovies = upcomingSchedules.map(schedule => {
+        const movie = moviesMap[schedule.movie_id];
+        if (!movie) return null;
+        
+        return {
+          ...movie,
+          genres: ensureArray(movie.genres),
+          actors: ensureArray(movie.actors),
+          poster_path: getPosterPath(movie),
+          scheduledDate: schedule.date
+        };
+      }).filter(Boolean); // Remove any null entries
+      
+      return json({
+        todayMovie,
+        upcomingMovies
+      }, { headers });
     } catch (error: any) {
-        console.error('Error generating movie schedule:', error);
-        console.error('Error details:', error.message, error.stack);
-        return json({ error: 'Failed to generate movie schedule' }, { status: 500 });
+      console.error('Error generating movie schedule:', error);
+      console.error('Error details:', error.message, error.stack);
+      return json({ error: 'Failed to generate movie schedule' }, { status: 500 });
     }
-};
+  };
