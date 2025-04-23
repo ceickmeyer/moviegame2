@@ -50,16 +50,39 @@ function getPosterPath(movie: Movie): string | null {
   return `/posters/${titleFormatted}_${year}.jpg`;
 }
 
-export const GET: RequestHandler = async () => {
+// Get today's date in YYYY-MM-DD format
+function getTodayDate(): string {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+// Get a future date N days from today in YYYY-MM-DD format
+function getFutureDate(daysFromToday: number): string {
+    const date = new Date();
+    date.setDate(date.getDate() + daysFromToday);
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+}
+
+// Get or create today's scheduled movie
+async function getDailyMovie() {
     try {
-        // Cache control headers - short cache time of 15 minutes to ensure refresh
-        // This will help with testing while ensuring some caching benefit
-        const headers = {
-            'Cache-Control': 'public, max-age=900',
-            'Expires': new Date(Date.now() + 900000).toUTCString()
-        };
+        // First, check if we already have a scheduled movie for today
+        const today = getTodayDate();
+        const { data: scheduledMovie, error: scheduleError } = await supabase
+            .from('movie_schedule')
+            .select('movie_id')
+            .eq('date', today)
+            .single();
         
-        // Get movies with clue counts in a single query using Supabase's built-in count feature
+        // If we already have a scheduled movie, return its ID
+        if (scheduledMovie && !scheduleError) {
+            console.log(`Using existing scheduled movie ID ${scheduledMovie.movie_id} for today (${today})`);
+            return scheduledMovie.movie_id;
+        }
+        
+        console.log(`No movie scheduled for today (${today}), selecting a new one`);
+        
+        // Get movies with clue counts in a single query
         const { data: moviesWithClueCount, error: moviesError } = await supabase
             .from('movies')
             .select(`
@@ -69,92 +92,196 @@ export const GET: RequestHandler = async () => {
         
         if (moviesError) {
             console.error('Error fetching movies:', moviesError);
-            return json({ error: 'Failed to fetch movies' }, { status: 500, headers });
+            return null;
         }
         
-        // Process the movies to ensure arrays are properly formatted
-        const processedMovies = moviesWithClueCount.map(movie => {
-            // Extract the count from the nested count object
-            const clueCount = movie.clueCount?.length > 0 ? movie.clueCount[0].count : 0;
-            
-            // Fix: Use ensureArray to properly parse JSONB arrays
-            const genres = ensureArray(movie.genres);
-            const actors = ensureArray(movie.actors);
-            
-            // Fix: Update poster_path to use the correct relative path
-            const poster_path = getPosterPath(movie);
-            
-            return {
-                ...movie,
-                clueCount,
-                genres,
-                actors,
-                poster_path
-            };
-        });
-        
         // Filter movies with at least 6 approved clues
-        let eligibleMovies = processedMovies.filter(movie => movie.clueCount >= 6);
+        const eligibleMovies = moviesWithClueCount
+            .map(movie => {
+                // Extract the count from the nested count object
+                const clueCount = movie.clueCount?.length > 0 ? movie.clueCount[0].count : 0;
+                return { ...movie, clueCount };
+            })
+            .filter(movie => movie.clueCount >= 6);
         
         if (eligibleMovies.length === 0) {
+            console.error('No eligible movies found with at least 6 clues');
+            return null;
+        }
+        
+        // Get a deterministic random value from the daily seed
+        const dailySeed = getDailyMovieSeed();
+        const randomValue = seededRandom(dailySeed);
+        
+        // Select movie based on the random value
+        const dailyIndex = Math.floor(randomValue * eligibleMovies.length);
+        const selectedMovie = eligibleMovies[dailyIndex];
+        
+        console.log(`Selected movie "${selectedMovie.title}" (ID: ${selectedMovie.id}) for today`);
+        
+        // Save this selection to the database for future requests
+        const { error: insertError } = await supabase
+            .from('movie_schedule')
+            .insert([{
+                date: today,
+                movie_id: selectedMovie.id,
+                created_at: new Date().toISOString()
+            }]);
+        
+        if (insertError) {
+            console.error('Error saving movie schedule:', insertError);
+        }
+        
+        return selectedMovie.id;
+    } catch (error) {
+        console.error('Error in getDailyMovie:', error);
+        return null;
+    }
+}
+
+// Get or schedule upcoming movies for the next N days
+async function getUpcomingMovies(todayMovieId: string | number, days: number = 5) {
+    try {
+        const upcomingMovies = [];
+        
+        // Get movies with clue counts
+        const { data: moviesWithClueCount, error: moviesError } = await supabase
+            .from('movies')
+            .select(`
+                *,
+                clueCount:movie_clues(count)
+            `)
+            .neq('id', todayMovieId);  // Exclude today's movie
+        
+        if (moviesError) {
+            console.error('Error fetching movies for upcoming schedule:', moviesError);
+            return [];
+        }
+        
+        // Filter eligible movies
+        const eligibleMovies = moviesWithClueCount
+            .map(movie => {
+                const clueCount = movie.clueCount?.length > 0 ? movie.clueCount[0].count : 0;
+                return { ...movie, clueCount };
+            })
+            .filter(movie => movie.clueCount >= 6);
+        
+        // Use deterministic shuffle for upcoming movies
+        const shuffleSeed = getDailyMovieSeed() + "-upcoming";
+        const shuffledMovies = [...eligibleMovies].sort(() => seededRandom(shuffleSeed) - 0.5);
+        
+        // Only take what we need
+        const candidateMovies = shuffledMovies.slice(0, days);
+        
+        // Get dates for the next N days
+        for (let i = 0; i < days; i++) {
+            const date = getFutureDate(i + 1);
+            
+            // Check if we already have a movie scheduled for this date
+            const { data: existing, error: existingError } = await supabase
+                .from('movie_schedule')
+                .select('movie_id')
+                .eq('date', date)
+                .single();
+            
+            if (!existingError && existing) {
+                // We already have a movie scheduled for this date
+                // Get the movie details
+                const { data: scheduledMovie, error: movieError } = await supabase
+                    .from('movies')
+                    .select('*')
+                    .eq('id', existing.movie_id)
+                    .single();
+                
+                if (!movieError && scheduledMovie) {
+                    // Process the movie and add it to upcoming
+                    const processedMovie = {
+                        ...scheduledMovie,
+                        genres: ensureArray(scheduledMovie.genres),
+                        actors: ensureArray(scheduledMovie.actors),
+                        poster_path: getPosterPath(scheduledMovie),
+                        scheduledDate: date
+                    };
+                    
+                    upcomingMovies.push(processedMovie);
+                }
+            } else if (i < candidateMovies.length) {
+                // No movie scheduled yet, use one from our candidates
+                const movie = candidateMovies[i];
+                
+                // Schedule this movie for this date
+                await supabase
+                    .from('movie_schedule')
+                    .insert([{
+                        date: date,
+                        movie_id: movie.id,
+                        created_at: new Date().toISOString()
+                    }]);
+                
+                // Process and add to upcoming list
+                const processedMovie = {
+                    ...movie,
+                    genres: ensureArray(movie.genres),
+                    actors: ensureArray(movie.actors),
+                    poster_path: getPosterPath(movie),
+                    scheduledDate: date
+                };
+                
+                upcomingMovies.push(processedMovie);
+            }
+        }
+        
+        return upcomingMovies;
+    } catch (error) {
+        console.error('Error in getUpcomingMovies:', error);
+        return [];
+    }
+}
+
+export const GET: RequestHandler = async () => {
+    try {
+        // Cache control headers - short cache time of 15 minutes
+        const headers = {
+            'Cache-Control': 'public, max-age=900',
+            'Expires': new Date(Date.now() + 900000).toUTCString()
+        };
+        
+        // Get or create today's movie
+        const todayMovieId = await getDailyMovie();
+        
+        if (!todayMovieId) {
             return json({
                 todayMovie: null,
                 upcomingMovies: []
-            });
+            }, { headers });
         }
         
-        // Get today's daily movie using a date-based seed
-        const dailySeed = getDailyMovieSeed();
+        // Fetch the complete movie details
+        const { data: movieData, error: movieError } = await supabase
+            .from('movies')
+            .select('*')
+            .eq('id', todayMovieId)
+            .single();
         
-        // Add debugging log to check the seed
-        console.log(`Daily seed: ${dailySeed}`);
+        if (movieError || !movieData) {
+            console.error('Error fetching movie details:', movieError);
+            return json({ error: 'Failed to fetch movie details' }, { status: 500, headers });
+        }
         
-        // Get a deterministic random value from the seed
-        const randomValue = seededRandom(dailySeed);
+        // Process movie to ensure arrays are properly formatted
+        const todayMovie = {
+            ...movieData,
+            genres: ensureArray(movieData.genres),
+            actors: ensureArray(movieData.actors),
+            poster_path: getPosterPath(movieData)
+        };
         
-        // Add debugging log to check the random value
-        console.log(`Random value for seed: ${randomValue}`);
-        
-        // Use the random value to deterministically select a movie
-        const dailyIndex = Math.floor(randomValue * eligibleMovies.length);
-        
-        // Add debugging log to see the selected index
-        console.log(`Selected movie index: ${dailyIndex} of ${eligibleMovies.length} eligible movies`);
-        
-        // Select today's movie
-        const todayMovie = eligibleMovies[dailyIndex];
-        
-        // Add debugging log to see the selected movie
-        console.log(`Today's movie: ${todayMovie.title} (${todayMovie.year})`);
-        
-        // Remove today's movie from the list and shuffle the rest for upcoming movies
-        const remainingMovies = eligibleMovies.filter(movie => movie.id !== todayMovie.id);
-        
-        // Use a deterministic shuffle based on the date to ensure consistency
-        const shuffledRemaining = [...remainingMovies].sort(() => {
-            // Use a slightly different seed for the shuffle to avoid correlation with daily movie
-            const shuffleSeed = dailySeed + "-shuffle";
-            return seededRandom(shuffleSeed) - 0.5;
-        });
-        
-        const upcomingMovies = shuffledRemaining.slice(0, 5);
-        
-        // Generate dates for upcoming movies (starting from tomorrow)
-        const upcomingMoviesWithDates: MovieWithDate[] = upcomingMovies.map((movie: any, index: number) => {
-            const date = new Date();
-            date.setDate(date.getDate() + index + 1);
-            // Ensure upcoming movies also have correct poster paths
-            const poster_path = getPosterPath(movie);
-            return {
-                ...movie,
-                scheduledDate: date.toISOString().split('T')[0],
-                poster_path
-            };
-        });
+        // Get upcoming movies
+        const upcomingMovies = await getUpcomingMovies(todayMovieId);
         
         return json({
             todayMovie,
-            upcomingMovies: upcomingMoviesWithDates
+            upcomingMovies
         }, { headers });
     } catch (error: any) {
         console.error('Error generating movie schedule:', error);
